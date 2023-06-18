@@ -1,53 +1,46 @@
-# Github Repository Template for Valheim modding
+# Kempeth's Auto Map Pin Mod for Valheim
+This mod serves as a kind of "radar" for your Valheim map, automatically creating temporary pins for various ingame objects.
 
-Create your own mod using this template as a starting point for your mod.
+As of Version 1.2.0.0 categories have mostly been replaced with individual toggles for all supported main world objects:
 
-## Template usage
+* Mineables like Copper, Tin, Iron, Silver, Obsidian, Meteorites, Leviathans and Ancient Remains
+* Dungeons like Burial Chambers, Troll Caves, Sunken Crypts, Mountain Caves and Infested Mines
+* Seeds like Carrot Seeds, Turnip Seeds, Barley and Flax
+* Harvestables like Berries, Mushrooms, Remains and many more
+* Flowers like Dandelions and Thistles
 
-For using this template, either
+All type of markers except Dungeons will group multiple nearby objects of the same time into a single pin to reduce clutter on the map. The grouping distances are still subject to refinement.
 
-* use the github template function
-* clone this repo and use the included dotnet template
-    * run `dotnet new --install .` --> this will install this template into your dotnet local installation
-    * creating a new solution then becomes also simple, either
-        * run `dotnet new mt -o "myNewProject" -A "YourAuthorName"`
-        * create a new solution choosing this template from your IDE
-    * see also [dotnet docs](https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates)
+Copper, Iron and Silver will show whether they are fully intact or partially mined.
 
-## Requires
+All objects have custom icons and can be enabled and disabled via the **BepInEx ModConfiguration** plugin. In addition you can also toggle the display of all object types that I've currently identified in the game. But be warned that this will really clutter your map.
 
-* To have [BepInEx](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/) installed (unzip) to your
-  Valheim path like
-  ```
-  C:\Program Files (x86)\Steam\steamapps\common\Valheim\BepInEx
-  ```
-* To have assemblies publicized via [AssemblyPublicizer](https://github.com/CabbageCrow/AssemblyPublicizer)
-    * download and unzip, put the `AssemblyPublicizer.exe` into your managed lib
-      folder `...\Valheim\valheim_Data\Managed`
-    * Drag and drop the 3 .dlls onto the .exe, it will create the `publicized_assemblies` sub folder and put the
-      publicized .dlls there
-    * The .csproj does include the publicised .dlls already
-* If not using the dotnet templating feature, you will need to rename the solution and .csproj, same as namespace and
-  classes and files to your own names
+You can also now choose to have smaller pin marker and text to further reduce map clutter. Icons are 25% smaller and text about 50% smaller.
 
-## Features
+As of Version 1.3.0.0 dungeon pins are now persistent! This means their toggles in the settings work slightly different. Instead of hiding/showing the corresponding pins, the setting now determines whether or not newly discovered locations will be added to the map or not.
 
-* Has [ServerSync](https://github.com/blaxxun-boop/ServerSync) built in
-* Has debug build feature that puts the dll into BepInEx installed inside Valheim
-* Has run the game feature for running your debug version locally
-* Has release build feature to package everything ready to upload to ThunderStore as zip file in your local user home
-  Downloads folder
-    * Prepared contents inside ThunderStorePackage folder
-    * replace the icon.png with any other 256x256 pixel png file
-    * edit the manifest.json file
-    * remove or replace the empty files inside config and plugins folders
-    * it will put the README.md (this content) and CHANGELOG.md from root folder also into the zip
+##  Planned Features
+* Pins for Points of Interests like ruins, stone circles and camps
 
-# Credits
+### Tentatively Planned Features
+* Customizable limits below which pin is suppressed. Ie. only show Dandelions if there are at least 5.
+* Customizable radar range. While I can't increase the mod's range I could reduce it to keep the need for exploration higher than it currently is.
+* If possible some indicator for ore node mined percentage or dungeon cleared percentage
 
-* I did follow some hints by [AzumattDev](https://github.com/AzumattDev) from his
-    * [YouTube session on how to create a template](https://www.youtube.com/watch?v=gSL31r2AgrI).
-    * [YouTube session on how to use one of his templates](https://www.youtube.com/watch?v=ws7Lq8tRWlI)
-* `blaxxun#9098` for being awesome and providing features like ServerSync to the public
-* `margmas` for hints on publicising
-* Having had a look at some people's setups for .csproj
+## Source Code
+The source code of this mod can be found at: https://github.com/Kempeth/AutoMapPins
+
+##  License and Credits
+This mod is forked from bdew's AutoMapPins, who provided a great starting point.
+
+This mod is free software: you can redistribute it and/or modify it under the terms of the [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl-3.0.en.html) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Asset Licenses:
+* Axe by Danil Polshin from [Noun Project](https://thenounproject.com/browse/icons/term/axe/) (CCBY) - modified
+* cave by Kieu Thi Kim Cuong from [Noun Project](https://thenounproject.com/browse/icons/term/cave/) (CCBY) - modified
+* Flower by Vectors Market from [Noun Project](https://thenounproject.com/browse/icons/term/flower/) (CCBY) - modified
+* Mine by Edward Boatman from [Noun Project](https://thenounproject.com/browse/icons/term/mine/) (CCBY) - modified
+* Mushroom by Anton Gajdosik from [Noun Project](https://thenounproject.com/browse/icons/term/mushroom/) (CCBY) - modified
+* pick by Pham Duy Phuong Hung from [Noun Project](https://thenounproject.com/browse/icons/term/pick/) (CCBY) - modified
+* raspberry by Laymik from [Noun Project](https://thenounproject.com/browse/icons/term/raspberry/) (CCBY) - modified
+* seeds by Orin zuu from [Noun Project](https://thenounproject.com/browse/icons/term/seeds/) (CCBY) - modified
