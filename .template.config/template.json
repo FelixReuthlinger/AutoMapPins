@@ -1,0 +1,33 @@
+﻿{
+  "author": "YourNameHere",
+  "classifications": [
+    "Mod Template"
+  ],
+  "name": "ModTemplate",
+  "identity": "Mod.Template",
+  "shortName": "mt",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "ModTemplate",
+  "preferNameDirectory": "true",
+  "symbols": {
+    "AuthorName": {
+      "type": "parameter",
+      "description": "The name of the person that you want to call the author.",
+      "datatype": "string",
+      "defaultValue": "YourNameHere",
+      "replaces": "RepaceMe"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ ".git/**", ".idea/**", ".vs/**", "obj/**", "bin/**", "ModTemplate.sln", "ModTemplate.sln.DotSettings.user" ]
+        }
+      ]
+    }
+  ]
+}

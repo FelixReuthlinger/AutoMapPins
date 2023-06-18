@@ -1,0 +1,9 @@
+{
+  "name": "mod name",
+  "version_number": "1.0.0",
+  "website_url": "replace with link to your mod on github or to your discord",
+  "description": "Your mod description goes here.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2105"
+  ]
+}
