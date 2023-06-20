@@ -10,7 +10,7 @@ public abstract class Registry
 {
     internal static Dictionary<string, CategoryConfig> ConfiguredCategories = null!;
     internal static Dictionary<string, PinConfig> ConfiguredPins = null!;
-    internal static readonly List<PinComponent> MANAGED_PINS = new();
+    internal static readonly List<PinComponent> PINS_NO_CONFIG = new();
 
     internal static void InitializeRegistry()
     {
@@ -45,7 +45,7 @@ public abstract class Registry
 
     internal static Dictionary<string, CategoryConfig> GetConfigurationFromManagedPins()
     {
-        AutoMapPinsPlugin.LOGGER.LogInfo($"creating config data from {MANAGED_PINS.Count} pins");
-        return CategoryConfig.FromPins(MANAGED_PINS.Select(pinObject => pinObject.Config).ToList());
+        AutoMapPinsPlugin.LOGGER.LogInfo($"creating config data from {PINS_NO_CONFIG.Count} pins");
+        return CategoryConfig.FromPins(PINS_NO_CONFIG.Select(pinObject => pinObject.Config).ToList());
     }
 }

@@ -202,6 +202,16 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Rune {
+            get {
+                object obj = ResourceManager.GetObject("Rune", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] SeedIcon {
             get {
                 object obj = ResourceManager.GetObject("SeedIcon", resourceCulture);
@@ -215,6 +225,16 @@ namespace AutoMapPins.Properties {
         internal static byte[] SeedIcon48 {
             get {
                 object obj = ResourceManager.GetObject("SeedIcon48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Spawner {
+            get {
+                object obj = ResourceManager.GetObject("Spawner", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -25,9 +25,10 @@ namespace AutoMapPins.Icons
             { "mushroom48", LoadSpriteFromTexture(Resources.MushroomIcon48) },
             { "seed", LoadSpriteFromTexture(Resources.SeedIcon) },
             { "seed48", LoadSpriteFromTexture(Resources.SeedIcon48) },
+            { "spawner", LoadSpriteFromTexture(Resources.Spawner) },
+            { "rune", LoadSpriteFromTexture(Resources.Rune) },
         };
-
-
+        
         private static Texture2D LoadTextureFromRaw(byte[] bytes)
         {
             Texture2D tex = new Texture2D(2, 2);

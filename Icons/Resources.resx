@@ -166,4 +166,10 @@
   <data name="SeedIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>binary\seedicon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Spawner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\spawner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Rune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\rune.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

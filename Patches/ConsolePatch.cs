@@ -10,7 +10,7 @@ namespace AutoMapPins.Patches;
 [HarmonyPatch(typeof(Console), nameof(Console.Awake))]
 internal class ConsolePatches
 {
-    private const string PrintCategories = "print_categories";
+    private const string PrintPinsWithMissingConfigs = "print_pins_missing_configs";
 
     [UsedImplicitly]
     // ReSharper disable once InconsistentNaming
@@ -25,9 +25,9 @@ internal class ConsolePatches
                         $"called amp with args: '{string.Join(", ", consoleEventArgs.Args.ToList())}'");
                     switch (consoleEventArgs.Args[1])
                     {
-                        case PrintCategories:
+                        case PrintPinsWithMissingConfigs:
                             var fileIO = new YamlFileStorage<CategoryConfig>(AutoMapPinsPlugin.ModGuid);
-                            string filePathCategories = fileIO.GetSingleFile(PrintCategories);
+                            string filePathCategories = fileIO.GetSingleFile(PrintPinsWithMissingConfigs);
                             fileIO.WriteFile(filePathCategories, Registry.GetConfigurationFromManagedPins());
                             AutoMapPinsPlugin.LOGGER.LogInfo($"wrote file {filePathCategories}");
                             break;
@@ -38,12 +38,12 @@ internal class ConsolePatches
                     __instance.Print(
                         "Auto Map Pins (amp) console commands - use 'amp' followed by one of the following options");
                     __instance.Print(
-                        $" {PrintCategories} --> will print all found pins grouped into categories to yaml file");
+                        $" {PrintPinsWithMissingConfigs} --> will print all pins not yet configured to yaml file");
                 }
             }, optionsFetcher: OptionFetcher);
 
         __instance.updateCommandList();
     }
 
-    private static List<string> OptionFetcher() => new() { PrintCategories };
+    private static List<string> OptionFetcher() => new() { PrintPinsWithMissingConfigs };
 }

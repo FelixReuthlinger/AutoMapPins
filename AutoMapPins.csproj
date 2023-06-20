@@ -110,7 +110,6 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AutoMapPinsPlugin.cs" />
-        <Compile Include="Constants.cs" />
         <Compile Include="FileIO\YamlFileStorage.cs" />
         <Compile Include="Icons\Assets.cs" />
         <Compile Include="Icons\Resources.Designer.cs">
@@ -123,11 +122,21 @@
         <Compile Include="Model\PinComponent.cs" />
         <Compile Include="Model\PinConfig.cs" />
         <Compile Include="Model\Registry.cs" />
+        <Compile Include="Patches\CommonPatchLogic.cs" />
         <Compile Include="Patches\DestructiblePatch.cs" />
         <Compile Include="Patches\ConsolePatch.cs" />
+        <Compile Include="Patches\LeviathanPatch.cs" />
+        <Compile Include="Patches\LocationPatch.cs" />
+        <Compile Include="Patches\LootSpawnerPatch.cs" />
+        <Compile Include="Patches\MineRockPatch.cs" />
+        <Compile Include="Patches\PickablePatch.cs" />
+        <Compile Include="Patches\PlantPatch.cs" />
+        <Compile Include="Patches\RuneStonePatch.cs" />
+        <Compile Include="Patches\SapCollectorPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Util.cs" />
         <Content Include=".gitignore" />
+        <Content Include="Attributions.md" />
         <Content Include="CHANGELOG.md" />
         <Content Include="Icons\binary\AxeIcon.bin" />
         <Content Include="Icons\binary\AxeIcon48.bin" />
@@ -146,12 +155,13 @@
         <Content Include="Icons\binary\SeedIcon.bin" />
         <Content Include="Icons\binary\SeedIcon48.bin" />
         <Content Include="Icons\Making Icons.md" />
+        <Content Include="Icons\png\rune.png" />
+        <Content Include="Icons\png\spawner.png" />
         <Content Include="ILRepack.targets" />
         <Content Include="README.md" />
-        <Content Include="ThunderStorePackage\config\replace-or-remove.txt" />
+        <Content Include="ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.yaml" />
         <Content Include="ThunderStorePackage\icon.png" />
         <Content Include="ThunderStorePackage\manifest.json" />
-        <Content Include="ThunderStorePackage\plugins\replace-or-remove.txt" />
       <None Include="App.config" />
       <None Include="packages.config" />
     </ItemGroup>

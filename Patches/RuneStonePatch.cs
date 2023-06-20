@@ -3,12 +3,12 @@ using JetBrains.Annotations;
 
 namespace AutoMapPins.Patches
 {
-    [HarmonyPatch(typeof(Destructible), nameof(Destructible.Start))]
-    class DestructiblePatch
+    [HarmonyPatch(typeof(RuneStone), nameof(RuneStone.GetHoverName))]
+    public class RuneStonePatch
     {
         [UsedImplicitly]
         // ReSharper disable once InconsistentNaming
-        private static void Postfix(ref Destructible __instance)
+        private static void Postfix(ref RuneStone __instance)
         {
             CommonPatchLogic.PatchName(__instance.name, __instance.gameObject);
         }

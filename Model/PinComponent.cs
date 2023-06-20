@@ -7,8 +7,7 @@ namespace AutoMapPins.Model;
 
 internal class PinComponent : MonoBehaviour
 {
-    private Minimap.PinData _pin = null!;
-    private bool _visible = false;
+    private Minimap.PinData? _pin;
     public PinConfig Config = null!;
 
     public void InitializeFromConfig(PinConfig config)
@@ -35,7 +34,7 @@ internal class PinComponent : MonoBehaviour
         }
     }
 
-    public Sprite GetIcon(string iconName)
+    private Sprite GetIcon(string iconName)
     {
         if (Assets.ICONS.TryGetValue(iconName, out Sprite result))
             return result;
@@ -43,7 +42,7 @@ internal class PinComponent : MonoBehaviour
         return Assets.DEFAULT_ICON;
     }
 
-    public static Minimap.PinData? FindSimilarPin(Vector3 position, string name)
+    private static Minimap.PinData? FindSimilarPin(Vector3 position, string name)
     {
         return Minimap.instance.m_pins.FirstOrDefault(pin =>
             Math.Sqrt(
@@ -53,5 +52,13 @@ internal class PinComponent : MonoBehaviour
             ) < 1f &&
             pin.m_name.Contains(name.Replace(' ', '\u00A0'))
         );
+    }
+
+    private void OnDestroy()
+    {
+        if (_pin != null && Minimap.instance != null && !Config.IsPermanent)
+        {
+            Minimap.instance.RemovePin(_pin);
+        }
     }
 }
