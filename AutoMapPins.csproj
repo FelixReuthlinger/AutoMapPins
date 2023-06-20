@@ -95,107 +95,72 @@
         <Reference Include="UnityEngine.CoreModule">
             <HintPath>$(CorlibPath)\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>$(CorlibPath)\UnityEngine.UI.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(CorlibPath)\UnityEngine.ImageConversionModule.dll</HintPath>
+        </Reference>
+        <Reference Include="YamlDotNet">
+          <HintPath>packages\YamlDotNet.13.1.1\lib\net45\YamlDotNet.dll</HintPath>
+        </Reference>
+        <Reference Include="YamlDotNet, Version=13.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+          <HintPath>packages\YamlDotNet.13.1.1\lib\net45\YamlDotNet.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AutoMapPinsPlugin.cs" />
         <Compile Include="Constants.cs" />
+        <Compile Include="FileIO\YamlFileStorage.cs" />
         <Compile Include="Icons\Assets.cs" />
-        <Compile Include="Model\Cat.cs" />
-        <Compile Include="Model\PinnedObject.cs" />
-        <Compile Include="Model\PinnedObjectGroup.cs" />
-        <Compile Include="Model\PinTemplate.cs" />
-        <Compile Include="Patches\DestructiblePatchSpawn.cs" />
-        <Compile Include="Patches\LocationPatchSpawn.cs" />
-        <Compile Include="Patches\MineRock5PatchSpawn.cs" />
-        <Compile Include="Patches\MineRockPatchSpawn.cs" />
-        <Compile Include="Patches\Minimap.cs" />
-        <Compile Include="Patches\PickablePatchSpawn.cs" />
+        <Compile Include="Icons\Resources.Designer.cs">
+          <AutoGen>True</AutoGen>
+          <DesignTime>True</DesignTime>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Model\CategoryConfig.cs" />
+        <Compile Include="Model\Common.cs" />
+        <Compile Include="Model\PinComponent.cs" />
+        <Compile Include="Model\PinConfig.cs" />
+        <Compile Include="Model\Registry.cs" />
+        <Compile Include="Patches\DestructiblePatch.cs" />
+        <Compile Include="Patches\ConsolePatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Registry\ConfigRegistry.cs" />
-        <Compile Include="Registry\ObjectRegistry.cs" />
-        <Compile Include="Registry\TemplateRegistry.cs" />
-        <Compile Include="Templates\Ashlands\Meteorite.cs" />
-        <Compile Include="Templates\Biome.cs" />
-        <Compile Include="Templates\BlackForest\Blueberry.cs" />
-        <Compile Include="Templates\BlackForest\BurialChambers.cs" />
-        <Compile Include="Templates\BlackForest\CarrotSeeds.cs" />
-        <Compile Include="Templates\BlackForest\Copper.cs" />
-        <Compile Include="Templates\BlackForest\Thistle.cs" />
-        <Compile Include="Templates\BlackForest\Tin.cs" />
-        <Compile Include="Templates\BlackForest\TrollCave.cs" />
-        <Compile Include="Templates\BlackForest\YellowMushroom.cs" />
-        <Compile Include="Templates\Meadows\Dandelion.cs" />
-        <Compile Include="Templates\Meadows\ForestRemains.cs" />
-        <Compile Include="Templates\Meadows\Raspberry.cs" />
-        <Compile Include="Templates\Meadows\RedMushroom.cs" />
-        <Compile Include="Templates\Mistlands\DvergrLantern.cs" />
-        <Compile Include="Templates\Mistlands\DvergrStein.cs" />
-        <Compile Include="Templates\Mistlands\DvergrTreasure.cs" />
-        <Compile Include="Templates\Mistlands\GiantBone.cs" />
-        <Compile Include="Templates\Mistlands\GiantBrain.cs" />
-        <Compile Include="Templates\Mistlands\GiantHelmet.cs" />
-        <Compile Include="Templates\Mistlands\GiantSword.cs" />
-        <Compile Include="Templates\Mistlands\InfestedMine.cs" />
-        <Compile Include="Templates\Mistlands\JotunPuffs.cs" />
-        <Compile Include="Templates\Mistlands\Magecap.cs" />
-        <Compile Include="Templates\Mistlands\YggaShoot.cs" />
-        <Compile Include="Templates\Mountain\DragonEgg.cs" />
-        <Compile Include="Templates\Mountain\FenrisHair.cs" />
-        <Compile Include="Templates\Mountain\MountainCave.cs" />
-        <Compile Include="Templates\Mountain\MountainRemains.cs" />
-        <Compile Include="Templates\Mountain\Obsidian.cs" />
-        <Compile Include="Templates\Mountain\Silver.cs" />
-        <Compile Include="Templates\Ocean\Leviathan.cs" />
-        <Compile Include="Templates\Plains\Barley.cs" />
-        <Compile Include="Templates\Plains\Cloudberry.cs" />
-        <Compile Include="Templates\Plains\Flax.cs" />
-        <Compile Include="Templates\Plains\FulingTotem.cs" />
-        <Compile Include="Templates\Plains\Tar.cs" />
-        <Compile Include="Templates\Swamp\GuckSack.cs" />
-        <Compile Include="Templates\Swamp\MudPile.cs" />
-        <Compile Include="Templates\Swamp\SunkenCrypt.cs" />
-        <Compile Include="Templates\Swamp\TurnipSeeds.cs" />
-        <Compile Include="Templates\TemplateAttribute.cs" />
+        <Compile Include="Util.cs" />
         <Content Include=".gitignore" />
         <Content Include="CHANGELOG.md" />
-        <Content Include="Icons\AxeIcon.bin" />
-        <Content Include="Icons\AxeIcon48.bin" />
-        <Content Include="Icons\BerryIcon.bin" />
-        <Content Include="Icons\BerryIcon48.bin" />
-        <Content Include="Icons\DungeonIcon.bin" />
-        <Content Include="Icons\DungeonIcon48.bin" />
-        <Content Include="Icons\FlowerIcon.bin" />
-        <Content Include="Icons\FlowerIcon48.bin" />
-        <Content Include="Icons\HandIcon.bin" />
-        <Content Include="Icons\HandIcon48.bin" />
-        <Content Include="Icons\MineIcon.bin" />
-        <Content Include="Icons\MineIcon48.bin" />
-        <Content Include="Icons\MushroomIcon.bin" />
-        <Content Include="Icons\MushroomIcon48.bin" />
-        <Content Include="Icons\SeedIcon.bin" />
-        <Content Include="Icons\SeedIcon48.bin" />
+        <Content Include="Icons\binary\AxeIcon.bin" />
+        <Content Include="Icons\binary\AxeIcon48.bin" />
+        <Content Include="Icons\binary\BerryIcon.bin" />
+        <Content Include="Icons\binary\BerryIcon48.bin" />
+        <Content Include="Icons\binary\DungeonIcon.bin" />
+        <Content Include="Icons\binary\DungeonIcon48.bin" />
+        <Content Include="Icons\binary\FlowerIcon.bin" />
+        <Content Include="Icons\binary\FlowerIcon48.bin" />
+        <Content Include="Icons\binary\HandIcon.bin" />
+        <Content Include="Icons\binary\HandIcon48.bin" />
+        <Content Include="Icons\binary\MineIcon.bin" />
+        <Content Include="Icons\binary\MineIcon48.bin" />
+        <Content Include="Icons\binary\MushroomIcon.bin" />
+        <Content Include="Icons\binary\MushroomIcon48.bin" />
+        <Content Include="Icons\binary\SeedIcon.bin" />
+        <Content Include="Icons\binary\SeedIcon48.bin" />
+        <Content Include="Icons\Making Icons.md" />
         <Content Include="ILRepack.targets" />
-        <Content Include="Making Icons.md" />
         <Content Include="README.md" />
         <Content Include="ThunderStorePackage\config\replace-or-remove.txt" />
         <Content Include="ThunderStorePackage\icon.png" />
         <Content Include="ThunderStorePackage\manifest.json" />
         <Content Include="ThunderStorePackage\plugins\replace-or-remove.txt" />
-        <Compile Include="Properties\Resources.Designer.cs">
-            <AutoGen>True</AutoGen>
-            <DesignTime>True</DesignTime>
-            <DependentUpon>Resources.resx</DependentUpon>
-        </Compile>
-        <EmbeddedResource Include="Properties\Resources.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-            <SubType>Designer</SubType>
-        </EmbeddedResource>
       <None Include="App.config" />
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Icons\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        <SubType>Designer</SubType>
+      </EmbeddedResource>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="CopyOutputDLL" AfterTargets="Build;Rebuild" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

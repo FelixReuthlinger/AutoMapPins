@@ -1,26 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Resources = AutoMapPins.Properties.Resources;
 
 namespace AutoMapPins.Icons
 {
     internal static class Assets
     {
-        public static readonly Sprite AXE_SPRITE = LoadSpriteFromTexture(Resources.AxeIcon);
-        public static readonly Sprite AXE_SPRITE48 = LoadSpriteFromTexture(Resources.AxeIcon48);
-        public static readonly Sprite BERRY_SPRITE = LoadSpriteFromTexture(Resources.BerryIcon);
-        public static readonly Sprite BERRY_SPRITE48 = LoadSpriteFromTexture(Resources.BerryIcon48);
-        public static readonly Sprite DUNGEON_SPRITE = LoadSpriteFromTexture(Resources.DungeonIcon);
-        public static readonly Sprite DUNGEON_SPRITE48 = LoadSpriteFromTexture(Resources.DungeonIcon48);
-        public static readonly Sprite FLOWER_SPRITE = LoadSpriteFromTexture(Resources.FlowerIcon);
-        public static readonly Sprite FLOWER_SPRITE48 = LoadSpriteFromTexture(Resources.FlowerIcon48);
-        public static readonly Sprite HAND_SPRITE = LoadSpriteFromTexture(Resources.HandIcon);
-        public static readonly Sprite HAND_SPRITE48 = LoadSpriteFromTexture(Resources.HandIcon48);
-        public static readonly Sprite MINE_SPRITE = LoadSpriteFromTexture(Resources.MineIcon);
-        public static readonly Sprite MINE_SPRITE48 = LoadSpriteFromTexture(Resources.MineIcon48);
-        public static readonly Sprite MUSHROOM_SPRITE = LoadSpriteFromTexture(Resources.MushroomIcon);
-        public static readonly Sprite MUSHROOM_SPRITE48 = LoadSpriteFromTexture(Resources.MushroomIcon48);
-        public static readonly Sprite SEED_SPRITE = LoadSpriteFromTexture(Resources.SeedIcon);
-        public static readonly Sprite SEED_SPRITE48 = LoadSpriteFromTexture(Resources.SeedIcon48);
+        internal static readonly Sprite DEFAULT_ICON = LoadSpriteFromTexture(Resources.AxeIcon);
+        internal static readonly Dictionary<string, Sprite> ICONS = new()
+        {
+            { "axe", LoadSpriteFromTexture(Resources.AxeIcon) },
+            { "axe48", LoadSpriteFromTexture(Resources.AxeIcon48) },
+            { "berry", LoadSpriteFromTexture(Resources.BerryIcon) },
+            { "berry48", LoadSpriteFromTexture(Resources.BerryIcon48) },
+            { "dungeon", LoadSpriteFromTexture(Resources.DungeonIcon) },
+            { "dungeon48", LoadSpriteFromTexture(Resources.DungeonIcon48) },
+            { "flower", LoadSpriteFromTexture(Resources.FlowerIcon) },
+            { "flower48", LoadSpriteFromTexture(Resources.FlowerIcon48) },
+            { "hand", LoadSpriteFromTexture(Resources.HandIcon) },
+            { "hand48", LoadSpriteFromTexture(Resources.HandIcon48) },
+            { "mine", LoadSpriteFromTexture(Resources.MineIcon) },
+            { "mine48", LoadSpriteFromTexture(Resources.MineIcon48) },
+            { "mushroom", LoadSpriteFromTexture(Resources.MushroomIcon) },
+            { "mushroom48", LoadSpriteFromTexture(Resources.MushroomIcon48) },
+            { "seed", LoadSpriteFromTexture(Resources.SeedIcon) },
+            { "seed48", LoadSpriteFromTexture(Resources.SeedIcon48) },
+        };
+
 
         private static Texture2D LoadTextureFromRaw(byte[] bytes)
         {
