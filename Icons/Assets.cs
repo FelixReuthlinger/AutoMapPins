@@ -6,27 +6,37 @@ namespace AutoMapPins.Icons
 {
     internal static class Assets
     {
-        internal static readonly Sprite DEFAULT_ICON = LoadSpriteFromTexture(Resources.AxeIcon);
+        internal static readonly Sprite DEFAULT_ICON = LoadSpriteFromTexture(Resources.Axe);
         internal static readonly Dictionary<string, Sprite> ICONS = new()
         {
-            { "axe", LoadSpriteFromTexture(Resources.AxeIcon) },
-            { "axe48", LoadSpriteFromTexture(Resources.AxeIcon48) },
-            { "berry", LoadSpriteFromTexture(Resources.BerryIcon) },
-            { "berry48", LoadSpriteFromTexture(Resources.BerryIcon48) },
-            { "dungeon", LoadSpriteFromTexture(Resources.DungeonIcon) },
-            { "dungeon48", LoadSpriteFromTexture(Resources.DungeonIcon48) },
-            { "flower", LoadSpriteFromTexture(Resources.FlowerIcon) },
-            { "flower48", LoadSpriteFromTexture(Resources.FlowerIcon48) },
-            { "hand", LoadSpriteFromTexture(Resources.HandIcon) },
-            { "hand48", LoadSpriteFromTexture(Resources.HandIcon48) },
-            { "mine", LoadSpriteFromTexture(Resources.MineIcon) },
-            { "mine48", LoadSpriteFromTexture(Resources.MineIcon48) },
-            { "mushroom", LoadSpriteFromTexture(Resources.MushroomIcon) },
-            { "mushroom48", LoadSpriteFromTexture(Resources.MushroomIcon48) },
-            { "seed", LoadSpriteFromTexture(Resources.SeedIcon) },
-            { "seed48", LoadSpriteFromTexture(Resources.SeedIcon48) },
+            { "axe", LoadSpriteFromTexture(Resources.Axe) },
+            { "axe48", LoadSpriteFromTexture(Resources.Axe48) },
+            { "berry", LoadSpriteFromTexture(Resources.Berry) },
+            { "berry48", LoadSpriteFromTexture(Resources.Berry48) },
+            { "dungeon", LoadSpriteFromTexture(Resources.Dungeon) },
+            { "dungeon48", LoadSpriteFromTexture(Resources.Dungeon48) },
+            { "flower", LoadSpriteFromTexture(Resources.Flower) },
+            { "flower48", LoadSpriteFromTexture(Resources.Flower48) },
+            { "hand", LoadSpriteFromTexture(Resources.Hand) },
+            { "hand48", LoadSpriteFromTexture(Resources.Hand48) },
+            { "mine", LoadSpriteFromTexture(Resources.Mine) },
+            { "mine48", LoadSpriteFromTexture(Resources.Mine48) },
+            { "mushroom", LoadSpriteFromTexture(Resources.Mushroom) },
+            { "mushroom48", LoadSpriteFromTexture(Resources.Mushroom48) },
+            { "seed", LoadSpriteFromTexture(Resources.Seed) },
+            { "seed48", LoadSpriteFromTexture(Resources.Seed48) },
             { "spawner", LoadSpriteFromTexture(Resources.Spawner) },
+            { "spawner48", LoadSpriteFromTexture(Resources.Spawner48) },
             { "rune", LoadSpriteFromTexture(Resources.Rune) },
+            { "rune48", LoadSpriteFromTexture(Resources.Rune48) },
+            { "dot", LoadSpriteFromTexture(Resources.Dot) },
+            { "dot48", LoadSpriteFromTexture(Resources.Dot48) },
+            { "herb", LoadSpriteFromTexture(Resources.Herb) },
+            { "herb48", LoadSpriteFromTexture(Resources.Herb48) },
+            { "island", LoadSpriteFromTexture(Resources.Island) },
+            { "island48", LoadSpriteFromTexture(Resources.Island48) },
+            { "fire", LoadSpriteFromTexture(Resources.Fire) },
+            { "fire48", LoadSpriteFromTexture(Resources.Fire48) },
         };
         
         private static Texture2D LoadTextureFromRaw(byte[] bytes)

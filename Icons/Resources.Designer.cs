@@ -62,9 +62,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] AxeIcon {
+        internal static byte[] Axe {
             get {
-                object obj = ResourceManager.GetObject("AxeIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Axe", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -72,9 +72,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] AxeIcon48 {
+        internal static byte[] Axe48 {
             get {
-                object obj = ResourceManager.GetObject("AxeIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Axe48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -82,9 +82,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] BerryIcon {
+        internal static byte[] Berry {
             get {
-                object obj = ResourceManager.GetObject("BerryIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Berry", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -92,9 +92,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] BerryIcon48 {
+        internal static byte[] Berry48 {
             get {
-                object obj = ResourceManager.GetObject("BerryIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Berry48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -102,9 +102,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DungeonIcon {
+        internal static byte[] Dot {
             get {
-                object obj = ResourceManager.GetObject("DungeonIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Dot", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -112,9 +112,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DungeonIcon48 {
+        internal static byte[] Dot48 {
             get {
-                object obj = ResourceManager.GetObject("DungeonIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Dot48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -122,9 +122,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] FlowerIcon {
+        internal static byte[] Dungeon {
             get {
-                object obj = ResourceManager.GetObject("FlowerIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Dungeon", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -132,9 +132,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] FlowerIcon48 {
+        internal static byte[] Dungeon48 {
             get {
-                object obj = ResourceManager.GetObject("FlowerIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Dungeon48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -142,9 +142,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HandIcon {
+        internal static byte[] Fire {
             get {
-                object obj = ResourceManager.GetObject("HandIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Fire", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -152,9 +152,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] HandIcon48 {
+        internal static byte[] Fire48 {
             get {
-                object obj = ResourceManager.GetObject("HandIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Fire48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -162,9 +162,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MineIcon {
+        internal static byte[] Flower {
             get {
-                object obj = ResourceManager.GetObject("MineIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Flower", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -172,9 +172,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MineIcon48 {
+        internal static byte[] Flower48 {
             get {
-                object obj = ResourceManager.GetObject("MineIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Flower48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -182,9 +182,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MushroomIcon {
+        internal static byte[] Hand {
             get {
-                object obj = ResourceManager.GetObject("MushroomIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Hand", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -192,9 +192,89 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MushroomIcon48 {
+        internal static byte[] Hand48 {
             get {
-                object obj = ResourceManager.GetObject("MushroomIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Hand48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Herb {
+            get {
+                object obj = ResourceManager.GetObject("Herb", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Herb48 {
+            get {
+                object obj = ResourceManager.GetObject("Herb48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Island {
+            get {
+                object obj = ResourceManager.GetObject("Island", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Island48 {
+            get {
+                object obj = ResourceManager.GetObject("Island48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Mine {
+            get {
+                object obj = ResourceManager.GetObject("Mine", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Mine48 {
+            get {
+                object obj = ResourceManager.GetObject("Mine48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Mushroom {
+            get {
+                object obj = ResourceManager.GetObject("Mushroom", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Mushroom48 {
+            get {
+                object obj = ResourceManager.GetObject("Mushroom48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -212,9 +292,9 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SeedIcon {
+        internal static byte[] Rune48 {
             get {
-                object obj = ResourceManager.GetObject("SeedIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("Rune48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -222,9 +302,19 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] SeedIcon48 {
+        internal static byte[] Seed {
             get {
-                object obj = ResourceManager.GetObject("SeedIcon48", resourceCulture);
+                object obj = ResourceManager.GetObject("Seed", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Seed48 {
+            get {
+                object obj = ResourceManager.GetObject("Seed48", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -235,6 +325,16 @@ namespace AutoMapPins.Properties {
         internal static byte[] Spawner {
             get {
                 object obj = ResourceManager.GetObject("Spawner", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Spawner48 {
+            get {
+                object obj = ResourceManager.GetObject("Spawner48", resourceCulture);
                 return ((byte[])(obj));
             }
         }

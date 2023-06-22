@@ -118,58 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AxeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\AxeIcon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Axe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Axe.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AxeIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\AxeIcon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Axe48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Axe48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="BerryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\berryicon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Berry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Berry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="BerryIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\berryicon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Berry48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Berry48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DungeonIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\dungeonicon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Dungeon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Dungeon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DungeonIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\dungeonicon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Dungeon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Dungeon48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FlowerIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\flowericon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Flower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Flower.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FlowerIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\flowericon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Flower48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Flower48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HandIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\HandIcon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Hand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Hand.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="HandIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\HandIcon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Hand48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Hand48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MineIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\mineicon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Mine.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MineIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\mineicon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Mine48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Mine48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MushroomIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\MushroomIcon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Mushroom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Mushroom.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MushroomIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\MushroomIcon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Mushroom48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Mushroom48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SeedIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\seedicon.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Seed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Seed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SeedIcon48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>binary\seedicon48.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Seed48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Seed48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Spawner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>png\spawner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>png\Spawner.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Spawner48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Spawner48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Rune" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>png\rune.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>png\Rune.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Rune48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Rune48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Dot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dot48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Dot48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Herb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Herb.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Herb48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Herb48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Island" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Island.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Island48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Island48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Fire.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fire48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Fire48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
