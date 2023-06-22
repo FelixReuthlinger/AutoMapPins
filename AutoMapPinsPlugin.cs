@@ -1,5 +1,6 @@
-﻿using System.Reflection;
-using AutoMapPins.Model;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using AutoMapPins.Data;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
@@ -20,12 +21,16 @@ namespace AutoMapPins
         private readonly Harmony _harmony = new(ModGuid);
 
         [UsedImplicitly] public static readonly ManualLogSource LOGGER =
-            BepInEx.Logging.Logger.CreateLogSource(ModName);
+            BepInEx.Logging.Logger.CreateLogSource(ModGuid);
+
+        internal static readonly YamlFileStorage FILE_IO = new(ModGuid);
 
         private static readonly ConfigSync ConfigSync = new(ModGuid)
             { DisplayName = ModName, CurrentVersion = ModVersion };
 
         private static ConfigEntry<bool> _configLocked = null!;
+
+        private static CustomSyncedValue<Dictionary<string, string>> _categoryPinsConfigFilesContent = null!;
 
         private void Awake()
         {
@@ -33,8 +38,13 @@ namespace AutoMapPins
                 "If 'true' and playing on a server, config can only be changed on server-side configuration, " +
                 "clients cannot override");
             ConfigSync.AddLockingConfigEntry(_configLocked);
-            
-            Registry.InitializeRegistry();
+
+            _categoryPinsConfigFilesContent = new(ConfigSync,
+                "CategoryPinsConfigFilesContent",
+                FILE_IO.FindAndReadAllFiles());
+
+            Registry.InitializeRegistry(
+                FILE_IO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value));
 
             Assembly assembly = Assembly.GetExecutingAssembly();
             _harmony.PatchAll(assembly);

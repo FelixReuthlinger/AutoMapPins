@@ -13,7 +13,7 @@
 
         internal static PinConfig FromGameObject(string internalName)
         {
-            if (Registry.ConfiguredPins.TryGetValue(internalName, out PinConfig result))
+            if (Data.Registry.ConfiguredPins.TryGetValue(internalName, out PinConfig result))
             {
                 return result;
             }

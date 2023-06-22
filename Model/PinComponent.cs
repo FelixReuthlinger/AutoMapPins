@@ -13,7 +13,7 @@ internal class PinComponent : MonoBehaviour
     public void InitializeFromConfig(PinConfig config)
     {
         Config = config; // config is always required
-        if (Registry.ConfiguredCategories.TryGetValue(config.CategoryName, out CategoryConfig category))
+        if (Data.Registry.ConfiguredCategories.TryGetValue(config.CategoryName, out CategoryConfig category))
         {
             AutoMapPinsPlugin.LOGGER.LogDebug(
                 $"config {config.InternalName} is active '{config.IsActive}' " +

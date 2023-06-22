@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapPins.FileIO;
-using AutoMapPins.Model;
+using AutoMapPins.Data;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -26,7 +25,7 @@ internal class ConsolePatches
                     switch (consoleEventArgs.Args[1])
                     {
                         case PrintPinsWithMissingConfigs:
-                            var fileIO = new YamlFileStorage<CategoryConfig>(AutoMapPinsPlugin.ModGuid);
+                            var fileIO = new YamlFileStorage(AutoMapPinsPlugin.ModGuid);
                             string filePathCategories = fileIO.GetSingleFile(PrintPinsWithMissingConfigs);
                             fileIO.WriteFile(filePathCategories, Registry.GetConfigurationFromManagedPins());
                             AutoMapPinsPlugin.LOGGER.LogInfo($"wrote file {filePathCategories}");
