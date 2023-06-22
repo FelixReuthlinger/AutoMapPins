@@ -1,5 +1,11 @@
-﻿namespace AutoMapPins.Model
+﻿using System.Diagnostics.CodeAnalysis;
+using AutoMapPins.Data;
+using UnityEngine;
+
+namespace AutoMapPins.Model
 {
+    [SuppressMessage("ReSharper", "UnassignedField.Global")]
+    [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Global")]
     public class PinConfig
     {
         public string CategoryName = Common.NoConfig;
@@ -11,29 +17,18 @@
         public bool Groupable;
         public float GroupingDistance = Common.DefaultGroupingDistance;
 
-        internal static PinConfig FromGameObject(string internalName)
+        internal static PinConfig FromGameObject(GameObject gameObject)
         {
-            if (Data.Registry.ConfiguredPins.TryGetValue(internalName, out PinConfig result))
-            {
-                return result;
-            }
-
-            return new PinConfig
-            {
-                CategoryName = Common.NoConfig,
-                InternalName = internalName,
-                Name = Common.NoConfig,
-                IconName = Common.NoConfig,
-                IsPermanent = Common.DefaultFalse,
-                IsActive = Common.DefaultFalse,
-                Groupable = Common.DefaultFalse
-            };
+            string parsedName = ParseInternalName(gameObject.name);
+            return Registry.ConfiguredPins.TryGetValue(parsedName, out PinConfig result)
+                ? result
+                : new PinConfig { InternalName = parsedName };
         }
 
-        internal static string ParseInternalName(string instanceName)
+        private static string ParseInternalName(string instanceName)
         {
-            return Common.EXCEPT_WORD_REGEX
-                .Replace(Common.CLONE_REGEX
+            return Common.ExceptWordRegex
+                .Replace(Common.CloneRegex
                     .Replace(instanceName, ""), "")
                 .ToLowerInvariant();
         }

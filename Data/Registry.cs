@@ -6,9 +6,10 @@ namespace AutoMapPins.Data;
 
 public static class Registry
 {
-    internal static Dictionary<string, CategoryConfig> ConfiguredCategories = null!;
-    internal static Dictionary<string, PinConfig> ConfiguredPins = null!;
-    internal static readonly List<PinComponent> PINS_NO_CONFIG = new();
+    internal static Dictionary<string, CategoryConfig> ConfiguredCategories = new();
+    internal static Dictionary<string, PinConfig> ConfiguredPins = new();
+    internal static readonly List<PinConfig> MissingConfigs = new();
+    private static readonly List<PinComponentGroup> AllGroups = new();
 
     public static void InitializeRegistry(Dictionary<string, CategoryConfig> configuredCategories)
     {
@@ -19,14 +20,31 @@ public static class Registry
             .GroupBy(kv => kv.Key)
             .ToDictionary(kv => kv.Key, group => group.First().Value);
 
-        AutoMapPinsPlugin.LOGGER.LogInfo(
+        AutoMapPinsPlugin.Log.LogInfo(
             $"loaded {ConfiguredCategories.Count} categories " +
             $"and a total of {ConfiguredPins.Count} pins across all categories from configuration");
     }
 
-    internal static Dictionary<string, CategoryConfig> GetConfigurationFromManagedPins()
+    internal static PinComponentGroup GetOrCreatePinGroup(PinComponent pin)
     {
-        AutoMapPinsPlugin.LOGGER.LogInfo($"creating config data from {PINS_NO_CONFIG.Count} pins");
-        return CategoryConfig.FromPins(PINS_NO_CONFIG.Select(pinObject => pinObject.Config).ToList());
+        var group = AllGroups.FirstOrDefault(group => group.Accepts(pin));
+        if (group == null)
+        {
+            group = new PinComponentGroup(pin.Config);
+            AllGroups.Add(group);
+        }
+
+        return group;
+    }
+
+    internal static void AddMissingConfig(PinConfig config)
+    {
+        if (!MissingConfigs.Contains(config))
+        {
+            MissingConfigs.Add(config);
+            AutoMapPinsPlugin.Log.LogWarning(
+                $"no configuration found for config {config.InternalName} " +
+                $"and category {config.CategoryName} - run console amp command and add config");
+        }
     }
 }

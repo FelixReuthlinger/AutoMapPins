@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using AutoMapPins.Data;
 using AutoMapPins.Icons;
 using UnityEngine;
 
@@ -7,39 +8,45 @@ namespace AutoMapPins.Model;
 
 internal class PinComponent : MonoBehaviour
 {
-    private Minimap.PinData? _pin;
-    public PinConfig Config = null!;
-
-    public void InitializeFromConfig(PinConfig config)
+    private PinComponent()
     {
-        Config = config; // config is always required
-        if (Data.Registry.ConfiguredCategories.TryGetValue(config.CategoryName, out CategoryConfig category))
-        {
-            AutoMapPinsPlugin.LOGGER.LogDebug(
-                $"config {config.InternalName} is active '{config.IsActive}' " +
-                $"- category {config.CategoryName} is active '{category.CategoryActive}'");
-            if (config.IsActive && category.CategoryActive)
-            {
-                var position = transform.position;
-                var existingPin = FindSimilarPin(position, Config.InternalName);
-                _pin = existingPin ?? Minimap.instance.AddPin(position, Minimap.PinType.Icon1,
-                    Config.Name, save: Config.IsPermanent, isChecked: false);
-                _pin.m_icon = GetIcon(Config.IconName);
-            }
-        }
-        else
-        {
-            AutoMapPinsPlugin.LOGGER.LogWarning(
-                $"no configuration found for config {config.InternalName} and category {config.CategoryName}");
-        }
     }
 
-    private Sprite GetIcon(string iconName)
-    {
-        if (Assets.ICONS.TryGetValue(iconName, out Sprite result))
-            return result;
+    internal Minimap.PinData PinObject = null!;
+    internal PinConfig Config = null!;
+    internal PinComponentGroup? Group;
 
-        return Assets.DEFAULT_ICON;
+    internal void OnDestroy()
+    {
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+        if (Minimap.instance != null && PinObject != null && !Config.IsPermanent)
+            Minimap.instance.RemovePin(PinObject);
+        Group?.Remove(this);
+    }
+
+    internal static void Create(GameObject gameObject)
+    {
+        PinComponent pinComponent = gameObject.AddComponent<PinComponent>();
+        pinComponent.Config = PinConfig.FromGameObject(gameObject);
+        if (Registry.ConfiguredCategories.TryGetValue(pinComponent.Config.CategoryName, out CategoryConfig category))
+        {
+            if (pinComponent.Config.IsActive && category.CategoryActive)
+            {
+                var position = gameObject.transform.position;
+                pinComponent.PinObject = FindSimilarPin(position, pinComponent.Config.InternalName)
+                                         ?? Minimap.instance.AddPin(
+                                             pos: position,
+                                             type: Minimap.PinType.Icon1,
+                                             name: pinComponent.Config.Name,
+                                             save: pinComponent.Config.IsPermanent,
+                                             isChecked: false
+                                         );
+                pinComponent.PinObject.m_icon = Assets.GetIcon(pinComponent.Config.IconName);
+                if (pinComponent.Config.Groupable && pinComponent.Group == null)
+                    PinComponentGroup.GroupPin(pinComponent);
+            }
+        }
+        else Registry.AddMissingConfig(pinComponent.Config);
     }
 
     private static Minimap.PinData? FindSimilarPin(Vector3 position, string name)
@@ -49,16 +56,8 @@ internal class PinComponent : MonoBehaviour
                 Math.Pow(pin.m_pos.x - position.x, 2) +
                 Math.Pow(pin.m_pos.y - position.y, 2) +
                 Math.Pow(pin.m_pos.z - position.z, 2)
-            ) < 1f &&
-            pin.m_name.Contains(name.Replace(' ', '\u00A0'))
+            ) < 1.0f
+            && pin.m_name == name
         );
-    }
-
-    private void OnDestroy()
-    {
-        if (_pin != null && Minimap.instance != null && !Config.IsPermanent)
-        {
-            Minimap.instance.RemovePin(_pin);
-        }
     }
 }

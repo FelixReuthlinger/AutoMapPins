@@ -16,10 +16,12 @@ internal class YamlFileStorage
     {
         _modGuid = modGuid;
         _logger = Logger.CreateLogSource(modGuid);
+        FindConfigFiles();
     }
 
     private readonly string _modGuid;
     private readonly ManualLogSource _logger;
+    private readonly List<string> _yamlFiles = new();
 
     private readonly IDeserializer _deserializer = new DeserializerBuilder()
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
@@ -64,19 +66,37 @@ internal class YamlFileStorage
         return new Dictionary<string, CategoryConfig>();
     }
 
-    internal Dictionary<string, string> FindAndReadAllFiles(string fileInfix = "categories")
+    internal Dictionary<string, string> ReadConfigFiles()
     {
-        return Directory.GetFiles(Paths.ConfigPath, GetModFilePattern(fileInfix), SearchOption.AllDirectories)
-            .ToDictionary(fileName =>
-            {
-                _logger.LogInfo($"reading from file '{fileName}'");
-                return fileName;
-            }, File.ReadAllText);
+        return _yamlFiles.ToDictionary(fileName => fileName, File.ReadAllText);
     }
 
-    internal Dictionary<string, CategoryConfig> DeserializeAndMergeFileData(Dictionary<string, string> files)
+    private void FindConfigFiles(string fileInfix = "categories")
     {
-        return files.Select(kv => DeserializeFile(kv.Key, kv.Value))
+        foreach (string file in Directory.GetFiles(Paths.ConfigPath, GetModFilePattern(fileInfix),
+                     SearchOption.AllDirectories))
+        {
+            _logger.LogInfo($"found category and pin config file '{file}'");
+            _yamlFiles.Add(file);
+            FileSystemWatcher watcher = new(Paths.ConfigPath, Path.GetFileName(file));
+            watcher.Changed += ReloadConfig;
+            watcher.Created += ReloadConfig;
+            watcher.Renamed += ReloadConfig;
+            watcher.IncludeSubdirectories = true;
+            watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;
+            watcher.EnableRaisingEvents = true;
+        }
+    }
+
+    private void ReloadConfig(object? _, FileSystemEventArgs? __)
+    {
+        AutoMapPinsPlugin.ReadSyncAndLoadRegistry();
+    }
+
+    internal Dictionary<string, CategoryConfig> DeserializeAndMergeFileData(Dictionary<string, string> configFileContents)
+    {
+        return configFileContents
+            .Select(kv => DeserializeFile(kv.Key, kv.Value))
             .SelectMany(x => x)
             .GroupBy(kv => kv.Key)
             .ToDictionary(group => group.Key, group =>

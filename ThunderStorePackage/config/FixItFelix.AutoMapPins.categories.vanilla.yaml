@@ -8,8 +8,6 @@ ores:
       iconName: mine
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
     minerocktin:
       categoryName: ores
       internalName: minerocktin
@@ -18,7 +16,7 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     silvervein:
       categoryName: ores
       internalName: silvervein
@@ -26,8 +24,6 @@ ores:
       iconName: mine
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
     minerockobsidian:
       categoryName: ores
       internalName: minerockobsidian
@@ -36,7 +32,7 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     mudpilebeacon:
       categoryName: ores
       internalName: mudpilebeacon
@@ -45,7 +41,7 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     gucksack:
       categoryName: ores
       internalName: gucksack
@@ -54,7 +50,7 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     gucksacksmall:
       categoryName: ores
       internalName: gucksacksmall
@@ -63,7 +59,7 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsswords:
       categoryName: ores
       internalName: mistlandsswords
@@ -71,8 +67,8 @@ ores:
       iconName: mine
       isPermanent: false
       isActive: true
-      groupable: false
-      groupingDistance: 10
+      groupable: true
+      groupingDistance: 15
     gianthelmet:
       categoryName: ores
       internalName: gianthelmet
@@ -80,8 +76,8 @@ ores:
       iconName: mine
       isPermanent: false
       isActive: true
-      groupable: false
-      groupingDistance: 10
+      groupable: true
+      groupingDistance: 15
     giantsword:
       categoryName: ores
       internalName: giantsword
@@ -89,8 +85,8 @@ ores:
       iconName: mine
       isPermanent: false
       isActive: true
-      groupable: false
-      groupingDistance: 10
+      groupable: true
+      groupingDistance: 15
     giantribs:
       categoryName: ores
       internalName: giantribs
@@ -99,7 +95,7 @@ ores:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     giantskull:
       categoryName: ores
       internalName: giantskull
@@ -108,7 +104,7 @@ ores:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     giantbrain:
       categoryName: ores
       internalName: giantbrain
@@ -117,7 +113,7 @@ ores:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     minerockmeteorite:
       categoryName: ores
       internalName: minerockmeteorite
@@ -126,7 +122,7 @@ ores:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
 dungeons:
   categoryActive: true
   pins:
@@ -137,8 +133,6 @@ dungeons:
       iconName: dungeon
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
     crypt:
       categoryName: dungeons
       internalName: crypt
@@ -146,8 +140,6 @@ dungeons:
       iconName: dungeon
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
     mountaincave:
       categoryName: dungeons
       internalName: mountaincave
@@ -155,8 +147,6 @@ dungeons:
       iconName: dungeon
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
     sunkencrypt:
       categoryName: dungeons
       internalName: sunkencrypt
@@ -164,10 +154,8 @@ dungeons:
       iconName: dungeon
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 10
 bushes_pickable:
-  categoryActive: false
+  categoryActive: true
   pins:
     raspberrybush:
       categoryName: bushes_pickable
@@ -175,29 +163,29 @@ bushes_pickable:
       name: Raspberry
       iconName: berry
       isPermanent: false
-      isActive: false
-      groupable: false
-      groupingDistance: 10
+      isActive: true
+      groupable: true
+      groupingDistance: 15
     blueberrybush:
       categoryName: bushes_pickable
       internalName: blueberrybush
       name: Blueberry
       iconName: berry
       isPermanent: false
-      isActive: false
-      groupable: false
-      groupingDistance: 10
+      isActive: true
+      groupable: true
+      groupingDistance: 15
     cloudberrybush:
       categoryName: bushes_pickable
       internalName: cloudberrybush
       name: Cloudberry
       iconName: berry
       isPermanent: false
-      isActive: false
+      isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 seeds:
-  categoryActive: false
+  categoryActive: true
   pins:
     pickableseedcarrot:
       categoryName: seeds
@@ -205,18 +193,18 @@ seeds:
       name: Carrot seeds
       iconName: seed
       isPermanent: false
-      isActive: false
+      isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickableseedturnip:
       categoryName: seeds
       internalName: pickableseedturnip
       name: Turnip seeds
       iconName: seed
       isPermanent: false
-      isActive: false
+      isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickableflaxwild:
       categoryName: seeds
       internalName: pickableflaxwild
@@ -225,7 +213,7 @@ seeds:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablebarleywild:
       categoryName: seeds
       internalName: pickablebarleywild
@@ -234,9 +222,9 @@ seeds:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 spawners:
-  categoryActive: false
+  categoryActive: true
   pins:
     spawnergreydwarfnest:
       categoryName: spawners
@@ -246,7 +234,7 @@ spawners:
       isPermanent: false
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     bonepilespawner:
       categoryName: spawners
       internalName: bonepilespawner
@@ -255,7 +243,7 @@ spawners:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     spawnerdraugrpile:
       categoryName: spawners
       internalName: spawnerdraugrpile
@@ -264,7 +252,7 @@ spawners:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 trees:
   categoryActive: false
   pins:
@@ -276,7 +264,7 @@ trees:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     firtreesmall:
       categoryName: trees
       internalName: firtreesmall
@@ -285,7 +273,7 @@ trees:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     yggashootsmall:
       categoryName: misc
       internalName: yggashootsmall
@@ -294,7 +282,7 @@ trees:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 animals:
   categoryActive: false
   pins:
@@ -306,7 +294,7 @@ animals:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     crow:
       categoryName: animals
       internalName: crow
@@ -315,7 +303,7 @@ animals:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
 mushrooms:
   categoryActive: true
   pins:
@@ -327,7 +315,7 @@ mushrooms:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemushroomyellow:
       categoryName: mushrooms
       internalName: pickablemushroomyellow
@@ -336,7 +324,7 @@ mushrooms:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemushroommagecap:
       categoryName: mushrooms
       internalName: pickablemushroommagecap
@@ -345,7 +333,7 @@ mushrooms:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemushroomjotunpuffs:
       categoryName: mushrooms
       internalName: pickablemushroomjotunpuffs
@@ -354,7 +342,7 @@ mushrooms:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 herbs:
   categoryActive: true
   pins:
@@ -366,7 +354,7 @@ herbs:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickabledandelion:
       categoryName: herbs
       internalName: pickabledandelion
@@ -375,9 +363,9 @@ herbs:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 pickables:
-  categoryActive: false
+  categoryActive: true
   pins:
     pickabledragonegg:
       categoryName: pickables
@@ -387,7 +375,7 @@ pickables:
       isPermanent: false
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     pickabletar:
       categoryName: pickables
       internalName: pickabletar
@@ -396,7 +384,7 @@ pickables:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickabletarbig:
       categoryName: pickables
       internalName: pickabletarbig
@@ -405,7 +393,7 @@ pickables:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickabledvergrstein:
       categoryName: pickables
       internalName: pickabledvergrstein
@@ -414,7 +402,7 @@ pickables:
       isPermanent: false
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     pickabledvergrlantern:
       categoryName: pickables
       internalName: pickabledvergrlantern
@@ -423,7 +411,7 @@ pickables:
       isPermanent: false
       isActive: true
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
 pickables_inactive:
   categoryActive: false
   pins:
@@ -435,7 +423,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickableforestcryptremains:
       categoryName: pickables_inactive
       internalName: pickableforestcryptremains
@@ -444,7 +432,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemountaincavecrystal:
       categoryName: pickables_inactive
       internalName: pickablemountaincavecrystal
@@ -453,7 +441,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablesurtlingcorestand:
       categoryName: pickables_inactive
       internalName: pickablesurtlingcorestand
@@ -462,7 +450,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickableflint:
       categoryName: pickables_inactive
       internalName: pickableflint
@@ -471,7 +459,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablestone:
       categoryName: pickables_inactive
       internalName: pickablestone
@@ -480,7 +468,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemeatpile:
       categoryName: pickables_inactive
       internalName: pickablemeatpile
@@ -489,7 +477,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: true
-      groupingDistance: 10
+      groupingDistance: 15
     pickablefishingrod:
       categoryName: pickables_inactive
       internalName: pickablefishingrod
@@ -498,7 +486,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     pickablemountainremainsburied:
       categoryName: pickables_inactive
       internalName: pickablemountainremainsburied
@@ -507,7 +495,7 @@ pickables_inactive:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
 runestones:
   categoryActive: true
   pins:
@@ -519,7 +507,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestonemountains:
       categoryName: runestones
       internalName: runestonemountains
@@ -528,7 +516,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestoneboars:
       categoryName: runestones
       internalName: runestoneboars
@@ -537,7 +525,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     drakelorestone:
       categoryName: runestones
       internalName: drakelorestone
@@ -546,7 +534,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestonegreydwarfs:
       categoryName: runestones
       internalName: runestonegreydwarfs
@@ -555,7 +543,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestonemeadows:
       categoryName: runestones
       internalName: runestonemeadows
@@ -564,7 +552,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestoneblackforest:
       categoryName: runestones
       internalName: runestoneblackforest
@@ -573,7 +561,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestoneplains:
       categoryName: runestones
       internalName: runestoneplains
@@ -582,7 +570,7 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     runestonedraugr:
       categoryName: runestones
       internalName: runestonedraugr
@@ -591,7 +579,16 @@ runestones:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
+    runestonemistlands:
+      categoryName: runestones
+      internalName: runestonemistlands
+      name: Runestone
+      iconName: rune
+      isPermanent: true
+      isActive: true
+      groupable: false
+      groupingDistance: 15
 bossspawn:
   categoryActive: false
   pins:
@@ -603,7 +600,52 @@ bossspawn:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
+    gdking:
+      categoryName: bossspawn
+      internalName: gdking
+      name: Elder spawn
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    bonemass:
+      categoryName: bossspawn
+      internalName: bonemass
+      name: Bonemass spawn
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    dragonqueen:
+      categoryName: bossspawn
+      internalName: dragonqueen
+      name: Moder
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    goblinking:
+      categoryName: bossspawn
+      internalName: goblinking
+      name: Yagluth
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    mistlandsdvergrbossentrance:
+      categoryName: bossspawn
+      internalName: mistlandsdvergrbossentrance
+      name: Queen
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
 special:
   categoryActive: true
   pins:
@@ -615,7 +657,7 @@ special:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     leviathan:
       categoryName: special
       internalName: leviathan
@@ -624,7 +666,7 @@ special:
       isPermanent: false
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     firehole:
       categoryName: special
       internalName: firehole
@@ -633,7 +675,7 @@ special:
       isPermanent: true
       isActive: true
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     traderwagondestructable:
       categoryName: special
       internalName: traderwagondestructable
@@ -642,7 +684,64 @@ special:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
+    vendorblackforest:
+      categoryName: special
+      internalName: vendorblackforest
+      name: Trader
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+misc:
+  categoryActive: false
+  pins:
+    rockfinger:
+      categoryName: misc
+      internalName: rockfinger
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    rockthumb:
+      categoryName: misc
+      internalName: rockthumb
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    rockfingerbroken:
+      categoryName: misc
+      internalName: rockfingerbroken
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    mistlandsharbour:
+      categoryName: misc
+      internalName: mistlandsharbour
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    woodvillage:
+      categoryName: misc
+      internalName: woodvillage
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
     tarpit:
       categoryName: special
       internalName: tarpit
@@ -651,10 +750,7 @@ special:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
-misc:
-  categoryActive: false
-  pins:
+      groupingDistance: 15
     rock:
       categoryName: misc
       internalName: rock
@@ -663,7 +759,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockforest:
       categoryName: misc
       internalName: rockforest
@@ -672,7 +768,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stubbe:
       categoryName: misc
       internalName: stubbe
@@ -681,7 +777,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     shrub:
       categoryName: misc
       internalName: shrub
@@ -690,7 +786,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     firtreeoldlog:
       categoryName: misc
       internalName: firtreeoldlog
@@ -699,7 +795,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     greydwarfroot:
       categoryName: misc
       internalName: greydwarfroot
@@ -708,7 +804,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     shrubheath:
       categoryName: misc
       internalName: shrubheath
@@ -717,7 +813,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     firtreesmalldead:
       categoryName: misc
       internalName: firtreesmalldead
@@ -726,7 +822,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     root:
       categoryName: misc
       internalName: root
@@ -735,7 +831,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockdolmen:
       categoryName: misc
       internalName: rockdolmen
@@ -744,7 +840,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockcoast:
       categoryName: misc
       internalName: rockcoast
@@ -753,7 +849,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     barrell:
       categoryName: misc
       internalName: barrell
@@ -762,7 +858,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockmountain:
       categoryName: misc
       internalName: rockmountain
@@ -771,7 +867,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     caverockicestalagtite:
       categoryName: misc
       internalName: caverockicestalagtite
@@ -780,7 +876,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     caverockicestalagmite:
       categoryName: misc
       internalName: caverockicestalagmite
@@ -789,7 +885,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     marker:
       categoryName: misc
       internalName: marker
@@ -798,7 +894,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     clothhanginglong:
       categoryName: misc
       internalName: clothhanginglong
@@ -807,7 +903,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountainkitbrazier:
       categoryName: misc
       internalName: mountainkitbrazier
@@ -816,7 +912,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     fenrirhidehanging:
       categoryName: misc
       internalName: fenrirhidehanging
@@ -825,7 +921,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     clothhangingdoor:
       categoryName: misc
       internalName: clothhangingdoor
@@ -834,7 +930,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     clothhangingdoordouble:
       categoryName: misc
       internalName: clothhangingdoordouble
@@ -843,7 +939,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountainkitchair:
       categoryName: misc
       internalName: mountainkitchair
@@ -852,7 +948,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     hanginghairstrands:
       categoryName: misc
       internalName: hanginghairstrands
@@ -861,7 +957,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     caverockicepillarwall:
       categoryName: misc
       internalName: caverockicepillarwall
@@ -870,7 +966,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountaingravestone:
       categoryName: misc
       internalName: mountaingravestone
@@ -879,7 +975,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountainkitwoodgate:
       categoryName: misc
       internalName: mountainkitwoodgate
@@ -888,7 +984,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     bush:
       categoryName: misc
       internalName: bush
@@ -897,7 +993,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     infestedtree:
       categoryName: misc
       internalName: infestedtree
@@ -906,7 +1002,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     swamphut:
       categoryName: misc
       internalName: swamphut
@@ -915,7 +1011,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     minerockmmeshfilter:
       categoryName: misc
       internalName: minerockmmeshfilter
@@ -924,7 +1020,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     ruin:
       categoryName: misc
       internalName: ruin
@@ -933,7 +1029,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     woodhouse:
       categoryName: misc
       internalName: woodhouse
@@ -942,7 +1038,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     greydwarfcamp:
       categoryName: misc
       internalName: greydwarfcamp
@@ -951,7 +1047,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     firtreestub:
       categoryName: misc
       internalName: firtreestub
@@ -960,7 +1056,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     pinetreestub:
       categoryName: misc
       internalName: pinetreestub
@@ -969,7 +1065,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stonetowerruins:
       categoryName: misc
       internalName: stonetowerruins
@@ -978,7 +1074,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stonehouse:
       categoryName: misc
       internalName: stonehouse
@@ -987,7 +1083,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     drakenest:
       categoryName: misc
       internalName: drakenest
@@ -996,7 +1092,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountainwell:
       categoryName: misc
       internalName: mountainwell
@@ -1005,7 +1101,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mountaingrave:
       categoryName: misc
       internalName: mountaingrave
@@ -1014,7 +1110,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     abandonedlogcabin:
       categoryName: misc
       internalName: abandonedlogcabin
@@ -1023,7 +1119,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     waymarker:
       categoryName: misc
       internalName: waymarker
@@ -1032,7 +1128,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     dolmen:
       categoryName: misc
       internalName: dolmen
@@ -1041,7 +1137,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     shipsetting:
       categoryName: misc
       internalName: shipsetting
@@ -1050,7 +1146,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     woodfarm:
       categoryName: misc
       internalName: woodfarm
@@ -1059,7 +1155,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stonecircle:
       categoryName: misc
       internalName: stonecircle
@@ -1068,7 +1164,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockheath:
       categoryName: misc
       internalName: rockheath
@@ -1077,7 +1173,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockplains:
       categoryName: misc
       internalName: rockplains
@@ -1086,7 +1182,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     bushen:
       categoryName: misc
       internalName: bushen
@@ -1095,7 +1191,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     bushheath:
       categoryName: misc
       internalName: bushheath
@@ -1104,7 +1200,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     swampruin:
       categoryName: misc
       internalName: swampruin
@@ -1113,7 +1209,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     swampwell:
       categoryName: misc
       internalName: swampwell
@@ -1122,7 +1218,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     grave:
       categoryName: misc
       internalName: grave
@@ -1131,7 +1227,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     heathrockpillar:
       categoryName: misc
       internalName: heathrockpillar
@@ -1140,7 +1236,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stonehenge:
       categoryName: misc
       internalName: stonehenge
@@ -1149,7 +1245,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     highstone:
       categoryName: misc
       internalName: highstone
@@ -1158,7 +1254,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     widestone:
       categoryName: misc
       internalName: widestone
@@ -1167,7 +1263,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     stonetower:
       categoryName: misc
       internalName: stonetower
@@ -1176,7 +1272,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsdvergrtownentrance:
       categoryName: misc
       internalName: mistlandsdvergrtownentrance
@@ -1185,7 +1281,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     dvergrtownwoodbeam:
       categoryName: misc
       internalName: dvergrtownwoodbeam
@@ -1194,7 +1290,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     dvergrtownwoodsupport:
       categoryName: misc
       internalName: dvergrtownwoodsupport
@@ -1203,7 +1299,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     creepprophanging:
       categoryName: misc
       internalName: creepprophanging
@@ -1212,7 +1308,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     blackmarblepost:
       categoryName: misc
       internalName: blackmarblepost
@@ -1221,7 +1317,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     cliffmistlands:
       categoryName: misc
       internalName: cliffmistlands
@@ -1230,7 +1326,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     rockmistlands:
       categoryName: misc
       internalName: rockmistlands
@@ -1239,7 +1335,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsroadpost:
       categoryName: misc
       internalName: mistlandsroadpost
@@ -1248,7 +1344,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsviaduct:
       categoryName: misc
       internalName: mistlandsviaduct
@@ -1257,7 +1353,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsguardtowernew:
       categoryName: misc
       internalName: mistlandsguardtowernew
@@ -1266,7 +1362,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsgiant:
       categoryName: misc
       internalName: mistlandsgiant
@@ -1275,7 +1371,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsstatue:
       categoryName: misc
       internalName: mistlandsstatue
@@ -1284,7 +1380,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     goblintotempole:
       categoryName: misc
       internalName: goblintotempole
@@ -1293,7 +1389,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsstatuegroup:
       categoryName: misc
       internalName: mistlandsstatuegroup
@@ -1302,7 +1398,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandslighthousenew:
       categoryName: misc
       internalName: mistlandslighthousenew
@@ -1311,7 +1407,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     ice:
       categoryName: misc
       internalName: ice
@@ -1320,7 +1416,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     icerock:
       categoryName: misc
       internalName: icerock
@@ -1329,7 +1425,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     meteorite:
       categoryName: misc
       internalName: meteorite
@@ -1338,7 +1434,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     goblincamp:
       categoryName: misc
       internalName: goblincamp
@@ -1347,7 +1443,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsexcavation:
       categoryName: misc
       internalName: mistlandsexcavation
@@ -1356,7 +1452,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     dvergrpropsbarrel:
       categoryName: misc
       internalName: dvergrpropsbarrel
@@ -1365,7 +1461,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsguardtowerruinednew:
       categoryName: misc
       internalName: mistlandsguardtowerruinednew
@@ -1374,7 +1470,7 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
+      groupingDistance: 15
     mistlandsrockspire:
       categoryName: misc
       internalName: mistlandsrockspire
@@ -1383,6 +1479,14 @@ misc:
       isPermanent: false
       isActive: false
       groupable: false
-      groupingDistance: 10
-
+      groupingDistance: 15
+    shipwreck:
+      categoryName: misc
+      internalName: shipwreck
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
 

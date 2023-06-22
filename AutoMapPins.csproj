@@ -119,23 +119,15 @@
         <Compile Include="Model\CategoryConfig.cs" />
         <Compile Include="Model\Common.cs" />
         <Compile Include="Model\PinComponent.cs" />
+        <Compile Include="Model\PinComponentGroup.cs" />
         <Compile Include="Model\PinConfig.cs" />
-        <Compile Include="Patches\CommonPatchLogic.cs" />
-        <Compile Include="Patches\DestructiblePatch.cs" />
+        <Compile Include="Patches\AllCreatePinPatches.cs" />
         <Compile Include="Patches\ConsolePatch.cs" />
-        <Compile Include="Patches\LeviathanPatch.cs" />
-        <Compile Include="Patches\LocationPatch.cs" />
-        <Compile Include="Patches\LootSpawnerPatch.cs" />
-        <Compile Include="Patches\MineRockPatch.cs" />
         <Compile Include="Patches\MinimapPatch.cs" />
         <Compile Include="Patches\PickablePatch.cs" />
-        <Compile Include="Patches\PlantPatch.cs" />
-        <Compile Include="Patches\RuneStonePatch.cs" />
-        <Compile Include="Patches\SapCollectorPatch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Data\Registry.cs" />
         <Compile Include="Data\YamlFileStorage.cs" />
-        <Content Include=".gitignore" />
         <Content Include="CHANGELOG.md" />
         <Content Include="Icons\Making Icons.md" />
         <Content Include="Icons\png\Axe.png" />
@@ -168,11 +160,9 @@
         <Content Include="Icons\png\Tree48.png" />
         <Content Include="ILRepack.targets" />
         <Content Include="README.md" />
-        <Content Include="ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.yaml" />
+        <Content Include="ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.vanilla.yaml" />
         <Content Include="ThunderStorePackage\icon.png" />
         <Content Include="ThunderStorePackage\manifest.json" />
-      <None Include="App.config" />
-      <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="Icons\Resources.resx">

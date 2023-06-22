@@ -6,8 +6,9 @@ namespace AutoMapPins.Icons
 {
     internal static class Assets
     {
-        internal static readonly Sprite DEFAULT_ICON = LoadSpriteFromTexture(Resources.Axe);
-        internal static readonly Dictionary<string, Sprite> ICONS = new()
+        private static readonly Sprite DefaultIcon = LoadSpriteFromTexture(Resources.Dot);
+
+        private static readonly Dictionary<string, Sprite> Icons = new()
         {
             { "axe", LoadSpriteFromTexture(Resources.Axe) },
             { "axe48", LoadSpriteFromTexture(Resources.Axe48) },
@@ -38,7 +39,15 @@ namespace AutoMapPins.Icons
             { "fire", LoadSpriteFromTexture(Resources.Fire) },
             { "fire48", LoadSpriteFromTexture(Resources.Fire48) },
         };
-        
+
+        internal static Sprite GetIcon(string iconName)
+        {
+            if (Icons.TryGetValue(iconName, out Sprite result))
+                return result;
+
+            return DefaultIcon;
+        }
+
         private static Texture2D LoadTextureFromRaw(byte[] bytes)
         {
             Texture2D tex = new Texture2D(2, 2);
@@ -49,7 +58,7 @@ namespace AutoMapPins.Icons
 
         private static Sprite LoadSpriteFromTexture(Texture2D spriteTexture, float pixelsPerUnit = 100f)
         {
-            AutoMapPinsPlugin.LOGGER.LogDebug($"Making Sprite from Texture {spriteTexture}");
+            AutoMapPinsPlugin.Log.LogDebug($"Making Sprite from Texture {spriteTexture}");
             return Sprite.Create(spriteTexture,
                 new Rect(0.0f, 0.0f, spriteTexture.width, spriteTexture.height),
                 new Vector2(0.0f, 0.0f), pixelsPerUnit);

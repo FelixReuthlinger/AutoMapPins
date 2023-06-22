@@ -17,7 +17,7 @@ namespace AutoMapPins.Model
                     {
                         var result = new CategoryConfig
                         {
-                            CategoryActive = Common.DefaultFalse,
+                            CategoryActive = false,
                             Pins = categoryGroup
                                 .GroupBy(pin => pin.InternalName)
                                 .ToDictionary(group => group.Key, group => group.First()

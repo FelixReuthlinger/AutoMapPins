@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapPins.Data;
+using AutoMapPins.Model;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -20,15 +21,29 @@ internal class ConsolePatches
             {
                 if (consoleEventArgs.Length > 1)
                 {
-                    AutoMapPinsPlugin.LOGGER.LogInfo(
+                    AutoMapPinsPlugin.Log.LogInfo(
                         $"called amp with args: '{string.Join(", ", consoleEventArgs.Args.ToList())}'");
                     switch (consoleEventArgs.Args[1])
                     {
                         case PrintPinsWithMissingConfigs:
-                            var fileIO = new YamlFileStorage(AutoMapPinsPlugin.ModGuid);
-                            string filePathCategories = fileIO.GetSingleFile(PrintPinsWithMissingConfigs);
-                            fileIO.WriteFile(filePathCategories, Registry.GetConfigurationFromManagedPins());
-                            AutoMapPinsPlugin.LOGGER.LogInfo($"wrote file {filePathCategories}");
+                            string filePathCategories =
+                                AutoMapPinsPlugin.FileIO.GetSingleFile(PrintPinsWithMissingConfigs);
+                            AutoMapPinsPlugin.FileIO.WriteFile(filePathCategories,
+                                Registry.MissingConfigs
+                                    .GroupBy(config => config.CategoryName)
+                                    .ToDictionary(group => group.Key, group =>
+                                        new CategoryConfig
+                                        {
+                                            CategoryActive = false,
+                                            Pins = group
+                                                .GroupBy(config => config.InternalName)
+                                                .ToDictionary(
+                                                    configGroup => configGroup.Key,
+                                                    configGroup => configGroup.First()
+                                                )
+                                        }
+                                    )
+                            );
                             break;
                     }
                 }

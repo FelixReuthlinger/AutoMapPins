@@ -7,20 +7,21 @@ various in-game objects.
 
 * [Server Synced](https://github.com/blaxxun-boop/ServerSync)
 * Will create pins on Map and Minimap
+  * **WARNING**: do better not configure too many to be active, it will flood your map!
 * Pins created are using custom icons, see [Available icons](#available-icons)
 * Pins can be configured, see [Pin configuration](#pin-configuration)
 * Pins can be temporary (just visible when in area) or permanent (once discovered added permanently to map)
 * Pin are loaded/created for game objects of Valheim types:
-  * Destructible
-  * Leviathan
-  * Location
-  * LootSpawner
-  * MineRock
-  * MineRock5
-  * Pickable
-  * Plant
-  * Runestone
-  * SapCollector
+    * Destructible
+    * Leviathan
+    * Location
+    * LootSpawner
+    * MineRock
+    * MineRock5
+    * Pickable
+    * Plant
+    * Runestone
+    * SapCollector
 
 ## Pin configuration
 
@@ -62,7 +63,9 @@ These custom icons were made available with CCBY license, see attributions secti
 <details>
   <summary>License, credits, attributions</summary>
 
-* This mod is forked from [Kempeth's AutoMapPins](https://github.com/Kempeth/AutoMapPins) provided via LGPLv3.
+* This mod is inspired from concepts of [Kempeth's AutoMapPins](https://github.com/Kempeth/AutoMapPins) provided via
+  LGPLv3, but I did re-write most of the code from scratch to make the mod configurable, simplified a lot of the
+  concepts.
 * [Mod icon](https://www.flaticon.com/free-icons/radar)
 * [Axe by Danil Polshin](https://thenounproject.com/browse/icons/term/axe/) (CCBY) - modified
 * [cave by Kieu Thi Kim Cuong](https://thenounproject.com/browse/icons/term/cave/) (CCBY) - modified
