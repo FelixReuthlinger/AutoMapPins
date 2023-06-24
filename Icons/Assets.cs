@@ -38,6 +38,8 @@ namespace AutoMapPins.Icons
             { "island48", LoadSpriteFromTexture(Resources.Island48) },
             { "fire", LoadSpriteFromTexture(Resources.Fire) },
             { "fire48", LoadSpriteFromTexture(Resources.Fire48) },
+            { "tree", LoadSpriteFromTexture(Resources.Tree) },
+            { "tree48", LoadSpriteFromTexture(Resources.Tree48) },
             { "monument", LoadSpriteFromTexture(Resources.Monument) },
             { "monument48", LoadSpriteFromTexture(Resources.Monument48) },
             { "temple", LoadSpriteFromTexture(Resources.Temple) },

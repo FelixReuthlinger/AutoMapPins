@@ -1,3 +1,4 @@
+* 1.0.3 -> fixed missing tree icons
 * 1.0.1 & .2 ->
   * added icons:
     * monument
