@@ -134,6 +134,8 @@
         <Content Include="Icons\png\Axe48.png" />
         <Content Include="Icons\png\Berry.png" />
         <Content Include="Icons\png\Berry48.png" />
+        <Content Include="Icons\png\Bones.png" />
+        <Content Include="Icons\png\Bones48.png" />
         <Content Include="Icons\png\Dot.png" />
         <Content Include="Icons\png\Dot48.png" />
         <Content Include="Icons\png\Dungeon.png" />
@@ -148,6 +150,8 @@
         <Content Include="Icons\png\Island48.png" />
         <Content Include="Icons\png\Mine.png" />
         <Content Include="Icons\png\Mine48.png" />
+        <Content Include="Icons\png\Monument.png" />
+        <Content Include="Icons\png\Monument48.png" />
         <Content Include="Icons\png\Mushroom.png" />
         <Content Include="Icons\png\Mushroom48.png" />
         <Content Include="Icons\png\Rune.png" />
@@ -156,8 +160,14 @@
         <Content Include="Icons\png\Seed48.png" />
         <Content Include="Icons\png\Spawner.png" />
         <Content Include="Icons\png\Spawner48.png" />
+        <Content Include="Icons\png\Temple.png" />
+        <Content Include="Icons\png\Temple48.png" />
+        <Content Include="Icons\png\Treasure.png" />
+        <Content Include="Icons\png\Treasure48.png" />
         <Content Include="Icons\png\Tree.png" />
         <Content Include="Icons\png\Tree48.png" />
+        <Content Include="Icons\png\Whale.png" />
+        <Content Include="Icons\png\Whale48.png" />
         <Content Include="ILRepack.targets" />
         <Content Include="README.md" />
         <Content Include="ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.vanilla.yaml" />

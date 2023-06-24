@@ -38,6 +38,16 @@ namespace AutoMapPins.Icons
             { "island48", LoadSpriteFromTexture(Resources.Island48) },
             { "fire", LoadSpriteFromTexture(Resources.Fire) },
             { "fire48", LoadSpriteFromTexture(Resources.Fire48) },
+            { "monument", LoadSpriteFromTexture(Resources.Monument) },
+            { "monument48", LoadSpriteFromTexture(Resources.Monument48) },
+            { "temple", LoadSpriteFromTexture(Resources.Temple) },
+            { "temple48", LoadSpriteFromTexture(Resources.Temple48) },
+            { "treasure", LoadSpriteFromTexture(Resources.Treasure) },
+            { "treasure48", LoadSpriteFromTexture(Resources.Treasure48) },
+            { "whale", LoadSpriteFromTexture(Resources.Whale) },
+            { "whale48", LoadSpriteFromTexture(Resources.Whale48) },
+            { "bones", LoadSpriteFromTexture(Resources.Bones) },
+            { "bones48", LoadSpriteFromTexture(Resources.Bones48) },
         };
 
         internal static Sprite GetIcon(string iconName)

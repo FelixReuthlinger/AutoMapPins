@@ -102,6 +102,26 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Bones {
+            get {
+                object obj = ResourceManager.GetObject("Bones", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Bones48 {
+            get {
+                object obj = ResourceManager.GetObject("Bones48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Dot {
             get {
                 object obj = ResourceManager.GetObject("Dot", resourceCulture);
@@ -262,6 +282,26 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Monument {
+            get {
+                object obj = ResourceManager.GetObject("Monument", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Monument48 {
+            get {
+                object obj = ResourceManager.GetObject("Monument48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Mushroom {
             get {
                 object obj = ResourceManager.GetObject("Mushroom", resourceCulture);
@@ -335,6 +375,66 @@ namespace AutoMapPins.Properties {
         internal static byte[] Spawner48 {
             get {
                 object obj = ResourceManager.GetObject("Spawner48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Temple {
+            get {
+                object obj = ResourceManager.GetObject("Temple", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Temple48 {
+            get {
+                object obj = ResourceManager.GetObject("Temple48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Treasure {
+            get {
+                object obj = ResourceManager.GetObject("Treasure", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Treasure48 {
+            get {
+                object obj = ResourceManager.GetObject("Treasure48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Whale {
+            get {
+                object obj = ResourceManager.GetObject("Whale", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Whale48 {
+            get {
+                object obj = ResourceManager.GetObject("Whale48", resourceCulture);
                 return ((byte[])(obj));
             }
         }

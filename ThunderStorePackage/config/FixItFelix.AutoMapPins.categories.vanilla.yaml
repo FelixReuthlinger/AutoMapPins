@@ -628,6 +628,42 @@ special:
 misc:
   categoryActive: false
   pins:
+    yggashootsmall:
+      categoryName: misc
+      internalName: yggashootsmall
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    firtreesmall:
+      categoryName: misc
+      internalName: firtreesmall
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    beechstub:
+      categoryName: misc
+      internalName: beechstub
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    beechsmall:
+      categoryName: misc
+      internalName: beechsmall
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
     rockfinger:
       categoryName: misc
       internalName: rockfinger

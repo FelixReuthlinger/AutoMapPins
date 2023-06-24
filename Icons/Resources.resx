@@ -202,4 +202,34 @@
   <data name="Fire48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>png\Fire48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Monument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Monument.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Monument48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Monument48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Temple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Temple.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Temple48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Temple48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Treasure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Treasure.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Treasure48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Treasure48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Whale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Whale.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Whale48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Whale48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Bones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Bones.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Bones48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Bones48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
