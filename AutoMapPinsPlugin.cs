@@ -14,11 +14,13 @@ namespace AutoMapPins
     public class AutoMapPinsPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AutoMapPins";
-        internal const string ModVersion = "1.0.4";
+        internal const string ModVersion = "1.1.0";
         private const string ModAuthor = "FixItFelix";
-        internal const string ModGuid = ModAuthor + "." + ModName;
+        private const string ModGuid = ModAuthor + "." + ModName;
         private const string ConfigFileName = ModGuid + ".cfg";
 
+        private static AutoMapPinsPlugin _instance = null!;
+        
         private readonly Harmony _harmony = new(ModGuid);
 
         public static readonly ManualLogSource Log = BepInEx.Logging.Logger.CreateLogSource(ModGuid);
@@ -37,6 +39,8 @@ namespace AutoMapPins
 
         private void Awake()
         {
+            _instance = this;
+            
             _configLocked = CreateConfig("1 - General", "Lock Configuration", true,
                 "If 'true' and playing on a server, config can only be changed on server-side configuration, " +
                 "clients cannot override");
@@ -88,11 +92,11 @@ namespace AutoMapPins
             _harmony.UnpatchSelf();
         }
 
-        private ConfigEntry<T> CreateConfig<T>(string group, string parameterName, T value,
+        internal static ConfigEntry<T> CreateConfig<T>(string group, string parameterName, T value,
             ConfigDescription description,
             bool synchronizedSetting = true)
         {
-            ConfigEntry<T> configEntry = Config.Bind(group, parameterName, value, description);
+            ConfigEntry<T> configEntry = _instance.Config.Bind(group, parameterName, value, description);
 
             SyncedConfigEntry<T> syncedConfigEntry = ConfigSync.AddConfigEntry(configEntry);
             syncedConfigEntry.SynchronizedConfig = synchronizedSetting;
@@ -100,7 +104,7 @@ namespace AutoMapPins
             return configEntry;
         }
 
-        private ConfigEntry<T> CreateConfig<T>(string group, string parameterName, T value, string description,
+        internal static ConfigEntry<T> CreateConfig<T>(string group, string parameterName, T value, string description,
             bool synchronizedSetting = true) => CreateConfig(group, parameterName, value,
             new ConfigDescription(description), synchronizedSetting);
     }

@@ -15,9 +15,12 @@ various in-game objects.
     * Destructible
     * Leviathan
     * Location
-    * MineRock
-    * MineRock5
+    * MineRock (ore)
+    * MineRock5 (ore)
     * Pickable
+    * TeleportWorld (portals)
+    * PickableItem
+    * Container (chests)
 * Unknown (missing config) pins will be added to a temporary list that can be printed to a file to simplify
   configuration.
 * Config file watchers (updated config file will be releaded)
@@ -107,42 +110,44 @@ will be parsed to: `mistlandsdvergrtownentrance`
 
 These custom icons were made available with CCBY license, see attributions section.
 
-| Icon name    | Description         | Used for                                   |
-|--------------|---------------------|:-------------------------------------------|
-| `axe`        | Axe 64 pixels       |                                            |
-| `axe48`      | Axe 48 pixels       |                                            |
-| `berry`      | Berry 64 pixels     | Pickable bushes like Raspberry             |
-| `berry48`    | Berry 48 pixels     |                                            |
-| `dungeon`    | Dungeon 64 pixels   | Dungeons, Caves, Crypts, ...               |
-| `dungeon48`  | Dungeon 48 pixels   |                                            |
-| `flower`     | Flower 64 pixels    |                                            |
-| `flower48`   | Flower 48 pixels    |                                            |
-| `hand`       | Hand 64 pixels      | Pickables like Flint, ...                  |
-| `hand48`     | Hand 48 pixels      |                                            |
-| `mine`       | Mine 64 pixels      | Minable ores, nodes, veins, ...            |
-| `mine48`     | Mine 48 pixels      |                                            |
-| `mushroom`   | Mushroom 64 pixels  | Mushroom, Yellow mushroom                  |
-| `mushroom48` | Mushroom 48 pixels  |                                            |
-| `seed`       | Seed 64 pixels      | Pickable seeds like carrot, turnip, ...    |
-| `seed48`     | Seed 48 pixels      |                                            |
+| Icon name    | Description         | Used for                                    |
+|--------------|---------------------|:--------------------------------------------|
+| `axe`        | Axe 64 pixels       |                                             |
+| `axe48`      | Axe 48 pixels       |                                             |
+| `berry`      | Berry 64 pixels     | Pickable bushes like Raspberry              |
+| `berry48`    | Berry 48 pixels     |                                             |
+| `dungeon`    | Dungeon 64 pixels   | Dungeons, Caves, Crypts, ...                |
+| `dungeon48`  | Dungeon 48 pixels   |                                             |
+| `flower`     | Flower 64 pixels    |                                             |
+| `flower48`   | Flower 48 pixels    |                                             |
+| `hand`       | Hand 64 pixels      | Pickables like Flint, ...                   |
+| `hand48`     | Hand 48 pixels      |                                             |
+| `mine`       | Mine 64 pixels      | Minable ores, nodes, veins, ...             |
+| `mine48`     | Mine 48 pixels      |                                             |
+| `mushroom`   | Mushroom 64 pixels  | Mushroom, Yellow mushroom                   |
+| `mushroom48` | Mushroom 48 pixels  |                                             |
+| `seed`       | Seed 64 pixels      | Pickable seeds like carrot, turnip, ...     |
+| `seed48`     | Seed 48 pixels      |                                             |
 | `spawner`    | Pentagram 64 pixels | Spawners like Greydwarf nests or bone piles |
-| `spawner48`  | Pentagram 48 pixels |                                            |
-| `rune`       | Rune 64 pixels      | Runestones                                 |
-| `rune48`     | Rune 48 pixels      |                                            |
-| `dot`        | Circle 64 pixels    | Anything else                              |
-| `dot48`      | Circle 48 pixels    |                                            |
-| `herb`       | Herb 64 pixels      | Herbs like Thistle                         |
-| `herb48`     | Herb 48 pixels      |                                            |
-| `island`     | Island 64 pixels    | Leviathan                                  |
-| `island48`   | Island 48 pixels    |                                            |
-| `monument`   | Monument 64 pixels  |                                            |
-| `monument48` | Monument 48 pixels  |                                            |
-| `temple`     | Temple 64 pixels    |                                            |
-| `temple48`   | Temple 48 pixels    |                                            |
-| `treasure`   | Treasure 64 pixels  |                                            |
-| `treasure48` | Treasure 48 pixels  |                                            |
-| `bones`      | Bones 64 pixels     |                                            |
-| `bones48`    | Bones 48 pixels     |                                            |
+| `spawner48`  | Pentagram 48 pixels |                                             |
+| `rune`       | Rune 64 pixels      | Runestones                                  |
+| `rune48`     | Rune 48 pixels      |                                             |
+| `dot`        | Circle 64 pixels    | Anything else                               |
+| `dot48`      | Circle 48 pixels    |                                             |
+| `herb`       | Herb 64 pixels      | Herbs like Thistle                          |
+| `herb48`     | Herb 48 pixels      |                                             |
+| `island`     | Island 64 pixels    | Leviathan                                   |
+| `island48`   | Island 48 pixels    |                                             |
+| `monument`   | Monument 64 pixels  |                                             |
+| `monument48` | Monument 48 pixels  |                                             |
+| `temple`     | Temple 64 pixels    |                                             |
+| `temple48`   | Temple 48 pixels    |                                             |
+| `treasure`   | Treasure 64 pixels  | Treasure chests                             |
+| `treasure48` | Treasure 48 pixels  |                                             |
+| `bones`      | Bones 64 pixels     |                                             |
+| `bones48`    | Bones 48 pixels     |                                             |
+| `portal`     | Portal 64 pixels    | Portal                                      |
+| `portal48`   | Portal 48 pixels    |                                             |
 
 # Miscellaneous
 
@@ -174,6 +179,7 @@ These custom icons were made available with CCBY license, see attributions secti
 * [treasure by Vectors Market](https://thenounproject.com/browse/icons/term/treasure/) (CCBY) - modified
 * [Whale by Gregor Cresnar](https://thenounproject.com/browse/icons/term/whale/) (CCBY) - modified
 * [bones by Sergey Demushkin](https://thenounproject.com/browse/icons/term/bones/) (CCBY) - modified
+* [warp by Dank By Design](https://thenounproject.com/browse/icons/term/warp/) (CCBY) - modified
 
 </details>
 

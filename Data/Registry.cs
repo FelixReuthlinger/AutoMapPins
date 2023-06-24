@@ -11,7 +11,7 @@ public static class Registry
     internal static readonly List<PinConfig> MissingConfigs = new();
     private static readonly List<PinComponentGroup> AllGroups = new();
 
-    public static void InitializeRegistry(Dictionary<string, CategoryConfig> configuredCategories)
+    internal static void InitializeRegistry(Dictionary<string, CategoryConfig> configuredCategories)
     {
         ConfiguredCategories = configuredCategories;
         ConfiguredPins = ConfiguredCategories

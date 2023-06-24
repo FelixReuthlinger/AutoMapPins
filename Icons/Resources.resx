@@ -238,4 +238,10 @@
   <data name="Tree48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>png\Tree48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Portal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Portal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Portal48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\Portal48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace AutoMapPins.Model
 {
+    // NOTE: class and fields need to be public for YAML serde
     [SuppressMessage("ReSharper", "UnassignedField.Global")]
     [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Global")]
     public class PinConfig

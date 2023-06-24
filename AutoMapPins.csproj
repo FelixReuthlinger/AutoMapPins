@@ -154,6 +154,8 @@
         <Content Include="Icons\png\Monument48.png" />
         <Content Include="Icons\png\Mushroom.png" />
         <Content Include="Icons\png\Mushroom48.png" />
+        <Content Include="Icons\png\Portal.png" />
+        <Content Include="Icons\png\Portal48.png" />
         <Content Include="Icons\png\Rune.png" />
         <Content Include="Icons\png\Rune48.png" />
         <Content Include="Icons\png\Seed.png" />

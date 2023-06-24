@@ -158,7 +158,7 @@ dungeons:
       name: Dungeon
       iconName: dungeon
       isPermanent: true
-      isActive: true  
+      isActive: true
 bushes_pickable:
   categoryActive: false
   pins:
@@ -587,6 +587,121 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
+treasures:
+  categoryActive: true
+  pins:
+    treasurechestblackforest:
+      categoryName: treasures
+      internalName: treasurechestblackforest
+      name: Forest
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestdvergrloosestone:
+      categoryName: treasures
+      internalName: treasurechestdvergrloosestone
+      name: Dverger
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestdvergrtower:
+      categoryName: treasures
+      internalName: treasurechestdvergrtower
+      name: Dverger
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestdvergrtown:
+      categoryName: treasures
+      internalName: treasurechestdvergrtown
+      name: Dverger
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestfcrypt:
+      categoryName: treasures
+      internalName: treasurechestfcrypt
+      name: Crypt
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestforestcrypt:
+      categoryName: treasures
+      internalName: treasurechestforestcrypt
+      name: Crypt
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestheath:
+      categoryName: treasures
+      internalName: treasurechestheath
+      name: Heath
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestmeadows:
+      categoryName: treasures
+      internalName: treasurechestmeadows
+      name: Meadows
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestmeadowsburied:
+      categoryName: treasures
+      internalName: treasurechestmeadowsburied
+      name: Meadows
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestmountaincave:
+      categoryName: treasures
+      internalName: treasurechestmountaincave
+      name: Cave
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestmountains:
+      categoryName: treasures
+      internalName: treasurechestmountains
+      name: Mountains
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestplainsstone:
+      categoryName: treasures
+      internalName: treasurechestplainsstone
+      name: Plains
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestsunkencrypt:
+      categoryName: treasures
+      internalName: treasurechestsunkencrypt
+      name: Crypt
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechestswamp:
+      categoryName: treasures
+      internalName: treasurechestswamp
+      name: Swamp
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    treasurechesttrollcave:
+      categoryName: treasures
+      internalName: treasurechesttrollcave
+      name: Cave
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+    pickabledolmentreasure:
+      categoryName: treasures
+      internalName: pickabledolmentreasure
+      name: Dolmen
+      iconName: treasure
+      isPermanent: false
+      isActive: true
 special:
   categoryActive: true
   pins:
@@ -625,6 +740,63 @@ special:
       iconName: n_a
       isPermanent: false
       isActive: false
+    portalwood:
+      categoryName: special
+      internalName: portalwood
+      name: Portal
+      iconName: portal
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+chests:
+  categoryActive: false
+  pins:
+    piecechestwood:
+      categoryName: chests
+      internalName: piecechestwood
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    piecechest:
+      categoryName: chests
+      internalName: piecechest
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    piecechestprivate:
+      categoryName: chests
+      internalName: piecechestprivate
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    piecechestblackmetal:
+      categoryName: chests
+      internalName: piecechestblackmetal
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    piecegift:
+      categoryName: chests
+      internalName: piecegift
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
 misc:
   categoryActive: false
   pins:

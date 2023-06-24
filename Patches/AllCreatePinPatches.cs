@@ -13,7 +13,7 @@ namespace AutoMapPins.Patches
         {
             // 1. we skip any objects inside dungeons (above 4000sm height)
             // 2. if the game object already was pinned by another patch, do not repeat it
-            if (gameObject.transform.position.y <= MaxHeight && !gameObject.TryGetComponent(out PinComponent _)) 
+            if (gameObject.transform.position.y <= MaxHeight && !gameObject.TryGetComponent(out PinComponent _))
                 PinComponent.Create(gameObject);
         }
     }
@@ -52,5 +52,23 @@ namespace AutoMapPins.Patches
     internal class LeviathanPatch
     {
         static void Postfix(ref Leviathan __instance) => CommonPatchLogic.Patch(__instance.gameObject);
+    }
+
+    [HarmonyPatch(typeof(TeleportWorld), nameof(TeleportWorld.Awake))]
+    internal class TeleportWorldPatch
+    {
+        static void Postfix(ref TeleportWorld __instance) => CommonPatchLogic.Patch(__instance.gameObject);
+    }
+
+    [HarmonyPatch(typeof(PickableItem), nameof(PickableItem.Awake))]
+    internal class PickableItemPatch
+    {
+        static void Postfix(ref PickableItem __instance) => CommonPatchLogic.Patch(__instance.gameObject);
+    }
+    
+    [HarmonyPatch(typeof(Container), nameof(Container.Awake))]
+    internal class ContainerPatch
+    {
+        static void Postfix(ref Container __instance) => CommonPatchLogic.Patch(__instance.gameObject);
     }
 }
