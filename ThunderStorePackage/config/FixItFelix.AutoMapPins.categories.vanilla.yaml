@@ -702,6 +702,13 @@ treasures:
       iconName: treasure
       isPermanent: false
       isActive: true
+    shipwreckkarvechest:
+      categoryName: treasures
+      internalName: shipwreckkarvechest
+      name: Karve
+      iconName: treasure
+      isPermanent: false
+      isActive: true
 special:
   categoryActive: true
   pins:
