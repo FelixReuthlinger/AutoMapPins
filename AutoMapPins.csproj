@@ -193,6 +193,7 @@
         <MakeDir Directories="$(ProjectDir)\TempPackage" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(ProjectDir)\TempPackage\plugins" Condition="Exists('$(TargetDir)$(AssemblyName).dll')" />
         <Copy SourceFiles="$(ProjectDir)\README.md" DestinationFolder="$(ProjectDir)\TempPackage" Condition="Exists('$(ProjectDir)\README.md')" />
+        <Copy SourceFiles="$(ProjectDir)\LICENSE" DestinationFolder="$(ProjectDir)\TempPackage" Condition="Exists('$(ProjectDir)\LICENSE')" />
         <Copy SourceFiles="$(ProjectDir)\CHANGELOG.md" DestinationFolder="$(ProjectDir)\TempPackage" Condition="Exists('$(ProjectDir)\CHANGELOG.md')" />
         <Copy SourceFiles="$(ProjectDir)\ThunderStorePackage\manifest.json" DestinationFolder="$(ProjectDir)\TempPackage" Condition="Exists('$(ProjectDir)\ThunderStorePackage\manifest.json')" />
         <Copy SourceFiles="$(ProjectDir)\ThunderStorePackage\icon.png" DestinationFolder="$(ProjectDir)\TempPackage" Condition="Exists('$(ProjectDir)\ThunderStorePackage\icon.png')" />

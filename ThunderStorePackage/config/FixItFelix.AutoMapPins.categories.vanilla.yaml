@@ -23,7 +23,7 @@ ores:
       name: Silver
       iconName: mine
       isPermanent: true
-      isActive: true
+      isActive: false
     minerockobsidian:
       categoryName: ores
       internalName: minerockobsidian
@@ -120,9 +120,7 @@ ores:
       name: Meteorite minerock
       iconName: mine
       isPermanent: true
-      isActive: true
-      groupable: false
-      groupingDistance: 15
+      isActive: false
 dungeons:
   categoryActive: true
   pins:
@@ -154,8 +152,15 @@ dungeons:
       iconName: dungeon
       isPermanent: true
       isActive: true
+    mistlandsdvergrtownentrance:
+      categoryName: dungeons
+      internalName: mistlandsdvergrtownentrance
+      name: Dungeon
+      iconName: dungeon
+      isPermanent: true
+      isActive: true  
 bushes_pickable:
-  categoryActive: true
+  categoryActive: false
   pins:
     raspberrybush:
       categoryName: bushes_pickable
@@ -193,7 +198,7 @@ seeds:
       name: Carrot seeds
       iconName: seed
       isPermanent: false
-      isActive: true
+      isActive: false
       groupable: true
       groupingDistance: 15
     pickableseedturnip:
@@ -233,15 +238,13 @@ spawners:
       iconName: spawner
       isPermanent: false
       isActive: true
-      groupable: false
-      groupingDistance: 15
     bonepilespawner:
       categoryName: spawners
       internalName: bonepilespawner
-      name: Bone pile spawner
+      name: Bone pile
       iconName: spawner
       isPermanent: false
-      isActive: true
+      isActive: false
       groupable: true
       groupingDistance: 15
     spawnerdraugrpile:
@@ -251,36 +254,6 @@ spawners:
       iconName: spawner
       isPermanent: false
       isActive: true
-      groupable: true
-      groupingDistance: 15
-trees:
-  categoryActive: false
-  pins:
-    beechsmall:
-      categoryName: trees
-      internalName: beechsmall
-      name: Beech
-      iconName: tree
-      isPermanent: false
-      isActive: false
-      groupable: true
-      groupingDistance: 15
-    firtreesmall:
-      categoryName: trees
-      internalName: firtreesmall
-      name: Fir
-      iconName: tree
-      isPermanent: false
-      isActive: false
-      groupable: true
-      groupingDistance: 15
-    yggashootsmall:
-      categoryName: misc
-      internalName: yggashootsmall
-      name: Yggdra small
-      iconName: tree
-      isPermanent: false
-      isActive: false
       groupable: true
       groupingDistance: 15
 animals:
@@ -305,7 +278,7 @@ animals:
       groupable: false
       groupingDistance: 15
 mushrooms:
-  categoryActive: true
+  categoryActive: false
   pins:
     pickablemushroom:
       categoryName: mushrooms
@@ -344,7 +317,7 @@ mushrooms:
       groupable: true
       groupingDistance: 15
 herbs:
-  categoryActive: true
+  categoryActive: false
   pins:
     pickablethistle:
       categoryName: herbs
@@ -506,8 +479,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestonemountains:
       categoryName: runestones
       internalName: runestonemountains
@@ -515,8 +486,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestoneboars:
       categoryName: runestones
       internalName: runestoneboars
@@ -524,8 +493,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     drakelorestone:
       categoryName: runestones
       internalName: drakelorestone
@@ -533,8 +500,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestonegreydwarfs:
       categoryName: runestones
       internalName: runestonegreydwarfs
@@ -542,8 +507,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestonemeadows:
       categoryName: runestones
       internalName: runestonemeadows
@@ -551,8 +514,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestoneblackforest:
       categoryName: runestones
       internalName: runestoneblackforest
@@ -560,8 +521,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestoneplains:
       categoryName: runestones
       internalName: runestoneplains
@@ -569,8 +528,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestonedraugr:
       categoryName: runestones
       internalName: runestonedraugr
@@ -578,8 +535,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     runestonemistlands:
       categoryName: runestones
       internalName: runestonemistlands
@@ -587,8 +542,6 @@ runestones:
       iconName: rune
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
 bossspawn:
   categoryActive: false
   pins:
@@ -599,8 +552,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     gdking:
       categoryName: bossspawn
       internalName: gdking
@@ -608,8 +559,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     bonemass:
       categoryName: bossspawn
       internalName: bonemass
@@ -617,8 +566,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     dragonqueen:
       categoryName: bossspawn
       internalName: dragonqueen
@@ -626,8 +573,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     goblinking:
       categoryName: bossspawn
       internalName: goblinking
@@ -635,8 +580,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     mistlandsdvergrbossentrance:
       categoryName: bossspawn
       internalName: mistlandsdvergrbossentrance
@@ -644,8 +587,6 @@ bossspawn:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
 special:
   categoryActive: true
   pins:
@@ -656,8 +597,6 @@ special:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     leviathan:
       categoryName: special
       internalName: leviathan
@@ -665,8 +604,6 @@ special:
       iconName: island
       isPermanent: false
       isActive: true
-      groupable: false
-      groupingDistance: 15
     firehole:
       categoryName: special
       internalName: firehole
@@ -674,8 +611,6 @@ special:
       iconName: fire
       isPermanent: true
       isActive: true
-      groupable: false
-      groupingDistance: 15
     traderwagondestructable:
       categoryName: special
       internalName: traderwagondestructable
@@ -683,8 +618,6 @@ special:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
     vendorblackforest:
       categoryName: special
       internalName: vendorblackforest
@@ -692,8 +625,6 @@ special:
       iconName: n_a
       isPermanent: false
       isActive: false
-      groupable: false
-      groupingDistance: 15
 misc:
   categoryActive: false
   pins:
