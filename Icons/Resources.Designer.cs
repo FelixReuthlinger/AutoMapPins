@@ -222,6 +222,26 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Hay {
+            get {
+                object obj = ResourceManager.GetObject("Hay", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Hay48 {
+            get {
+                object obj = ResourceManager.GetObject("Hay48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Herb {
             get {
                 object obj = ResourceManager.GetObject("Herb", resourceCulture);

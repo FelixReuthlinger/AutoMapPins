@@ -52,6 +52,8 @@ namespace AutoMapPins.Icons
             { "bones48", LoadSpriteFromTexture(Resources.Bones48) },
             { "portal", LoadSpriteFromTexture(Resources.Portal) },
             { "portal48", LoadSpriteFromTexture(Resources.Portal48) },
+            { "hay", LoadSpriteFromTexture(Resources.Hay) },
+            { "hay48", LoadSpriteFromTexture(Resources.Hay48) },
         };
 
         internal static Sprite GetIcon(string iconName)

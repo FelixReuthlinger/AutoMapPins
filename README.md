@@ -148,6 +148,8 @@ These custom icons were made available with CCBY license, see attributions secti
 | `bones48`    | Bones 48 pixels     |                                             |
 | `portal`     | Portal 64 pixels    | Portal                                      |
 | `portal48`   | Portal 48 pixels    |                                             |
+| `hay`        | Hay 64 pixels       |                                             |
+| `hay48`      | Hay 48 pixels       |                                             |
 
 # Miscellaneous
 
@@ -180,6 +182,7 @@ These custom icons were made available with CCBY license, see attributions secti
 * [Whale by Gregor Cresnar](https://thenounproject.com/browse/icons/term/whale/) (CCBY) - modified
 * [bones by Sergey Demushkin](https://thenounproject.com/browse/icons/term/bones/) (CCBY) - modified
 * [warp by Dank By Design](https://thenounproject.com/browse/icons/term/warp/) (CCBY) - modified
+* [hay by Eucalyp](https://thenounproject.com/browse/icons/term/hay/) (CCBY) - modified
 
 </details>
 
