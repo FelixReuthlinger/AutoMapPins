@@ -1,3 +1,4 @@
+#file: noinspection SpellCheckingInspection
 ores:
   categoryActive: true
   pins:
@@ -807,6 +808,15 @@ chests:
 misc:
   categoryActive: false
   pins:
+    birchstub:
+      categoryName: misc
+      internalName: birchstub
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
     yggashootsmall:
       categoryName: misc
       internalName: yggashootsmall
