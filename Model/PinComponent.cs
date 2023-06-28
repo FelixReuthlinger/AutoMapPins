@@ -33,7 +33,7 @@ internal class PinComponent : MonoBehaviour
             if (pinComponent.Config.IsActive && category.CategoryActive)
             {
                 var position = gameObject.transform.position;
-                pinComponent.PinObject = FindSimilarPin(position, pinComponent.Config.InternalName)
+                pinComponent.PinObject = FindSimilarPin(position, pinComponent.Config.Name)
                                          ?? Minimap.instance.AddPin(
                                              pos: position,
                                              type: Minimap.PinType.Icon1,

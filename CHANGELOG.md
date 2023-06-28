@@ -1,3 +1,4 @@
+* 1.1.2 -> fixed map pin duplication issue
 * 1.1.1 -> added hay icon
 * 1.1.0 ->
   * added patch for new types:
