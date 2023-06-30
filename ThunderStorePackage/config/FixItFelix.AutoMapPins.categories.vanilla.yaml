@@ -753,9 +753,9 @@ special:
       internalName: portalwood
       name: Portal
       iconName: portal
-      isPermanent: false
-      isActive: false
-      groupable: false
+      isPermanent: true
+      isActive: true
+      groupable: true
       groupingDistance: 15
 chests:
   categoryActive: false
@@ -1639,6 +1639,15 @@ misc:
     shipwreck:
       categoryName: misc
       internalName: shipwreck
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    oakstub:
+      categoryName: misc
+      internalName: oakstub
       name: n_a
       iconName: n_a
       isPermanent: false

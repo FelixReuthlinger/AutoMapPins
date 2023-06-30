@@ -1,3 +1,6 @@
+* 1.1.4 ->
+  * added missing oakstub
+  * set portal as active and permanent per default
 * 1.1.3 -> 
   * added console command to remove all pins, use that if you created to many duplicate pins before, but it will
     really remove all pins, no matter what
