@@ -20,8 +20,10 @@ internal class PinComponent : MonoBehaviour
     {
         // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
         if (Minimap.instance != null && PinObject != null && !Config.IsPermanent)
+        {
             Minimap.instance.RemovePin(PinObject);
-        Group?.Remove(this);
+            Group?.Remove(this);
+        }
     }
 
     internal static void Create(GameObject gameObject)

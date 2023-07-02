@@ -21,7 +21,12 @@ namespace AutoMapPins.Patches
     [HarmonyPatch(typeof(Destructible), nameof(Destructible.Start))]
     internal class DestructiblePatch
     {
-        static void Postfix(ref Destructible __instance) => CommonPatchLogic.Patch(__instance.gameObject);
+        static void Postfix(ref Destructible __instance)
+        {
+            // in case an object has the Destructible and Pickable component, we skip patching the Destructible to
+            // not patch the object twice, since the pickable patch will handle if object was already picked
+            if (!__instance.TryGetComponent(out Pickable _)) CommonPatchLogic.Patch(__instance.gameObject);
+        }
     }
 
     [HarmonyPatch(typeof(MineRock), nameof(MineRock.Start))]
@@ -34,12 +39,6 @@ namespace AutoMapPins.Patches
     internal class MineRock5Patch
     {
         static void Postfix(ref MineRock5 __instance) => CommonPatchLogic.Patch(__instance.gameObject);
-    }
-
-    [HarmonyPatch(typeof(Pickable), nameof(Pickable.Awake))]
-    internal class PickablePatch
-    {
-        static void Postfix(ref Pickable __instance) => CommonPatchLogic.Patch(__instance.gameObject);
     }
 
     [HarmonyPatch(typeof(Location), nameof(Location.Awake))]
@@ -65,7 +64,7 @@ namespace AutoMapPins.Patches
     {
         static void Postfix(ref PickableItem __instance) => CommonPatchLogic.Patch(__instance.gameObject);
     }
-    
+
     [HarmonyPatch(typeof(Container), nameof(Container.Awake))]
     internal class ContainerPatch
     {
