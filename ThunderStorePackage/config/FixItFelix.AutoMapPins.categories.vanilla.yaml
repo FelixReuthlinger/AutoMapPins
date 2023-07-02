@@ -757,6 +757,15 @@ special:
       isActive: true
       groupable: true
       groupingDistance: 15
+    playertombstone:
+      categoryName: special
+      internalName: playertombstone
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
 chests:
   categoryActive: false
   pins:
