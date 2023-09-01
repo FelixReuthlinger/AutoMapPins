@@ -101,11 +101,8 @@
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(CorlibPath)\UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
-        <Reference Include="YamlDotNet">
-          <HintPath>packages\YamlDotNet.13.1.1\lib\net45\YamlDotNet.dll</HintPath>
-        </Reference>
         <Reference Include="YamlDotNet, Version=13.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-          <HintPath>packages\YamlDotNet.13.1.1\lib\net45\YamlDotNet.dll</HintPath>
+          <HintPath>packages\YamlDotNet.13.2.0\lib\net45\YamlDotNet.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -184,6 +181,10 @@
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
         <SubType>Designer</SubType>
       </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="App.config" />
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="CopyOutputDLL" AfterTargets="Build;Rebuild" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

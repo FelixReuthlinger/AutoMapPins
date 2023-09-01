@@ -17,8 +17,8 @@ internal class ConsolePatches
     // ReSharper disable once InconsistentNaming
     private static void Postfix(Console __instance)
     {
-        _ = new Terminal.ConsoleCommand("amp", "auto map pins commands",
-            consoleEventArgs =>
+        _ = new Terminal.ConsoleCommand("amp", description: "auto map pins commands",
+            action: (Terminal.ConsoleEvent)(consoleEventArgs =>
             {
                 if (consoleEventArgs.Length > 1)
                 {
@@ -66,7 +66,9 @@ internal class ConsolePatches
                     __instance.Print(
                         $" {PrintPinsWithMissingConfigs} --> will print all pins not yet configured to yaml file");
                 }
-            }, optionsFetcher: OptionFetcher);
+            }), 
+            optionsFetcher: (Terminal.ConsoleOptionsFetcher)OptionFetcher
+        );
 
         __instance.updateCommandList();
     }
