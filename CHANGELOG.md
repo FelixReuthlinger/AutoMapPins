@@ -1,4 +1,4 @@
-* 1.1.6 -> 
+* 1.1.6 & 7 -> 
   * compiled for Valheim version 0.217.14
   * fix console boot error
 * 1.1.5 ->
