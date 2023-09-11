@@ -482,6 +482,26 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Village {
+            get {
+                object obj = ResourceManager.GetObject("Village", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Village48 {
+            get {
+                object obj = ResourceManager.GetObject("Village48", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Whale {
             get {
                 object obj = ResourceManager.GetObject("Whale", resourceCulture);

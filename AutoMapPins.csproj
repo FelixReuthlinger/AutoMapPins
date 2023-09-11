@@ -137,6 +137,8 @@
         <Content Include="Icons\png\Dot48.png" />
         <Content Include="Icons\png\Dungeon.png" />
         <Content Include="Icons\png\Dungeon48.png" />
+        <Content Include="Icons\png\Fire.png" />
+        <Content Include="Icons\png\Fire48.png" />
         <Content Include="Icons\png\Flower.png" />
         <Content Include="Icons\png\Flower48.png" />
         <Content Include="Icons\png\Hand.png" />
@@ -167,6 +169,8 @@
         <Content Include="Icons\png\Treasure48.png" />
         <Content Include="Icons\png\Tree.png" />
         <Content Include="Icons\png\Tree48.png" />
+        <Content Include="Icons\png\Village.png" />
+        <Content Include="Icons\png\Village48.png" />
         <Content Include="Icons\png\Whale.png" />
         <Content Include="Icons\png\Whale48.png" />
         <Content Include="ILRepack.targets" />

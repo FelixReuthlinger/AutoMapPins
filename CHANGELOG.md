@@ -1,6 +1,9 @@
-* 1.1.6 & 7 -> 
-  * compiled for Valheim version 0.217.14
-  * fix console boot error
+* 1.1.8 ->
+    * added new symbols:
+        * Village
+* 1.1.6 & 7 ->
+    * compiled for Valheim version 0.217.14
+    * fix console boot error
 * 1.1.5 ->
     * fixed groups not being permanent
     * adjusted pickable pinning to only add pin if not "picked"
