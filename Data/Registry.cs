@@ -39,12 +39,18 @@ public static class Registry
 
     internal static void AddMissingConfig(PinConfig config)
     {
-        if (!MissingConfigs.Contains(config))
+        if (AutoMapPinsPlugin.PrefabDiscoveryEnabled.Value &&
+            !MissingConfigs.Exists(missingConfig =>
+                missingConfig.CategoryName == config.CategoryName &&
+                missingConfig.InternalName == config.InternalName
+            )
+           )
         {
             MissingConfigs.Add(config);
-            AutoMapPinsPlugin.Log.LogWarning(
-                $"no configuration found for config {config.InternalName} " +
-                $"and category {config.CategoryName} - run console amp command and add config");
+            if (!AutoMapPinsPlugin.SilentDiscoveryEnabled.Value)
+                AutoMapPinsPlugin.Log.LogWarning(
+                    $"no configuration found for config {config.InternalName} " +
+                    $"and category {config.CategoryName} - run console amp command and add config");
         }
     }
 }

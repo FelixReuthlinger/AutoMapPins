@@ -37,22 +37,25 @@ internal class ConsolePatches
                         case PrintPinsWithMissingConfigs:
                             string filePathCategories =
                                 AutoMapPinsPlugin.FileIO.GetSingleFile(PrintPinsWithMissingConfigs);
-                            AutoMapPinsPlugin.FileIO.WriteFile(filePathCategories,
-                                Registry.MissingConfigs
-                                    .GroupBy(config => config.CategoryName)
-                                    .ToDictionary(group => group.Key, group =>
-                                        new CategoryConfig
-                                        {
-                                            CategoryActive = false,
-                                            Pins = group
-                                                .GroupBy(config => config.InternalName)
-                                                .ToDictionary(
-                                                    configGroup => configGroup.Key,
-                                                    configGroup => configGroup.First()
-                                                )
-                                        }
-                                    )
-                            );
+                            Dictionary<string, CategoryConfig> missingConfigs = Registry.MissingConfigs
+                                .GroupBy(config => config.CategoryName)
+                                .ToDictionary(group => group.Key, group =>
+                                    new CategoryConfig
+                                    {
+                                        CategoryActive = false,
+                                        Pins = group
+                                            .GroupBy(config => config.InternalName)
+                                            .ToDictionary(
+                                                configGroup => configGroup.Key,
+                                                configGroup => configGroup.First()
+                                            )
+                                    }
+                                );
+                            if (missingConfigs.Count > 0)
+                                AutoMapPinsPlugin.FileIO.WriteFile(filePathCategories, missingConfigs);
+                            else
+                                AutoMapPinsPlugin.Log.LogWarning(
+                                    "could not print any configs, since no config was recorded during game play.");
                             break;
                     }
                 }
@@ -66,7 +69,7 @@ internal class ConsolePatches
                     __instance.Print(
                         $" {PrintPinsWithMissingConfigs} --> will print all pins not yet configured to yaml file");
                 }
-            }), 
+            }),
             optionsFetcher: (Terminal.ConsoleOptionsFetcher)OptionFetcher
         );
 

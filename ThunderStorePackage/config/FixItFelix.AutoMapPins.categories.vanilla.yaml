@@ -766,6 +766,15 @@ special:
       isActive: false
       groupable: false
       groupingDistance: 15
+    tarpit:
+      categoryName: special
+      internalName: tarpit
+      name: Tarpit
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
 chests:
   categoryActive: false
   pins:
@@ -902,15 +911,6 @@ misc:
       categoryName: misc
       internalName: woodvillage
       name: n_a
-      iconName: n_a
-      isPermanent: false
-      isActive: false
-      groupable: false
-      groupingDistance: 15
-    tarpit:
-      categoryName: special
-      internalName: tarpit
-      name: Tarpit
       iconName: n_a
       isPermanent: false
       isActive: false

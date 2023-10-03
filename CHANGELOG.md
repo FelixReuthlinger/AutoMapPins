@@ -1,3 +1,12 @@
+* 1.2.0 ->
+    * added new config options to not spam your logs (check new default values and change if you need):
+        * silent discovery mode -> not spams your logs if prefabs were found that are not configured, yet
+        * enable discovery mode -> enables that not yet configured prefabs will be collected during game play
+    * improved missing config check to only mention missing configs for not matching category name and internal name in
+      combination, this will also drastically reduce log messages
+    * will only print missing configs if there were configs recorded during game play, will show warning if none
+      recorded
+    * small change on config synced pin configs
 * 1.1.8 ->
     * added new symbols:
         * Village
