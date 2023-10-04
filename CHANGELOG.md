@@ -1,3 +1,4 @@
+* 1.2.1 -> fixed double initiating commands
 * 1.2.0 ->
     * added new config options to not spam your logs (check new default values and change if you need):
         * silent discovery mode -> not spams your logs if prefabs were found that are not configured, yet

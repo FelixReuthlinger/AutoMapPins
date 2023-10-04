@@ -72,8 +72,6 @@ internal class ConsolePatches
             }),
             optionsFetcher: (Terminal.ConsoleOptionsFetcher)OptionFetcher
         );
-
-        __instance.updateCommandList();
     }
 
     private static List<string> OptionFetcher() => new() { PrintPinsWithMissingConfigs, ClearPins };
