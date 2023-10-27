@@ -24,6 +24,7 @@ various in-game objects.
 * Unknown (missing config) pins will be added to a temporary list that can be printed to a file to simplify
   configuration.
 * Config file watchers (updated config file will be releaded)
+* Pins are part of an object in the game. If the object is destroyed / removed, the pin is also removed.
 
 # Configuration
 
