@@ -1,3 +1,4 @@
+* 1.2.3 -> updated server sync and compiled against 0.217.30
 * 1.2.2 -> updated server sync and compiled against 0.217.24
 * 1.2.1 -> fixed double initiating commands
 * 1.2.0 ->
