@@ -191,16 +191,18 @@
       <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <Target Name="CopyOutputDLL" AfterTargets="Build;Rebuild" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Target Name="CopyOutputDLL" AfterTargets="ILRepacker" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <Error Text="DLL not found in target directory." Condition="!Exists('$(TargetDir)$(AssemblyName).dll')" />
         <Error Text="DLL not found in target directory." Condition="!Exists('$(TargetDir)$(AssemblyName).pdb')" />
+        <Error Text="config not found in project directory." Condition="!Exists('$(ProjectDir)ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.vanilla.yaml')" />
         <MakeDir Directories="$(BepInExPath)\plugins\$(AssemblyName)" Condition="!Exists('$(BepInExPath)\plugins\$(AssemblyName)')" />
         <Exec Command="$(ProjectDir)libraries\debug\pdb2mdb.exe $(TargetDir)$(AssemblyName).dll" />
+        <Copy SourceFiles="$(ProjectDir)ThunderStorePackage\config\FixItFelix.AutoMapPins.categories.vanilla.yaml" DestinationFolder="$(BepInExPath)\config\" OverwriteReadOnlyFiles="true" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).pdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll.mdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
     </Target>
-    <Target Name="MakeThunderStorePackage" AfterTargets="CopyOutputDLL" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Target Name="MakeThunderStorePackage" AfterTargets="ILRepacker" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <Error Text="README.md not found in project root directory." Condition="!Exists('$(ProjectDir)\README.md')" />
         <Error Text="CHANGELOG.md not found in project root directory." Condition="!Exists('$(ProjectDir)\CHANGELOG.md')" />
         <Error Text="manifest.json not found in Thunderstore directory." Condition="!Exists('$(ProjectDir)\ThunderstorePackage\manifest.json')" />
