@@ -68,6 +68,7 @@ internal class YamlFileStorage
 
     internal Dictionary<string, string> ReadConfigFiles()
     {
+        
         return _yamlFiles.ToDictionary(fileName => fileName, File.ReadAllText);
     }
 
@@ -79,18 +80,13 @@ internal class YamlFileStorage
             _logger.LogInfo($"found category and pin config file '{file}'");
             _yamlFiles.Add(file);
             FileSystemWatcher watcher = new(Paths.ConfigPath, Path.GetFileName(file));
-            watcher.Changed += ReloadConfig;
-            watcher.Created += ReloadConfig;
-            watcher.Renamed += ReloadConfig;
+            watcher.Changed += AutoMapPinsPlugin.ReadYamlFileContent;
+            watcher.Created += AutoMapPinsPlugin.ReadYamlFileContent;
+            watcher.Renamed += AutoMapPinsPlugin.ReadYamlFileContent;
             watcher.IncludeSubdirectories = true;
             watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;
             watcher.EnableRaisingEvents = true;
         }
-    }
-
-    private void ReloadConfig(object? _, FileSystemEventArgs? __)
-    {
-        AutoMapPinsPlugin.ReadSyncAndLoadRegistry();
     }
 
     internal Dictionary<string, CategoryConfig> DeserializeAndMergeFileData(Dictionary<string, string> configFileContents)

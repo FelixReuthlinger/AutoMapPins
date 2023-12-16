@@ -67,11 +67,9 @@ namespace AutoMapPins
                 "group pins together that have grouping enabled. Default 15.0");
 
             _categoryPinsConfigFilesContent = new(ConfigSync,
-                "CategoryPinsConfigFilesContent",
-                FileIO.ReadConfigFiles());
-            Registry.InitializeRegistry(
-                FileIO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value)
-            );
+                "CategoryPinsConfigFilesContent", new Dictionary<string, string>());
+            _categoryPinsConfigFilesContent.ValueChanged += ReloadRegistry;
+            ReadYamlFileContent(null, null);
             SetupFileWatcher(ConfigFileName);
 
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -82,12 +80,16 @@ namespace AutoMapPins
                     "for each not configured prefab");
         }
 
-        internal static void ReadSyncAndLoadRegistry()
+        internal static void ReadYamlFileContent(object? _, FileSystemEventArgs? __)
         {
-            Log.LogInfo("reloading pin configs from files");
-            _categoryPinsConfigFilesContent.AssignLocalValue(FileIO.ReadConfigFiles());
+            Log.LogInfo("loading pin configs from files");
+            _categoryPinsConfigFilesContent.Value = FileIO.ReadConfigFiles();
+        }
+
+        private static void ReloadRegistry()
+        {
             Registry.InitializeRegistry(
-                FileIO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value)
+                configuredCategories: FileIO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value)
             );
         }
 

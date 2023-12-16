@@ -8,6 +8,7 @@ various in-game objects.
 * [Server Synced](https://github.com/blaxxun-boop/ServerSync)
 * Will create pins on Map and Minimap
     * **WARNING**: do better not configure too many to be active, it will flood your map!
+* Pins will only show in areas where the player did already discover the map
 * Pins created are using custom icons, see [Available icons](#available-icons)
 * Pins can be configured, see [Pin configuration](#pin-configuration)
 * Pins can be temporary (just visible when in area) or permanent (once discovered added permanently to map)

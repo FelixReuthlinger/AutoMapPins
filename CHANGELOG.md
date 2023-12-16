@@ -1,3 +1,8 @@
+* 1.3.0 -> 
+  * compiled for latest Valheim version 0.217.38
+  * fixed some server sync issue
+  * often requested feature added : check if the map is already explored at the area of an object before adding
+    the pin => only on explored map it will show pins
 * 1.2.3 -> updated server sync and compiled against 0.217.30
 * 1.2.2 -> updated server sync and compiled against 0.217.24
 * 1.2.1 -> fixed double initiating commands
