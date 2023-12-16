@@ -589,7 +589,7 @@ bossspawn:
       isPermanent: false
       isActive: false
 treasures:
-  categoryActive: true
+  categoryActive: false
   pins:
     treasurechestblackforest:
       categoryName: treasures
