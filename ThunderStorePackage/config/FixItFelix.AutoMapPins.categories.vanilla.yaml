@@ -125,6 +125,24 @@ ores:
 dungeons:
   categoryActive: true
   pins:
+    hildirplainsfortress:
+      categoryName: dungeons
+      internalName: hildirplainsfortress
+      name: Hildir Fort
+      iconName: dungeon
+      isPermanent: true
+      isActive: true
+      groupable: false
+      groupingDistance: 15
+    hildircamp:
+      categoryName: dungeons
+      internalName: hildircamp
+      name: Hildir
+      iconName: dungeon
+      isPermanent: true
+      isActive: true
+      groupable: false
+      groupingDistance: 15
     trollcave:
       categoryName: dungeons
       internalName: trollcave
@@ -591,6 +609,15 @@ bossspawn:
 treasures:
   categoryActive: false
   pins:
+    treasurechestheathhildir:
+      categoryName: treasures
+      internalName: treasurechestheathhildir
+      name: Hildir
+      iconName: treasure
+      isPermanent: false
+      isActive: true
+      groupable: false
+      groupingDistance: 15
     treasurechestblackforest:
       categoryName: treasures
       internalName: treasurechestblackforest
@@ -1663,4 +1690,22 @@ misc:
       isActive: false
       groupable: false
       groupingDistance: 15
-
+    goblinstrawpile:
+      categoryName: misc
+      internalName: goblinstrawpile
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    goblintrashpile:
+      categoryName: misc
+      internalName: goblintrashpile
+      name: n_a
+      iconName: n_a
+      isPermanent: false
+      isActive: false
+      groupable: false
+      groupingDistance: 15
+    
