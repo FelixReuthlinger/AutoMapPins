@@ -101,8 +101,8 @@
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(CorlibPath)\UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
-        <Reference Include="YamlDotNet, Version=13.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-          <HintPath>packages\YamlDotNet.13.7.1\lib\net47\YamlDotNet.dll</HintPath>
+        <Reference Include="YamlDotNet, Version=15.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
+          <HintPath>packages\YamlDotNet.15.1.4\lib\net47\YamlDotNet.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
@@ -201,7 +201,33 @@
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).pdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
         <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll.mdb" DestinationFolder="$(BepInExPath)\plugins\$(AssemblyName)" OverwriteReadOnlyFiles="true" />
     </Target>
-    <Target Name="MakeThunderStorePackage" AfterTargets="ILRepacker" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Target Name="GetAssemblyVersion" AfterTargets="ILRepacker" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+            <Output TaskParameter="Assemblies" ItemName="Targets" />
+        </GetAssemblyIdentity>
+        <ItemGroup>
+            <AssemblyVersions Include="@(Targets->'%(Version)')" />
+        </ItemGroup>
+        <PropertyGroup>
+            <AssemblyVersion>%(AssemblyVersions.Identity)</AssemblyVersion>
+            <Major>$(AssemblyVersion.Split('.')[0])</Major>
+            <Minor>$(AssemblyVersion.Split('.')[1])</Minor>
+            <Patch>$(AssemblyVersion.Split('.')[2])</Patch>
+            <PackageName>$(AssemblyName)_v$(Major).$(Minor).$(Patch)</PackageName>
+            <PackageVersion>$(Major).$(Minor).$(Patch)</PackageVersion>
+            <VersionString>$(Major).$(Minor).$(Patch)</VersionString>
+            <PackageDir>Thunderstore\$(PackageName)</PackageDir>
+        </PropertyGroup>
+    </Target>
+    <Target Name="UpdateManifestVersion" AfterTargets="GetAssemblyVersion" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <ItemGroup>
+            <ManifestFile Include="$(ProjectDir)ThunderstorePackage\manifest.json" />
+        </ItemGroup>
+        <Error Text="ThunderstorePackage\manifest.json not found" Condition="!Exists(@(ManifestFile))" />
+        <Message Text="Updating version number in Thunderstore\manifest.json" Condition="Exists(@(ManifestFile))" />
+        <Exec Command="powershell.exe -ExecutionPolicy Bypass -Command &quot;&amp; { &amp; '$(ProjectDir)UpdateManifest.ps1' -manifestFile '@(ManifestFile)' -versionString '$(PackageVersion)' }&quot;" />
+    </Target>
+    <Target Name="MakeThunderStorePackage" AfterTargets="UpdateManifestVersion" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <Error Text="README.md not found in project root directory." Condition="!Exists('$(ProjectDir)\README.md')" />
         <Error Text="CHANGELOG.md not found in project root directory." Condition="!Exists('$(ProjectDir)\CHANGELOG.md')" />
         <Error Text="manifest.json not found in Thunderstore directory." Condition="!Exists('$(ProjectDir)\ThunderstorePackage\manifest.json')" />
@@ -223,11 +249,11 @@
         <RemoveDir Directories="$(ProjectDir)\TempPackage" />
         <Message Text="Created ThunderStore mod zip file '$(HOMEDRIVE)$(HOMEPATH)\Downloads\$(AssemblyName).zip'" />
     </Target>
-    <Import Project="packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets" Condition="Exists('packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets')" />
+    <Import Project="packages\ILRepack.Lib.MSBuild.Task.2.0.32\build\ILRepack.Lib.MSBuild.Task.targets" Condition="Exists('packages\ILRepack.Lib.MSBuild.Task.2.0.32\build\ILRepack.Lib.MSBuild.Task.targets')" />
     <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
       <PropertyGroup>
         <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
       </PropertyGroup>
-      <Error Condition="!Exists('packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets'))" />
+      <Error Condition="!Exists('packages\ILRepack.Lib.MSBuild.Task.2.0.32\build\ILRepack.Lib.MSBuild.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ILRepack.Lib.MSBuild.Task.2.0.32\build\ILRepack.Lib.MSBuild.Task.targets'))" />
     </Target>
 </Project>

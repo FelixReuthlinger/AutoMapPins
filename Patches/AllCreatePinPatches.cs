@@ -35,7 +35,7 @@ namespace AutoMapPins.Patches
         static void Postfix(ref MineRock __instance) => CommonPatchLogic.Patch(__instance.gameObject);
     }
 
-    [HarmonyPatch(typeof(MineRock5), nameof(MineRock5.Start))]
+    [HarmonyPatch(typeof(MineRock5), nameof(MineRock5.Awake))]
     internal class MineRock5Patch
     {
         static void Postfix(ref MineRock5 __instance) => CommonPatchLogic.Patch(__instance.gameObject);

@@ -1,3 +1,6 @@
+* 1.3.1 -> 
+  * Updated for Ashlands Valheim version 0.218.15
+  * Added new pin configs for Ashlands objects 
 * 1.3.0 -> 
   * compiled for latest Valheim version 0.217.38
   * fixed some server sync issue
