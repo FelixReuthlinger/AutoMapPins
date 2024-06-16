@@ -101,23 +101,27 @@
         <Reference Include="UnityEngine.ImageConversionModule">
             <HintPath>$(CorlibPath)\UnityEngine.ImageConversionModule.dll</HintPath>
         </Reference>
+        <Reference Include="Unity.TextMeshPro">
+            <HintPath>$(GamePath)\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
         <Reference Include="YamlDotNet, Version=15.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
           <HintPath>packages\YamlDotNet.15.1.4\lib\net47\YamlDotNet.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AutoMapPinsPlugin.cs" />
+        <Compile Include="Common\Constants.cs" />
+        <Compile Include="Common\HasLogger.cs" />
+        <Compile Include="Data\Config.cs" />
         <Compile Include="Icons\Assets.cs" />
         <Compile Include="Icons\Resources.Designer.cs">
           <AutoGen>True</AutoGen>
           <DesignTime>True</DesignTime>
           <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-        <Compile Include="Model\CategoryConfig.cs" />
-        <Compile Include="Model\Common.cs" />
+        <Compile Include="Model\Map.cs" />
+        <Compile Include="Model\MapPin.cs" />
         <Compile Include="Model\PinComponent.cs" />
-        <Compile Include="Model\PinComponentGroup.cs" />
-        <Compile Include="Model\PinConfig.cs" />
         <Compile Include="Patches\AllCreatePinPatches.cs" />
         <Compile Include="Patches\ConsolePatch.cs" />
         <Compile Include="Patches\MinimapPatch.cs" />

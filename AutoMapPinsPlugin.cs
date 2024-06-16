@@ -14,7 +14,7 @@ namespace AutoMapPins
     public class AutoMapPinsPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AutoMapPins";
-        internal const string ModVersion = "1.3.1";
+        internal const string ModVersion = "2.0.0";
         private const string ModAuthor = "FixItFelix";
         private const string ModGuid = ModAuthor + "." + ModName;
         private const string ConfigFileName = ModGuid + ".cfg";
@@ -36,6 +36,7 @@ namespace AutoMapPins
         private static ConfigEntry<bool> _configLocked = null!;
         private static CustomSyncedValue<Dictionary<string, string>> _categoryPinsConfigFilesContent = null!;
         internal static ConfigEntry<float> GroupingRadius = null!;
+        internal static ConfigEntry<float> MaxDetectionHeight = null!;
         internal static ConfigEntry<bool> PrefabDiscoveryEnabled = null!;
         internal static ConfigEntry<bool> SilentDiscoveryEnabled = null!;
 
@@ -61,6 +62,13 @@ namespace AutoMapPins
                 "configured, yet. For finding out if there are prefabs missing that were not configured, you will " +
                 "need to disable this flag.");
 
+            MaxDetectionHeight = CreateConfig("1 - General", "Maximum height to map objects", 4000.0f,
+                "This option will set the height over sea level until where game objects will get the auto " +
+                "map pins logic applied. The usual default is '4000', since over 4000 meters over ground the dungeons " +
+                "are placed in the game scene. BEWARE: if you set this to a lower height, your map has chances to get " +
+                "pins added that point to a location inside a dungeon that is just above the height on ground," +
+                " you should better not change this.");
+
             GroupingRadius = CreateConfig("2 - Grouping", "Fallback General Grouping Radius", 15.0f,
                 "Grouping radius can be set per configured pin, but if it was set to 0 or no config for a " +
                 "pin was provided, this value will be used instead. Radius that will be applied when trying to " +
@@ -74,10 +82,7 @@ namespace AutoMapPins
 
             Assembly assembly = Assembly.GetExecutingAssembly();
             _harmony.PatchAll(assembly);
-            if (PrefabDiscoveryEnabled.Value)
-                Log.LogInfo(
-                    "loaded mod with configuration discovery enabled, this will create log messages " +
-                    "for each not configured prefab");
+            if (PrefabDiscoveryEnabled.Value) Log.LogInfo("loaded mod with game object discovery enabled");
         }
 
         internal static void ReadYamlFileContent(object? _, FileSystemEventArgs? __)
@@ -89,8 +94,7 @@ namespace AutoMapPins
         private static void ReloadRegistry()
         {
             Registry.InitializeRegistry(
-                configuredCategories: FileIO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value)
-            );
+                newConfiguredCategories: FileIO.DeserializeAndMergeFileData(_categoryPinsConfigFilesContent.Value));
         }
 
         private void SetupFileWatcher(string fileName)

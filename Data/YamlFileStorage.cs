@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AutoMapPins.Model;
+using AutoMapPins.Common;
 using BepInEx;
-using BepInEx.Logging;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace AutoMapPins.Data;
 
-internal class YamlFileStorage
+internal class YamlFileStorage : HasLogger
 {
     internal YamlFileStorage(string modGuid)
     {
         _modGuid = modGuid;
-        _logger = Logger.CreateLogSource(modGuid);
         FindConfigFiles();
     }
 
     private readonly string _modGuid;
-    private readonly ManualLogSource _logger;
     private readonly List<string> _yamlFiles = new();
 
-    private readonly IDeserializer _deserializer = new DeserializerBuilder()
+    private static readonly IDeserializer Deserializer = new DeserializerBuilder()
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .IgnoreUnmatchedProperties()
         .Build();
 
-    private readonly ISerializer _serializer = new SerializerBuilder()
+    internal static readonly ISerializer Serializer = new SerializerBuilder()
         .DisableAliases()
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
@@ -43,32 +40,31 @@ internal class YamlFileStorage
         return Path.Combine(Paths.ConfigPath, $"{_modGuid}.{fileInfix}.yaml");
     }
 
-    internal void WriteFile(string file, Dictionary<string, CategoryConfig> objects)
+    internal void WriteFile(string file, Dictionary<string, Config.Category> objects)
     {
-        var yamlContent = _serializer.Serialize(objects);
+        var yamlContent = Serializer.Serialize(objects);
         File.WriteAllText(file, yamlContent);
-        _logger.LogInfo($"wrote yaml content to file '{file}'");
+        Log.LogInfo($"wrote yaml content to file '{file}'");
     }
 
-    private Dictionary<string, CategoryConfig> DeserializeFile(string fileName, string fileContent)
+    private Dictionary<string, Config.Category> DeserializeFile(string fileName, string fileContent)
     {
         try
         {
-            return _deserializer.Deserialize<Dictionary<string, CategoryConfig>>(fileContent);
+            return Deserializer.Deserialize<Dictionary<string, Config.Category>>(fileContent);
         }
         catch (Exception e)
         {
-            _logger.LogWarning(
+            Log.LogWarning(
                 $"Unable to parse config file '{fileName}' due to '{e.Message}' " +
                 $"because of '{e.GetBaseException().Message}', \n{e.StackTrace}");
         }
 
-        return new Dictionary<string, CategoryConfig>();
+        return new Dictionary<string, Config.Category>();
     }
 
     internal Dictionary<string, string> ReadConfigFiles()
     {
-        
         return _yamlFiles.ToDictionary(fileName => fileName, File.ReadAllText);
     }
 
@@ -77,7 +73,7 @@ internal class YamlFileStorage
         foreach (string file in Directory.GetFiles(Paths.ConfigPath, GetModFilePattern(fileInfix),
                      SearchOption.AllDirectories))
         {
-            _logger.LogInfo($"found category and pin config file '{file}'");
+            Log.LogInfo($"found category and pin config file '{file}'");
             _yamlFiles.Add(file);
             FileSystemWatcher watcher = new(Paths.ConfigPath, Path.GetFileName(file));
             watcher.Changed += AutoMapPinsPlugin.ReadYamlFileContent;
@@ -89,17 +85,18 @@ internal class YamlFileStorage
         }
     }
 
-    internal Dictionary<string, CategoryConfig> DeserializeAndMergeFileData(Dictionary<string, string> configFileContents)
+    internal Dictionary<string, Config.Category> DeserializeAndMergeFileData(
+        Dictionary<string, string> configFileContents)
     {
         return configFileContents
-            .Select(kv => DeserializeFile(kv.Key, kv.Value))
+            .Select(kv => DeserializeFile(fileName: kv.Key, fileContent: kv.Value))
             .SelectMany(x => x)
             .GroupBy(kv => kv.Key)
             .ToDictionary(group => group.Key, group =>
             {
                 bool active = group.All(cat => cat.Value.CategoryActive);
-                Dictionary<string, PinConfig> pins = new();
-                foreach (CategoryConfig categoryConfig in group.Select(category => category.Value))
+                Dictionary<string, Config.Pin> pins = new();
+                foreach (Config.Category categoryConfig in group.Select(category => category.Value))
                 {
                     pins = pins.Concat(categoryConfig.Pins)
                         .GroupBy(pin => pin.Key)
@@ -108,7 +105,7 @@ internal class YamlFileStorage
                         );
                 }
 
-                return new CategoryConfig
+                return new Config.Category
                 {
                     CategoryActive = active,
                     Pins = pins

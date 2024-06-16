@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapPins.Common;
 using AutoMapPins.Data;
 using AutoMapPins.Model;
 using HarmonyLib;
@@ -8,13 +9,14 @@ using JetBrains.Annotations;
 namespace AutoMapPins.Patches;
 
 [HarmonyPatch(typeof(Console), nameof(Console.Awake))]
-internal class ConsolePatches
+internal class ConsolePatches : HasLogger
 {
-    private const string PrintPinsWithMissingConfigs = "print_pins_missing_configs";
+    private const string WriteMissingConfigsOption = "write_missing_configs_file";
     private const string ClearPins = "clear_pins";
 
+    private const string ClearAllMessage = "cleared all pins from map";
+
     [UsedImplicitly]
-    // ReSharper disable once InconsistentNaming
     private static void Postfix(Console __instance)
     {
         _ = new Terminal.ConsoleCommand("amp", description: "auto map pins commands",
@@ -27,35 +29,17 @@ internal class ConsolePatches
                     switch (consoleEventArgs.Args[1])
                     {
                         case ClearPins:
-                            if (Minimap.instance != null)
+                            if (Minimap.instance)
                             {
-                                AutoMapPinsPlugin.Log.LogWarning($"cleared all pins from map!");
+                                Map.Clear();
                                 Minimap.instance.ClearPins();
+                                __instance.Print(ClearAllMessage);
+                                Log.LogWarning(ClearAllMessage);
                             }
 
                             break;
-                        case PrintPinsWithMissingConfigs:
-                            string filePathCategories =
-                                AutoMapPinsPlugin.FileIO.GetSingleFile(PrintPinsWithMissingConfigs);
-                            Dictionary<string, CategoryConfig> missingConfigs = Registry.MissingConfigs
-                                .GroupBy(config => config.CategoryName)
-                                .ToDictionary(group => group.Key, group =>
-                                    new CategoryConfig
-                                    {
-                                        CategoryActive = false,
-                                        Pins = group
-                                            .GroupBy(config => config.InternalName)
-                                            .ToDictionary(
-                                                configGroup => configGroup.Key,
-                                                configGroup => configGroup.First()
-                                            )
-                                    }
-                                );
-                            if (missingConfigs.Count > 0)
-                                AutoMapPinsPlugin.FileIO.WriteFile(filePathCategories, missingConfigs);
-                            else
-                                AutoMapPinsPlugin.Log.LogWarning(
-                                    "could not print any configs, since no config was recorded during game play.");
+                        case WriteMissingConfigsOption:
+                            WriteMissingConfigs();
                             break;
                     }
                 }
@@ -67,12 +51,34 @@ internal class ConsolePatches
                         $" {ClearPins} --> will remove all pins from map (use this in case the mod went crazy " +
                         $"and created too many pins before ;)");
                     __instance.Print(
-                        $" {PrintPinsWithMissingConfigs} --> will print all pins not yet configured to yaml file");
+                        $" {WriteMissingConfigsOption} --> will write all objects without config to a yaml file");
                 }
             }),
             optionsFetcher: (Terminal.ConsoleOptionsFetcher)OptionFetcher
         );
     }
 
-    private static List<string> OptionFetcher() => new() { PrintPinsWithMissingConfigs, ClearPins };
+    private static void WriteMissingConfigs()
+    {
+        Dictionary<string, Config.Category> missingConfigs = Registry.MissingConfigs
+            .Select(config => new KeyValuePair<string, string>("category", config))
+            .GroupBy(kv => kv.Key)
+            .ToDictionary(group => group.Key, group =>
+                new Config.Category
+                {
+                    CategoryActive = false,
+                    Pins = group
+                        .Select(kv => kv.Value)
+                        .OrderBy(x => x)
+                        .ToDictionary(configGroup => configGroup, _ => new Config.Pin())
+                }
+            );
+        if (missingConfigs.Count > 0)
+            AutoMapPinsPlugin.FileIO.WriteFile(AutoMapPinsPlugin.FileIO.GetSingleFile(WriteMissingConfigsOption),
+                missingConfigs);
+        else
+            Log.LogWarning("could not print any configs, since no config was recorded during game play");
+    }
+
+    private static List<string> OptionFetcher() => new() { WriteMissingConfigsOption, ClearPins };
 }

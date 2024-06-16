@@ -1,56 +1,75 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapPins.Common;
 using AutoMapPins.Model;
 
 namespace AutoMapPins.Data;
 
-public static class Registry
+public abstract class Registry : HasLogger
 {
-    internal static Dictionary<string, CategoryConfig> ConfiguredCategories = new();
-    internal static Dictionary<string, PinConfig> ConfiguredPins = new();
-    internal static readonly List<PinConfig> MissingConfigs = new();
-    private static readonly List<PinComponentGroup> AllGroups = new();
+    internal static Dictionary<string, Config.Pin> ConfiguredPins = new();
+    private static HashSet<string> ConfiguredObjects = new();
+    internal static readonly HashSet<string> MissingConfigs = new();
 
-    internal static void InitializeRegistry(Dictionary<string, CategoryConfig> configuredCategories)
+    internal static void InitializeRegistry(Dictionary<string, Config.Category> newConfiguredCategories)
     {
-        ConfiguredCategories = configuredCategories;
-        ConfiguredPins = ConfiguredCategories
-            .Select(categories => categories.Value.Pins)
-            .SelectMany(x => x)
-            .GroupBy(kv => kv.Key)
-            .ToDictionary(kv => kv.Key, group => group.First().Value);
-
-        AutoMapPinsPlugin.Log.LogInfo(
-            $"loaded {ConfiguredCategories.Count} categories " +
-            $"and a total of {ConfiguredPins.Count} pins across all categories from configuration");
+        Log.LogDebug("initializing registry");
+        var updatePins = Map.HasPins();
+        MissingConfigs.Clear();
+        ConfiguredObjects.Clear();
+        ConfiguredPins.Clear();
+        RegisterConfiguredObjects(newConfiguredCategories);
+        ConfiguredPins = LoadActivePinConfigs(newConfiguredCategories);
+        if(updatePins) Map.UpdatePins();
+        Log.LogDebug("registry initialization successful");
     }
 
-    internal static PinComponentGroup GetOrCreatePinGroup(PinComponent pin)
+    private static void RegisterConfiguredObjects(Dictionary<string, Config.Category> newConfiguredCategories)
     {
-        var group = AllGroups.FirstOrDefault(group => group.Accepts(pin));
-        if (group == null)
-        {
-            group = new PinComponentGroup(pin.Config);
-            AllGroups.Add(group);
-        }
+        List<string> objectNames = newConfiguredCategories
+            .SelectMany(categories => categories.Value.Pins)
+            .Select(pin => pin.Key).ToList();
 
-        return group;
+        ConfiguredObjects = objectNames.Distinct().ToHashSet();
+
+        Dictionary<string, int> duplicatedConfigs = objectNames
+            .GroupBy(name => name)
+            .ToDictionary(group => group.Key, group => group.Count())
+            .Where(kv => kv.Value > 1)
+            .ToDictionary(kv => kv.Key, kv => kv.Value);
+
+        if (duplicatedConfigs.Count <= 0) return;
+        Log.LogWarning("found duplicates in configured game objects:");
+        foreach (var config in duplicatedConfigs)
+            AutoMapPinsPlugin.Log.LogWarning($"name '{config.Key}' has '{config.Value}' entries in config");
+
+        Log.LogWarning(
+            "duplicates are not allowed, only first entry will be used, please check and fix the config files");
     }
 
-    internal static void AddMissingConfig(PinConfig config)
+    private static Dictionary<string, Config.Pin> LoadActivePinConfigs(
+        Dictionary<string, Config.Category> newConfiguredCategories)
     {
-        if (AutoMapPinsPlugin.PrefabDiscoveryEnabled.Value &&
-            !MissingConfigs.Exists(missingConfig =>
-                missingConfig.CategoryName == config.CategoryName &&
-                missingConfig.InternalName == config.InternalName
-            )
-           )
-        {
-            MissingConfigs.Add(config);
-            if (!AutoMapPinsPlugin.SilentDiscoveryEnabled.Value)
-                AutoMapPinsPlugin.Log.LogWarning(
-                    $"no configuration found for config {config.InternalName} " +
-                    $"and category {config.CategoryName} - run console amp command and add config");
-        }
+        Dictionary<string, Config.Pin> activePinConfigs = newConfiguredCategories
+            .Where(category => category.Value.CategoryActive)
+            .SelectMany(x => x.Value.Pins)
+            .Where(pin => pin.Value.IsActive)
+            .ToDictionary(kv => kv.Key, kv => kv.Value);
+        Log.LogInfo($"loaded '{activePinConfigs.Count}' configs for active pins");
+        return activePinConfigs;
+    }
+
+    internal static void AddMissingConfig(string internalName)
+    {
+        if (
+            !AutoMapPinsPlugin.PrefabDiscoveryEnabled.Value ||
+            !ConfiguredObjects.Contains(internalName) ||
+            !MissingConfigs.Add(internalName)
+        ) return;
+        if (!AutoMapPinsPlugin.SilentDiscoveryEnabled.Value)
+            Log.LogWarning(
+                $"discovered new game object named '{internalName}' that has no configuration" +
+                " - run console amp command and add config"
+            );
     }
 }

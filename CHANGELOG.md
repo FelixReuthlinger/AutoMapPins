@@ -1,11 +1,21 @@
-* 1.3.1 -> 
-  * Updated for Ashlands Valheim version 0.218.15
-  * Added new pin configs for Ashlands objects 
-* 1.3.0 -> 
-  * compiled for latest Valheim version 0.217.38
-  * fixed some server sync issue
-  * often requested feature added : check if the map is already explored at the area of an object before adding
-    the pin => only on explored map it will show pins
+* 2.0.0 ->
+    * Complete rework of the most logic and config parts
+    * BEWARE: to use this new version, you will need to create new config files according to the changes, see mod
+      description
+    * Added maximum height to auto map objects to .cfg (but you do not want to change that, believe me)
+    * Changed the default grouping distance to 30
+    * **NEW** features:
+        * **COLORFUL PINS**!!!1111... some people requested it, I don't know if those provide really much value, but now
+          you can use colors in configs
+        * **Update config -> updates pins in game** - requested many times via different reports
+* 1.3.1 ->
+    * Updated for Ashlands Valheim version 0.218.15
+    * Added new pin configs for Ashlands objects
+* 1.3.0 ->
+    * compiled for latest Valheim version 0.217.38
+    * fixed some server sync issue
+    * often requested feature added : check if the map is already explored at the area of an object before adding
+      the pin => only on explored map it will show pins
 * 1.2.3 -> updated server sync and compiled against 0.217.30
 * 1.2.2 -> updated server sync and compiled against 0.217.24
 * 1.2.1 -> fixed double initiating commands
