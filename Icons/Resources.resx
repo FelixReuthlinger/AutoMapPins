@@ -256,4 +256,7 @@
   <data name="Village48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>png\Village48.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="AMP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>png\AMP.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -151,6 +151,7 @@
         <Content Include="Icons\png\Hay48.png" />
         <Content Include="Icons\png\Herb.png" />
         <Content Include="Icons\png\Herb48.png" />
+        <Content Include="Icons\png\AMP.png" />
         <Content Include="Icons\png\Island.png" />
         <Content Include="Icons\png\Island48.png" />
         <Content Include="Icons\png\Mine.png" />

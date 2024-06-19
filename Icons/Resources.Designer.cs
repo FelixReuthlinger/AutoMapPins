@@ -62,6 +62,16 @@ namespace AutoMapPins.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] AMP {
+            get {
+                object obj = ResourceManager.GetObject("AMP", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Axe {
             get {
                 object obj = ResourceManager.GetObject("Axe", resourceCulture);

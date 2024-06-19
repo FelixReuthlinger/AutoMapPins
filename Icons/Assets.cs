@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Resources = AutoMapPins.Properties.Resources;
 
@@ -10,6 +11,7 @@ internal abstract class Assets
 
     private static readonly Dictionary<string, Sprite> Icons = new()
     {
+        { "amp", LoadSpriteFromTexture(Resources.AMP) },
         { "axe", LoadSpriteFromTexture(Resources.Axe) },
         { "axe48", LoadSpriteFromTexture(Resources.Axe48) },
         { "berry", LoadSpriteFromTexture(Resources.Berry) },

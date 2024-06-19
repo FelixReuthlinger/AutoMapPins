@@ -8,6 +8,8 @@
         * **COLORFUL PINS**!!!1111... some people requested it, I don't know if those provide really much value, but now
           you can use colors in configs
         * **Update config -> updates pins in game** - requested many times via different reports
+        * game object discovery mode improved (needs to be activated in .cfg), will print also player messages for new
+          objects, print only once per new object
 * 1.3.1 ->
     * Updated for Ashlands Valheim version 0.218.15
     * Added new pin configs for Ashlands objects

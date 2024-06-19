@@ -82,12 +82,12 @@ namespace AutoMapPins
 
             Assembly assembly = Assembly.GetExecutingAssembly();
             _harmony.PatchAll(assembly);
-            if (PrefabDiscoveryEnabled.Value) Log.LogInfo("loaded mod with game object discovery enabled");
+            LogUsageMode();
         }
 
         internal static void ReadYamlFileContent(object? _, FileSystemEventArgs? __)
         {
-            Log.LogInfo("loading pin configs from files");
+            Log.LogInfo("loading pin configs from yaml files");
             _categoryPinsConfigFilesContent.Value = FileIO.ReadConfigFiles();
         }
 
@@ -110,7 +110,19 @@ namespace AutoMapPins
 
         private void ReloadConfig(object? _, FileSystemEventArgs? __)
         {
+            Log.LogWarning($"config file '{ConfigFileName}' change registered");
             Config.Reload();
+            LogUsageMode();
+        }
+
+        private static void LogUsageMode()
+        {
+            if (PrefabDiscoveryEnabled.Value)
+                Log.LogWarning("loaded mod with game object discovery enabled, deactivate to increase performance");
+            if (!SilentDiscoveryEnabled.Value)
+                Log.LogWarning(
+                    "silent discovery mode was deactivated, this will print log each time an object without " +
+                    "config will be approached");
         }
 
         public void OnDestroy()
@@ -123,10 +135,8 @@ namespace AutoMapPins
             bool synchronizedSetting = true)
         {
             ConfigEntry<T> configEntry = _instance.Config.Bind(group, parameterName, value, description);
-
             SyncedConfigEntry<T> syncedConfigEntry = ConfigSync.AddConfigEntry(configEntry);
             syncedConfigEntry.SynchronizedConfig = synchronizedSetting;
-
             return configEntry;
         }
 

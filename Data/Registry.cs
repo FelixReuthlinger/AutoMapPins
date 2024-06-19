@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapPins.Common;
+using AutoMapPins.Icons;
 using AutoMapPins.Model;
 
 namespace AutoMapPins.Data;
@@ -20,7 +21,7 @@ public abstract class Registry : HasLogger
         ConfiguredPins.Clear();
         RegisterConfiguredObjects(newConfiguredCategories);
         ConfiguredPins = LoadActivePinConfigs(newConfiguredCategories);
-        if(updatePins) Map.UpdatePins();
+        if (updatePins) Map.UpdatePins();
         Log.LogDebug("registry initialization successful");
     }
 
@@ -61,15 +62,14 @@ public abstract class Registry : HasLogger
 
     internal static void AddMissingConfig(string internalName)
     {
-        if (
-            !AutoMapPinsPlugin.PrefabDiscoveryEnabled.Value ||
-            !ConfiguredObjects.Contains(internalName) ||
-            !MissingConfigs.Add(internalName)
-        ) return;
-        if (!AutoMapPinsPlugin.SilentDiscoveryEnabled.Value)
-            Log.LogWarning(
-                $"discovered new game object named '{internalName}' that has no configuration" +
-                " - run console amp command and add config"
-            );
+        if (!AutoMapPinsPlugin.PrefabDiscoveryEnabled.Value) return;
+        if (ConfiguredObjects.Contains(internalName)) return;
+        if (MissingConfigs.Add(internalName))
+        {
+            if (AutoMapPinsPlugin.SilentDiscoveryEnabled.Value) return;
+            Player.m_localPlayer?.Message(MessageHud.MessageType.TopLeft,
+                $"discovered object '{internalName}' that was not configured", icon: Assets.GetIcon("amp"));
+            Log.LogWarning($"discovered new game object named '{internalName}' that has no configuration");
+        }
     }
 }
