@@ -94,21 +94,38 @@ internal class YamlFileStorage : HasLogger
             .GroupBy(kv => kv.Key)
             .ToDictionary(group => group.Key, group =>
             {
-                bool active = group.All(cat => cat.Value.CategoryActive);
-                Dictionary<string, Config.Pin> pins = new();
+                bool active = group.All(cat => cat.Value.IsActive);
+                bool isPermanent = group.All(cat => cat.Value.IsPermanent);
+                bool groupable = group.All(cat => cat.Value.Groupable);
+                float groupingDistance = group.Min(cat => cat.Value.GroupingDistance);
+                string? iconName = group.First().Value.IconName;
+                string? name = group.First().Value.Name;
+                Config.PinColor? color = group.First().Value.IconColorRGBA;
+                Dictionary<string, Config.Pin> individualPins = new();
+                List<string> categoryPins = new();
                 foreach (Config.Category categoryConfig in group.Select(category => category.Value))
                 {
-                    pins = pins.Concat(categoryConfig.Pins)
-                        .GroupBy(pin => pin.Key)
-                        .ToDictionary(pinGroup => pinGroup.Key,
-                            pinGroup => pinGroup.First().Value
-                        );
+                    if (categoryConfig.IndividualConfiguredObjects != null)
+                        individualPins = individualPins.Concat(categoryConfig.IndividualConfiguredObjects)
+                            .GroupBy(pin => pin.Key)
+                            .ToDictionary(pinGroup => pinGroup.Key,
+                                pinGroup => pinGroup.First().Value
+                            );
+                    if (categoryConfig.CategoryConfiguredObjects != null)
+                        categoryPins = categoryPins.Concat(categoryConfig.CategoryConfiguredObjects).ToList();
                 }
 
                 return new Config.Category
                 {
-                    CategoryActive = active,
-                    Pins = pins
+                    Name = name,
+                    IsActive = active,
+                    IsPermanent = isPermanent,
+                    Groupable = groupable,
+                    GroupingDistance = groupingDistance,
+                    IconName = iconName,
+                    IconColorRGBA = color,
+                    IndividualConfiguredObjects = individualPins,
+                    CategoryConfiguredObjects = categoryPins
                 };
             });
     }

@@ -8,13 +8,14 @@ internal static class Constants
 {
     internal const float DefaultGroupingDistance = 30.0f;
     internal const string NoConfig = "n_a";
-    internal static readonly Config.PinColor WhiteColor = new() { Red = 1f, Blue = 1f, Green = 1f, Alpha = 1f };
     private static readonly Regex CloneRegex = new(@"\(Clone\)");
-    internal static readonly Regex CountedPinRegex = new(@"[\d ]*");
+    private static readonly Regex DuplicateRegex = new(@"[ ]*\([\d]*\)");
     
 
     internal static string ParseInternalName(string instanceName)
     {
-        return CloneRegex.Replace(instanceName, "");
+        string nameWithoutClone = CloneRegex.Replace(instanceName, "");
+        string nameWithoutDuplicationNumber = DuplicateRegex.Replace(nameWithoutClone, "");
+        return nameWithoutDuplicationNumber;
     }
 }

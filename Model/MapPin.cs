@@ -29,7 +29,7 @@ public class MapPin : Minimap.PinData
     internal void ApplyConfigUpdate(Config.Pin config)
     {
         Config = config;
-        m_icon = Assets.GetIcon(Config.IconName);
+        if (Config.IconName != null) m_icon = Assets.GetIcon(Config.IconName);
         m_save = Config.IsPermanent;
         m_NamePinData?.DestroyMapMarker();
         m_NamePinData = new Minimap.PinNameData(this);

@@ -9,7 +9,8 @@ internal static class CommonPatchLogic
 {
     internal static void Patch(GameObject gameObject)
     {
-        gameObject.AddComponent<PinComponent>();
+        if (gameObject.transform.position.y < AutoMapPinsPlugin.MaxDetectionHeight.Value)
+            gameObject.AddComponent<PinComponent>();
     }
 }
 

@@ -66,11 +66,13 @@ internal class ConsolePatches : HasLogger
             .ToDictionary(group => group.Key, group =>
                 new Config.Category
                 {
-                    CategoryActive = false,
-                    Pins = group
+                    IsActive = false,
+                    IndividualConfiguredObjects = new Dictionary<string, Config.Pin>
+                        { { "example", new Config.Pin() } },
+                    CategoryConfiguredObjects = group
                         .Select(kv => kv.Value)
                         .OrderBy(x => x)
-                        .ToDictionary(configGroup => configGroup, _ => new Config.Pin())
+                        .ToList()
                 }
             );
         if (missingConfigs.Count > 0)

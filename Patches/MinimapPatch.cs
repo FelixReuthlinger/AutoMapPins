@@ -5,6 +5,7 @@ using AutoMapPins.Icons;
 using AutoMapPins.Model;
 using HarmonyLib;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace AutoMapPins.Patches;
 
@@ -26,7 +27,7 @@ internal class MinimapPatch : HasLogger
             else
             {
                 pin.m_save = !config.IsPermanent;
-                pin.m_icon = Assets.GetIcon(config.IconName);
+                if (config.IconName != null) pin.m_icon = Assets.GetIcon(config.IconName);
             }
         }
 
@@ -45,7 +46,7 @@ internal class MinimapPatch : HasLogger
                 Registry.ConfiguredPins.TryGetValue(myPin.InternalName, out Config.Pin config)
             )
             {
-                var color = config.IconColorRGBA.FromConfig();
+                Color color = config.IconColorRGBA?.FromConfig() ?? Color.white;
                 pin.m_iconElement.color = color;
                 pin.m_NamePinData.PinNameText.color = color;
             }

@@ -2,14 +2,22 @@
     * Complete rework of the most logic and config parts
     * BEWARE: to use this new version, you will need to create new config files according to the changes, see mod
       description
-    * Added maximum height to auto map objects to .cfg (but you do not want to change that, believe me)
-    * Changed the default grouping distance to 30
+    * Changes:
+        * Added maximum height to auto map objects to .cfg (but you do not want to change that, believe me)
+        * Changed the default grouping distance to 30
     * **NEW** features:
         * **COLORFUL PINS**!!!1111... some people requested it, I don't know if those provide really much value, but now
           you can use colors in configs
         * **Update config -> updates pins in game** - requested many times via different reports
         * game object discovery mode improved (needs to be activated in .cfg), will print also player messages for new
           objects, print only once per new object
+    * **NEW** way to configure the mod:
+      * new way to configure a whole category (without repeating many values)
+      * new way to configure lists of objects, without individual changes per category
+      * kind-of old way to configure individual objects in the category
+      * now the mod uses Valheim game object 'name' field contents to identify pins, not parsing it too wild anymore,
+        just removing the "(Clone)" and " (123)" suffixes
+      * ... too much detail, please read the mod readme :)
 * 1.3.1 ->
     * Updated for Ashlands Valheim version 0.218.15
     * Added new pin configs for Ashlands objects
