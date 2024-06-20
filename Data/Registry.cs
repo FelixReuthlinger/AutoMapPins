@@ -81,8 +81,7 @@ public abstract class Registry : HasLogger
         {
             if (category.Value.IndividualConfiguredObjects == null) continue;
             foreach (var configuredObject in category.Value.IndividualConfiguredObjects)
-                individualConfiguredTotal.Add(
-                    (configuredObject.Value.Name ?? category.Value.Name) ?? Constants.NoConfig);
+                individualConfiguredTotal.Add(configuredObject.Key ?? Constants.NoConfig);
         }
 
         var configuredTotal = categoryConfiguredTotal.Concat(individualConfiguredTotal).ToList();

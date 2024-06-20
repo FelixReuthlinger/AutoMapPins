@@ -1,3 +1,6 @@
+* 2.0.1 ->
+  * fixed duplication warning using configured name instead of the object name for individual configs
+  * added some more missing objects detected
 * 2.0.0 ->
     * Complete rework of the most logic and config parts
     * BEWARE: to use this new version, you will need to create new config files according to the changes, see mod
