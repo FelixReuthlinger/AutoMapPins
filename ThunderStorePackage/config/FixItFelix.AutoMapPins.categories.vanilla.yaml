@@ -65,11 +65,16 @@ ores:
       groupable: true
   isActive: true
   iconName: mine
+  iconColorRGBA:
+    red: 200
+    green: 150
+    blue: 115
+    alpha: 255
 tarpits:
   categoryConfiguredObjects:
-  - TarPit1
-  - TarPit2
-  - TarPit3
+    - TarPit1
+    - TarPit2
+    - TarPit3
   name: Tar
   isActive: true
   iconName: mine
@@ -94,6 +99,11 @@ runestones:
     - Runestone_Swamps
   isActive: true
   iconName: rune
+  iconColorRGBA:
+    red: 0
+    green: 220
+    blue: 255
+    alpha: 255
 mushrooms:
   categoryConfiguredObjects:
     - Pickable_Mushroom
@@ -232,6 +242,11 @@ spawners:
       isActive: true
   isActive: true
   iconName: spawner
+  iconColorRGBA:
+    red: 255
+    green: 100
+    blue: 0
+    alpha: 255
 boss_spawners:
   categoryConfiguredObjects:
     - Eikthyrnir

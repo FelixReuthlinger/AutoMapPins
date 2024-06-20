@@ -62,9 +62,7 @@ internal abstract class Assets
 
     internal static Sprite GetIcon(string iconName)
     {
-        if (Icons.TryGetValue(iconName, out Sprite result))
-            return result;
-
+        if (Icons.TryGetValue(iconName, out Sprite result)) return result;
         return DefaultIcon;
     }
 

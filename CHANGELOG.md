@@ -1,3 +1,8 @@
+* 2.1.0 ->
+  * changed from Unity color system (using float 0.0 to 1.0) to usual RGB values (0 to 255) 
+  * writing "example" object for individual configs also with an example for icon color
+  * added console command "print_effective_config" to print the effective config of an object to console
+  * added some color examples to default configs
 * 2.0.1 ->
   * fixed duplication warning using configured name instead of the object name for individual configs
   * added some more missing objects detected

@@ -42,6 +42,11 @@ various in-game objects.
 * If you play with objects beyond the vanilla ones, you might need to create your own configuration file, the following
   sections will explain how to.
 
+### Debugging effective configuration
+
+There is a console command 'print_effective_config' to print the effective config of (only active) configs. This can be
+used to help debugging what actually was loaded.
+
 ### Config data model
 
 * all category and pin configuration is provided using YAML files
@@ -67,9 +72,8 @@ Config options per object:
 
 1. "name" -> the name shown on map, can be omitted to not show a name
 2. "iconName" -> the name of the icon to use, see available icons in the respective section of this readme
-3. "iconColorRGBA" -> contains the fields "red", "green", "blue", and "alpha"; the values need to be set as float type (
-   so 1.0 is full color 0.0 is no color on this channel, 1.0 is like 255 as you might know this from other programs);
-   alpha sets the intensity of the color
+3. "iconColorRGBA" -> contains the fields "red", "green", "blue", and "alpha"; the values need to be set as int type (
+   per channel, from 0 to 255, where 255 is full color); alpha sets the intensity of the color (also 0 to 255)
 4. "isPermanent" -> pins with this flag set to true (default false) will not be removed when the player walks away from
    the area, and they will be persisted in the player save file
 5. "isActive" -> activates the mod to use the config for this pin if set to true (default false)
@@ -100,10 +104,10 @@ crypt:
   isPermanent: true
   iconName: dungeon
   iconColorRGBA:
-    red: 0.5
-    green: 1.0
-    blue: 1.0
-    alpha: 0.8
+    red: 120
+    green: 255
+    blue: 255
+    alpha: 200
 ```
 
 ##### Yaml internal name parsing

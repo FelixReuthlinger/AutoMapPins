@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapPins.Common;
 using AutoMapPins.Data;
@@ -12,9 +13,13 @@ namespace AutoMapPins.Patches;
 internal class ConsolePatches : HasLogger
 {
     private const string WriteMissingConfigsOption = "write_missing_configs_file";
+    private const string PrintEffectiveConfig = "print_effective_config";
     private const string ClearPins = "clear_pins";
 
     private const string ClearAllMessage = "cleared all pins from map";
+
+    private const string PrintEffectiveConfigRequiredNameMessage =
+        "for printing the effective config of an object, please provide the object name as argument to the command";
 
     [UsedImplicitly]
     private static void Postfix(Console __instance)
@@ -38,24 +43,51 @@ internal class ConsolePatches : HasLogger
                             }
 
                             break;
+                        case PrintEffectiveConfig:
+                            if (consoleEventArgs.Args.Length < 3)
+                            {
+                                __instance.Print(PrintEffectiveConfigRequiredNameMessage);
+                                break;
+                            }
+
+                            var objectName = consoleEventArgs.Args[2];
+                            if (!String.IsNullOrEmpty(objectName) &&
+                                Registry.ConfiguredPins.TryGetValue(objectName, out Config.Pin config))
+                            {
+                                __instance.Print($"{objectName}:");
+                                __instance.Print("  " + config.ToString().Replace("\n", "\n  "));
+                            }
+                            else __instance.Print($"no config found for object name '{objectName}'");
+
+
+                            break;
                         case WriteMissingConfigsOption:
                             WriteMissingConfigs();
                             break;
+                        default:
+                            PrintUsage(__instance);
+                            break;
                     }
                 }
-                else
-                {
-                    __instance.Print(
-                        "Auto Map Pins (amp) console commands - use 'amp' followed by one of the following options");
-                    __instance.Print(
-                        $" {ClearPins} --> will remove all pins from map (use this in case the mod went crazy " +
-                        $"and created too many pins before ;)");
-                    __instance.Print(
-                        $" {WriteMissingConfigsOption} --> will write all objects without config to a yaml file");
-                }
+                else PrintUsage(__instance);
             }),
             optionsFetcher: (Terminal.ConsoleOptionsFetcher)OptionFetcher
         );
+    }
+
+    private static void PrintUsage(Console __instance)
+    {
+        __instance.Print(
+            "Auto Map Pins (amp) console commands - use 'amp' followed by one of the following options");
+        __instance.Print(
+            $" {ClearPins} --> will remove all pins from map (use this in case the mod went crazy " +
+            $"and created too many pins before ;)");
+        __instance.Print(
+            $" {PrintEffectiveConfig} <object name> --> replace '<object name>' with the " +
+            $"object to print the effective config for, this can be used to debug config " +
+            $"issues and config inheritance");
+        __instance.Print(
+            $" {WriteMissingConfigsOption} --> will write all objects without config to a yaml file");
     }
 
     private static void WriteMissingConfigs()
@@ -68,7 +100,12 @@ internal class ConsolePatches : HasLogger
                 {
                     IsActive = false,
                     IndividualConfiguredObjects = new Dictionary<string, Config.Pin>
-                        { { "example", new Config.Pin() } },
+                        { { "example", new Config.Pin
+                        {
+                            Name = "example name",
+                            IconName = "mine",
+                            IconColorRGBA = Config.PinColor.White
+                        } } },
                     CategoryConfiguredObjects = group
                         .Select(kv => kv.Value)
                         .OrderBy(x => x)
@@ -82,5 +119,5 @@ internal class ConsolePatches : HasLogger
             Log.LogWarning("could not print any configs, since no config was recorded during game play");
     }
 
-    private static List<string> OptionFetcher() => new() { WriteMissingConfigsOption, ClearPins };
+    private static List<string> OptionFetcher() => new() { PrintEffectiveConfig, WriteMissingConfigsOption, ClearPins };
 }

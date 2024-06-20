@@ -38,10 +38,12 @@ public abstract class Registry : HasLogger
                          category.Value.IndividualConfiguredObjects)
                 {
                     if (configuredObject.Value is not { IsActive: true }) continue;
-                    var objectFixedByCategory = configuredObject.Value;
+                    var objectFixedByCategory = configuredObject.Value!;
                     objectFixedByCategory.Name ??= category.Value.Name;
-                    objectFixedByCategory.IconName ??= category.Value.IconName;
-                    objectFixedByCategory.IconColorRGBA ??= category.Value.IconColorRGBA;
+                    objectFixedByCategory.IconName ??= category.Value.IconName ?? Constants.NoConfig;
+                    objectFixedByCategory.IconColorRGBA = objectFixedByCategory.IconColorRGBA?.ClampColor() ??
+                                                          category.Value.IconColorRGBA?.ClampColor() ??
+                                                          Config.PinColor.White;
                     activePinConfigs.Add(configuredObject.Key, objectFixedByCategory);
                 }
 
@@ -57,7 +59,7 @@ public abstract class Registry : HasLogger
                             Groupable = category.Value.Groupable,
                             GroupingDistance = category.Value.GroupingDistance,
                             IconName = category.Value.IconName,
-                            IconColorRGBA = category.Value.IconColorRGBA
+                            IconColorRGBA = category.Value.IconColorRGBA?.ClampColor() ?? Config.PinColor.White
                         });
                     else
                         Log.LogWarning(
