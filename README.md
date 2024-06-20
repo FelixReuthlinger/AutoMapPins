@@ -12,6 +12,7 @@ various in-game objects.
 * Pins created are using custom icons, see [Available icons](#available-icons)
 * Pins can be configured, see [Pin configuration](#pin-configuration)
 * Pins can be temporary (just visible when in area) or permanent (once discovered added permanently to map)
+* Pins can be configured with color as you like
 * Pin are loaded/created for game objects of Valheim types:
     * Destructible
     * Leviathan
@@ -36,6 +37,8 @@ various in-game objects.
 
 * A default configuration for vanilla objects is shipped with the mod. The setting of active categories and pins is from
   my own experience of how I prefer to play (not flood my map). But you can edit and change those as you prefer.
+    * Remark: I actually do not play vanilla Valheim much, if there is something missing or someone wants to provide
+      better configs, feel free to reach out. I am happy to also share more or different configs.
 * If you play with objects beyond the vanilla ones, you might need to create your own configuration file, the following
   sections will explain how to.
 
@@ -45,43 +48,62 @@ various in-game objects.
 
 #### YAML schema
 
-| level | field name       | replace field name | type   | description                                                                                                                                                                       |
-|-------|------------------|--------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| root  | "category name"  | yes                | string | the top most element is intended for creating "categories" of pins                                                                                                                |
-| 1     | categoryActive   | no                 | bool   | turns the category including all pins inside on (true) or off (false)                                                                                                             |
-| 1     | pins             | no                 | list   | contains the list of pins of this category                                                                                                                                        |
-| 2     | "pin name"       | yes                | string | internal name of the game object (`gameObject.name`), parsed, see [parsing](#yaml-internal-name-parsing)                                                                          |
-| 3     | categoryName     | no                 | string | name of the category this pin belongs to (copy-paste from root level)                                                                                                             |
-| 3     | internalName     | no                 | string | internal name of the game object (copy-paste from level 2)                                                                                                                        |
-| 3     | name             | no                 | string | name to show with the pin on the map, choose something short                                                                                                                      |
-| 3     | iconName         | no                 | string | name of the icon to use for displaying the pin on the map, see [icons](#available-icons)                                                                                          |
-| 3     | isPermanent      | no                 | bool   | if permanent (true), the pin will be displayed even if the player leaves the area; if not permanent (false), pin is removed when leaving the area of the pin                      |
-| 3     | isActive         | no                 | bool   | if active (true) this pin config is used, otherwise it will be ignored and pin is not displayed                                                                                   |
-| 3     | groupable        | no                 | bool   | if the pin pins something that usually comes in groups, like raspberry bushes, you can set it to true, then all objects within the distance (next field) are grouped into one pin |
-| 3     | groupingDistance | no                 | int    | distance in meter that other objects of the same config shall be taken into a group (default 15)                                                                                  |
+Some statements to explain the intent of the schema:
+
+1. The top level is the name of a category that you choose yourself to group configs and share certain settings in
+   between the pins configured inside this category.
+2. Each Category can (optional) have either or both of "individualConfiguredObjects" and "categoryConfiguredObjects",
+   and each category does have the ability to also configure values for the whole category like you can configure for
+   any individual config object entry.
+3. individualConfiguredObjects: does contain a dictionary, the key is the game object "name" field content the value is
+   the set of fields for configuration, see below.
+4. categoryConfiguredObjects: does only contain a list of game object "name" field contents that are NOT configured
+   individually, but all are only configured by any value set at category level.
+5. Many configuration options are inherited from category down to categoryConfiguredObjects (they inherit all settings)
+   and individualConfiguredObjects (they can inherit "name", "iconName" and "iconColorRGBA").
+6. Any value that is not set will either be set with some default value or be inherited if available.
+
+Config options per object:
+
+1. "name" -> the name shown on map, can be omitted to not show a name
+2. "iconName" -> the name of the icon to use, see available icons in the respective section of this readme
+3. "iconColorRGBA" -> contains the fields "red", "green", "blue", and "alpha"; the values need to be set as float type (
+   so 1.0 is full color 0.0 is no color on this channel, 1.0 is like 255 as you might know this from other programs);
+   alpha sets the intensity of the color
+4. "isPermanent" -> pins with this flag set to true (default false) will not be removed when the player walks away from
+   the area, and they will be persisted in the player save file
+5. "isActive" -> activates the mod to use the config for this pin if set to true (default false)
+6. "groupable" -> activated if set to true (default false) will enable pin grouping that will create one pin (counting
+   the number of occurrences of the same object around it in the name)
+7. "groupingDistance" -> the distance to be used to build groups of pins (default 30.0)
 
 ##### Yaml example
 
 ```yaml
-ores: # category name for all the ore nodes
-  categoryActive: true # category is active, pins will be loaded and displayed
-  pins:
-    rockcopper: # internal parsed name 
-      categoryName: ores # needs to be same as on top
-      internalName: rockcopper # needs to be same as internal parsed name
-      name: Copper # show this pin with text "Copper" on map
-      iconName: mine # use "mine" icon
-      isPermanent: true # this will be displayed even if player leaves the area
-      isActive: true # this pin will be shown
-    minerocktin:
-      categoryName: ores
-      internalName: minerocktin
-      name: Tin
-      iconName: mine
-      isPermanent: false # if tin would be shown, only when player in area
-      isActive: false # tin will not be shown
-      groupable: true # there are many tin piles sometimes, grouping active
-      groupingDistance: 15 # default to group for 15 meters
+seeds:
+  individualConfiguredObjects: # using this option will let you define individual pins, like if you want to name each of them differently, or activate grouping just for some of them
+    Pickable_SeedCarrot:
+      name: Carrot
+      isPermanent: false
+      isActive: true
+      groupable: true
+  isActive: true
+  iconName: seed
+crypt:
+  categoryConfiguredObjects: # using this option will apply same settings for all those pins
+    - Crypt2
+    - Crypt3
+    - Crypt4
+    - SunkenCrypt4
+  name: Crypt
+  isActive: true
+  isPermanent: true
+  iconName: dungeon
+  iconColorRGBA:
+    red: 0.5
+    green: 1.0
+    blue: 1.0
+    alpha: 0.8
 ```
 
 ##### Yaml internal name parsing
@@ -89,13 +111,11 @@ ores: # category name for all the ore nodes
 Rules:
 
 * removes `(Clone)`
-* removes `_`, `(`, `)`, `-`
-* removed any numbers
-* turns everything to lower case characters
+* removes `(123)`
 
-Example: in-game loaded `gameObject.name` entry like `Mistlands_DvergrTownEntrance1`
-or `Mistlands_DvergrTownEntrance1(Clone)`
-will be parsed to: `mistlandsdvergrtownentrance`
+Example: in-game loaded `gameObject.name` entry like `Mistlands_DvergrTownEntrance1 (2)`
+or `Mistlands_DvergrTownEntrance1 (Clone)`
+will be parsed to: `Mistlands_DvergrTownEntrance1`
 
 ### Create config file
 
@@ -104,7 +124,7 @@ will be parsed to: `mistlandsdvergrtownentrance`
 * Pattern for new files: `FixItFelix.AutoMapPins.categories.*.yaml` (replace "*" with your choice of name)
 * There is a mechanic provided by the mod that will record any kind of pin that has a missing config while running
   through the world.
-    * You can output all found config files using the console command `amp print_pins_missing_configs`
+    * You can output all found config files using the console command `amp write_missing_configs_file`
     * All configs created by that will have defaults set `n_a` and booleans set to `false`, change those according to
       the data model (see [data model](#config-data-model))
 
