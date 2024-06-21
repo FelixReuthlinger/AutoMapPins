@@ -75,7 +75,7 @@ internal class YamlFileStorage : HasLogger
         {
             Log.LogInfo($"found category and pin config file '{file}'");
             _yamlFiles.Add(file);
-            FileSystemWatcher watcher = new(Paths.ConfigPath, Path.GetFileName(file));
+            FileSystemWatcher watcher = new(file);
             watcher.Changed += AutoMapPinsPlugin.ReadYamlFileContent;
             watcher.Created += AutoMapPinsPlugin.ReadYamlFileContent;
             watcher.Renamed += AutoMapPinsPlugin.ReadYamlFileContent;

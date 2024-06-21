@@ -1,3 +1,6 @@
+* 2.1.2 -> 
+  * fixed .yaml file watcher to also respect sub folders
+  * added some more missing things
 * 2.1.1 ->
   * added the Flametal ore to ores
   * set runestones to be permanent
