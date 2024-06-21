@@ -81,37 +81,45 @@ ores:
     alpha: 255
 tarpits:
   categoryConfiguredObjects:
-    - TarPit1
-    - TarPit2
-    - TarPit3
+  - TarPit1
+  - TarPit2
+  - TarPit3
   name: Tar
   isActive: true
   isPermanent: true
   iconName: mine
 special:
   categoryConfiguredObjects:
-    - Hildir_camp
-    - Hildir_cave
-    - Hildir_crypt
-    - Hildir_plainsfortress
-    - Leviathan
-    - StartTemple
-    - TreasureChest_heath_hildir
-    - Vendor_BlackForest
+  - Hildir_camp
+  - Hildir_cave
+  - Hildir_crypt
+  - Hildir_plainsfortress
+  - Leviathan
+  - StartTemple
+  - TreasureChest_heath_hildir
+  - Vendor_BlackForest
+  - Player_tombstone
   isActive: false
+portals:
+  categoryConfiguredObjects:
+  - portal_stone
+  - portal_wood
+  isActive: true
+  isPermanent: true
+  iconName: portal
 runestones:
   categoryConfiguredObjects:
-    - DrakeLorestone
-    - Runestone_Ashlands
-    - Runestone_BlackForest
-    - Runestone_Boars
-    - Runestone_Draugr
-    - Runestone_Greydwarfs
-    - Runestone_Meadows
-    - Runestone_Mistlands
-    - Runestone_Mountains
-    - Runestone_Plains
-    - Runestone_Swamps
+  - DrakeLorestone
+  - Runestone_Ashlands
+  - Runestone_BlackForest
+  - Runestone_Boars
+  - Runestone_Draugr
+  - Runestone_Greydwarfs
+  - Runestone_Meadows
+  - Runestone_Mistlands
+  - Runestone_Mountains
+  - Runestone_Plains
+  - Runestone_Swamps
   isActive: false
   isPermanent: true
   iconName: rune
@@ -122,48 +130,48 @@ runestones:
     alpha: 255
 mushrooms:
   categoryConfiguredObjects:
-    - Pickable_Mushroom
-    - Pickable_Mushroom_yellow
+  - Pickable_Mushroom
+  - Pickable_Mushroom_yellow
   isActive: false
   iconName: mushroom48
 berries:
   categoryConfiguredObjects:
-    - RaspberryBush
-    - BlueberryBush
-    - CloudberryBush
+  - RaspberryBush
+  - BlueberryBush
+  - CloudberryBush
   isActive: false
   iconName: berry48
 pickables:
   categoryConfiguredObjects:
-    - Pickable_Ashstone
-    - Pickable_Barley_Wild
-    - Pickable_Branch
-    - Pickable_Charredskull
-    - Pickable_Dandelion
-    - Pickable_DragonEgg
-    - Pickable_DvergrLantern
-    - Pickable_DvergrStein
-    - Pickable_Fiddlehead
-    - Pickable_Flax_Wild
-    - Pickable_Flint
-    - Pickable_ForestCryptRemains01
-    - Pickable_ForestCryptRemains02
-    - Pickable_ForestCryptRemains03
-    - Pickable_ForestCryptRemains04
-    - Pickable_MoltenCoreStand
-    - Pickable_MountainRemains01_buried
-    - Pickable_Mushroom_JotunPuffs
-    - Pickable_Mushroom_Magecap
-    - Pickable_Pot_Shard
-    - Pickable_SeedTurnip
-    - Pickable_SmokePuff
-    - Pickable_Stone
-    - Pickable_SulfurRock
-    - Pickable_Swordpiece3
-    - Pickable_Tar
-    - Pickable_TarBig
-    - Pickable_Thistle
-    - Pickable_VoltureEgg
+  - Pickable_Ashstone
+  - Pickable_Barley_Wild
+  - Pickable_Branch
+  - Pickable_Charredskull
+  - Pickable_Dandelion
+  - Pickable_DragonEgg
+  - Pickable_DvergrLantern
+  - Pickable_DvergrStein
+  - Pickable_Fiddlehead
+  - Pickable_Flax_Wild
+  - Pickable_Flint
+  - Pickable_ForestCryptRemains01
+  - Pickable_ForestCryptRemains02
+  - Pickable_ForestCryptRemains03
+  - Pickable_ForestCryptRemains04
+  - Pickable_MoltenCoreStand
+  - Pickable_MountainRemains01_buried
+  - Pickable_Mushroom_JotunPuffs
+  - Pickable_Mushroom_Magecap
+  - Pickable_Pot_Shard
+  - Pickable_SeedTurnip
+  - Pickable_SmokePuff
+  - Pickable_Stone
+  - Pickable_SulfurRock
+  - Pickable_Swordpiece3
+  - Pickable_Tar
+  - Pickable_TarBig
+  - Pickable_Thistle
+  - Pickable_VoltureEgg
   isActive: false
   iconName: hand
 seeds:
@@ -177,19 +185,19 @@ seeds:
   iconName: seed
 crypt:
   categoryConfiguredObjects:
-    - Crypt2
-    - Crypt3
-    - Crypt4
-    - SunkenCrypt4
+  - Crypt2
+  - Crypt3
+  - Crypt4
+  - SunkenCrypt4
   name: Crypt
   isActive: true
   isPermanent: true
   iconName: dungeon
 morgenholes:
   categoryConfiguredObjects:
-    - MorgenHole1
-    - MorgenHole2
-    - MorgenHole3
+  - MorgenHole1
+  - MorgenHole2
+  - MorgenHole3
   name: Morgen
   isActive: true
   isPermanent: true
@@ -265,208 +273,208 @@ spawners:
     alpha: 255
 boss_spawners:
   categoryConfiguredObjects:
-    - Eikthyrnir
-    - GDKing
-    - Bonemass
-    - Dragonqueen
-    - GoblinKing
-    - FaderLocation
+  - Eikthyrnir
+  - GDKing
+  - Bonemass
+  - Dragonqueen
+  - GoblinKing
+  - FaderLocation
   isActive: false
 treasures:
   categoryConfiguredObjects:
-    - Pickable_DolmenTreasure
-    - TreasureChest_meadows
-    - TreasureChest_meadows_buried
-    - TreasureChest_mountains
+  - Pickable_DolmenTreasure
+  - TreasureChest_meadows
+  - TreasureChest_meadows_buried
+  - TreasureChest_mountains
   isActive: false
   iconName: treasure
 environment:
   categoryConfiguredObjects:
-    - AbandonedLogCabin02
-    - AbandonedLogCabin03
-    - AbandonedLogCabin04
-    - AshCrow
-    - AshlandRuins
-    - AshlandsBranch1
-    - AshlandsBranch2
-    - AshlandsBranch3
-    - AshlandsBush1
-    - Ashlands_Fortress_Wall_Pillar
-    - Ashlands_Fortress_Wall_PillarTop
-    - Ashlands_Fortress_Wall_PillarTopStone
-    - Ashlands_Fortress_Wall_Pillar_base
-    - Ashlands_Ruins_Wall_4x6
-    - Ashlands_Ruins_Wall_Windows_Broken_4x6
-    - Ashlands_WallBlock
-    - Ashlands_floor_large
-    - Ashlands_rock2
-    - Beech_small1
-    - Beech_small2
-    - Bush01
-    - Bush01_heath
-    - Bush02_en
-    - CharredRuins1
-    - CharredRuins2
-    - CharredRuins3
-    - CharredRuins4
-    - CharredTowerRuins1
-    - CharredTowerRuins1_dvergr
-    - CharredTowerRuins2
-    - CharredTowerRuins3
-    - Charred_altar_bellfragment
-    - CreepProp_hanging01
-    - Crow
-    - Dolmen01
-    - Dolmen02
-    - Dolmen03
-    - FernAshlands
-    - FirTree_oldLog
-    - FirTree_small
-    - FirTree_small_dead
-    - FortressRuins
-    - GoblinCamp2
-    - Grave1
-    - GraveStone_Broken_World
-    - Greydwarf_Root
-    - Greydwarf_camp1
-    - HeathRockPillar
-    - InfestedTree01
-    - Mistlands_DvergrBossEntrance1
-    - Mistlands_DvergrTownEntrance1
-    - Mistlands_DvergrTownEntrance2
-    - Mistlands_Excavation1
-    - Mistlands_Excavation2
-    - Mistlands_Excavation3
-    - Mistlands_Giant1
-    - Mistlands_Giant2
-    - Mistlands_GuardTower1_new
-    - Mistlands_GuardTower1_ruined_new
-    - Mistlands_GuardTower1_ruined_new2
-    - Mistlands_GuardTower2_new
-    - Mistlands_GuardTower3_new
-    - Mistlands_GuardTower3_ruined_new
-    - Mistlands_Harbour1
-    - Mistlands_Lighthouse1_new
-    - Mistlands_RoadPost1
-    - Mistlands_RockSpire1
-    - Mistlands_Statue1
-    - Mistlands_Statue2
-    - Mistlands_StatueGroup1
-    - Mistlands_Swords3
-    - Mistlands_Viaduct1
-    - Mistlands_Viaduct2
-    - MountainGrave01
-    - MountainGraveStone01
-    - MountainKit_brazier_blue
-    - MountainWell1
-    - RockDolmen_1
-    - RockDolmen_2
-    - RockDolmen_3
-    - RockFinger
-    - RockFingerBroken
-    - RockThumb
-    - Rock_3
-    - Rock_4
-    - Rock_4_plains
-    - Rock_7
-    - Ruin1
-    - Ruin2
-    - Ruin3
-    - Seagal
-    - ShipSetting01
-    - ShipWreck01
-    - ShipWreck02
-    - ShipWreck03
-    - StoneCircle
-    - StoneHenge1
-    - StoneHenge2
-    - StoneHenge5
-    - StoneHenge6
-    - StoneHouse3
-    - StoneHouse4
-    - StoneTower1
-    - StoneTower3
-    - StoneTowerRuins03
-    - StoneTowerRuins04
-    - StoneTowerRuins05
-    - StoneTowerRuins07
-    - StoneTowerRuins08
-    - StoneTowerRuins09
-    - StoneTowerRuins10
-    - SulfurArch
-    - SwampHut1
-    - SwampHut2
-    - SwampHut3
-    - SwampHut4
-    - SwampHut5
-    - SwampRuin1
-    - SwampRuin2
-    - SwampWell1
-    - TreasureChest_blackforest
-    - TreasureChest_charredfortress
-    - TreasureChest_heath
-    - TreasureChest_plains_stone
-    - UnstableLavaRock
-    - VineAsh
-    - Waymarker01
-    - Waymarker02
-    - WoodFarm1
-    - WoodHouse1
-    - WoodHouse10
-    - WoodHouse11
-    - WoodHouse12
-    - WoodHouse13
-    - WoodHouse2
-    - WoodHouse3
-    - WoodHouse4
-    - WoodHouse5
-    - WoodHouse6
-    - WoodHouse7
-    - WoodHouse8
-    - WoodHouse9
-    - WoodVillage1
-    - YggaShoot_small1
-    - barrell
-    - blackmarble_post01
-    - caverock_ice_stalagmite
-    - caverock_ice_stalagtite
-    - cliff_ashlands2
-    - cliff_ashlands3_Arch_1
-    - cliff_ashlands4
-    - cliff_ashlands5
-    - cliff_ashlands6
-    - cliff_ashlands7_HalfArch
-    - cliff_mistlands1
-    - cliff_mistlands2
-    - dvergrprops_barrel
-    - dvergrtown_wood_beam
-    - dvergrtown_wood_support
-    - goblin_strawpile
-    - goblin_totempole
-    - goblin_trashpile
-    - highstone
-    - highstone_frac
-    - ice1
-    - ice_rock1
-    - marker01
-    - marker02
-    - mudpile_beacon
-    - rock1_mountain
-    - rock2_heath
-    - rock2_mountain
-    - rock3_ice
-    - rock3_mountain
-    - rock4_coast
-    - rock4_forest
-    - rock4_heath
-    - rock_mistlands1
-    - shipwreck_karve_chest
-    - shrub_2
-    - shrub_2_heath
-    - stubbe
-    - trader_wagon_destructable
-    - volture_strawpile
-    - widestone
-    - widestone_frac
+  - AbandonedLogCabin02
+  - AbandonedLogCabin03
+  - AbandonedLogCabin04
+  - AshCrow
+  - AshlandRuins
+  - AshlandsBranch1
+  - AshlandsBranch2
+  - AshlandsBranch3
+  - AshlandsBush1
+  - Ashlands_Fortress_Wall_Pillar
+  - Ashlands_Fortress_Wall_PillarTop
+  - Ashlands_Fortress_Wall_PillarTopStone
+  - Ashlands_Fortress_Wall_Pillar_base
+  - Ashlands_Ruins_Wall_4x6
+  - Ashlands_Ruins_Wall_Windows_Broken_4x6
+  - Ashlands_WallBlock
+  - Ashlands_floor_large
+  - Ashlands_rock2
+  - Beech_small1
+  - Beech_small2
+  - Bush01
+  - Bush01_heath
+  - Bush02_en
+  - CharredRuins1
+  - CharredRuins2
+  - CharredRuins3
+  - CharredRuins4
+  - CharredTowerRuins1
+  - CharredTowerRuins1_dvergr
+  - CharredTowerRuins2
+  - CharredTowerRuins3
+  - Charred_altar_bellfragment
+  - CreepProp_hanging01
+  - Crow
+  - Dolmen01
+  - Dolmen02
+  - Dolmen03
+  - FernAshlands
+  - FirTree_oldLog
+  - FirTree_small
+  - FirTree_small_dead
+  - FortressRuins
+  - GoblinCamp2
+  - Grave1
+  - GraveStone_Broken_World
+  - Greydwarf_Root
+  - Greydwarf_camp1
+  - HeathRockPillar
+  - InfestedTree01
+  - Mistlands_DvergrBossEntrance1
+  - Mistlands_DvergrTownEntrance1
+  - Mistlands_DvergrTownEntrance2
+  - Mistlands_Excavation1
+  - Mistlands_Excavation2
+  - Mistlands_Excavation3
+  - Mistlands_Giant1
+  - Mistlands_Giant2
+  - Mistlands_GuardTower1_new
+  - Mistlands_GuardTower1_ruined_new
+  - Mistlands_GuardTower1_ruined_new2
+  - Mistlands_GuardTower2_new
+  - Mistlands_GuardTower3_new
+  - Mistlands_GuardTower3_ruined_new
+  - Mistlands_Harbour1
+  - Mistlands_Lighthouse1_new
+  - Mistlands_RoadPost1
+  - Mistlands_RockSpire1
+  - Mistlands_Statue1
+  - Mistlands_Statue2
+  - Mistlands_StatueGroup1
+  - Mistlands_Swords3
+  - Mistlands_Viaduct1
+  - Mistlands_Viaduct2
+  - MountainGrave01
+  - MountainGraveStone01
+  - MountainKit_brazier_blue
+  - MountainWell1
+  - RockDolmen_1
+  - RockDolmen_2
+  - RockDolmen_3
+  - RockFinger
+  - RockFingerBroken
+  - RockThumb
+  - Rock_3
+  - Rock_4
+  - Rock_4_plains
+  - Rock_7
+  - Ruin1
+  - Ruin2
+  - Ruin3
+  - Seagal
+  - ShipSetting01
+  - ShipWreck01
+  - ShipWreck02
+  - ShipWreck03
+  - StoneCircle
+  - StoneHenge1
+  - StoneHenge2
+  - StoneHenge5
+  - StoneHenge6
+  - StoneHouse3
+  - StoneHouse4
+  - StoneTower1
+  - StoneTower3
+  - StoneTowerRuins03
+  - StoneTowerRuins04
+  - StoneTowerRuins05
+  - StoneTowerRuins07
+  - StoneTowerRuins08
+  - StoneTowerRuins09
+  - StoneTowerRuins10
+  - SulfurArch
+  - SwampHut1
+  - SwampHut2
+  - SwampHut3
+  - SwampHut4
+  - SwampHut5
+  - SwampRuin1
+  - SwampRuin2
+  - SwampWell1
+  - TreasureChest_blackforest
+  - TreasureChest_charredfortress
+  - TreasureChest_heath
+  - TreasureChest_plains_stone
+  - UnstableLavaRock
+  - VineAsh
+  - Waymarker01
+  - Waymarker02
+  - WoodFarm1
+  - WoodHouse1
+  - WoodHouse10
+  - WoodHouse11
+  - WoodHouse12
+  - WoodHouse13
+  - WoodHouse2
+  - WoodHouse3
+  - WoodHouse4
+  - WoodHouse5
+  - WoodHouse6
+  - WoodHouse7
+  - WoodHouse8
+  - WoodHouse9
+  - WoodVillage1
+  - YggaShoot_small1
+  - barrell
+  - blackmarble_post01
+  - caverock_ice_stalagmite
+  - caverock_ice_stalagtite
+  - cliff_ashlands2
+  - cliff_ashlands3_Arch_1
+  - cliff_ashlands4
+  - cliff_ashlands5
+  - cliff_ashlands6
+  - cliff_ashlands7_HalfArch
+  - cliff_mistlands1
+  - cliff_mistlands2
+  - dvergrprops_barrel
+  - dvergrtown_wood_beam
+  - dvergrtown_wood_support
+  - goblin_strawpile
+  - goblin_totempole
+  - goblin_trashpile
+  - highstone
+  - highstone_frac
+  - ice1
+  - ice_rock1
+  - marker01
+  - marker02
+  - mudpile_beacon
+  - rock1_mountain
+  - rock2_heath
+  - rock2_mountain
+  - rock3_ice
+  - rock3_mountain
+  - rock4_coast
+  - rock4_forest
+  - rock4_heath
+  - rock_mistlands1
+  - shipwreck_karve_chest
+  - shrub_2
+  - shrub_2_heath
+  - stubbe
+  - trader_wagon_destructable
+  - volture_strawpile
+  - widestone
+  - widestone_frac
   isActive: false
-  
+
