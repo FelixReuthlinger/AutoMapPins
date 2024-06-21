@@ -63,6 +63,10 @@ ores:
       isPermanent: false
       isActive: false
       groupable: true
+    LeviathanLava:
+      name: Flametal
+      isPermanent: true
+      isActive: true
   isActive: true
   iconName: mine
   iconColorRGBA:
@@ -77,6 +81,7 @@ tarpits:
     - TarPit3
   name: Tar
   isActive: true
+  isPermanent: true
   iconName: mine
 special:
   categoryConfiguredObjects:
@@ -84,6 +89,9 @@ special:
     - Hildir_camp
     - Hildir_cave
     - Vendor_BlackForest
+    - Leviathan
+    - TreasureChest_heath_hildir
+    - Hildir_plainsfortress
   isActive: false
 runestones:
   categoryConfiguredObjects:
@@ -91,13 +99,15 @@ runestones:
     - Runestone_Ashlands
     - Runestone_BlackForest
     - Runestone_Boars
+    - Runestone_Draugr
     - Runestone_Greydwarfs
     - Runestone_Meadows
     - Runestone_Mistlands
     - Runestone_Mountains
     - Runestone_Plains
     - Runestone_Swamps
-  isActive: true
+  isActive: false
+  isPermanent: true
   iconName: rune
   iconColorRGBA:
     red: 0
@@ -323,7 +333,9 @@ environment:
     - FirTree_small
     - FirTree_small_dead
     - FortressRuins
+    - goblin_strawpile
     - goblin_totempole
+    - goblin_trashpile
     - GoblinCamp2
     - Grave1
     - GraveStone_Broken_World
@@ -334,7 +346,6 @@ environment:
     - ice_rock1
     - ice1
     - InfestedTree01
-    - LeviathanLava
     - marker01
     - marker02
     - Mistlands_DvergrBossEntrance1
@@ -411,7 +422,9 @@ environment:
     - SwampHut3
     - SwampHut4
     - SwampHut5
+    - SwampRuin1
     - SwampRuin2
+    - SwampWell1
     - TreasureChest_blackforest
     - TreasureChest_charredfortress
     - TreasureChest_heath

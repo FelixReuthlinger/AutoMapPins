@@ -1,3 +1,7 @@
+* 2.1.1 ->
+  * added the Flametal ore to ores
+  * set runestones to be permanent
+  * added some more missing things
 * 2.1.0 ->
   * changed from Unity color system (using float 0.0 to 1.0) to usual RGB values (0 to 255) 
   * writing "example" object for individual configs also with an example for icon color
