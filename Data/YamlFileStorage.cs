@@ -70,16 +70,13 @@ internal class YamlFileStorage : HasLogger
 
     private void FindConfigFiles(string fileInfix = "categories")
     {
-        foreach (string file in Directory.GetFiles(Paths.ConfigPath, GetModFilePattern(fileInfix),
+        foreach (string fileString in Directory.GetFiles(Paths.ConfigPath, GetModFilePattern(fileInfix),
                      SearchOption.AllDirectories))
         {
-            Log.LogInfo($"found category and pin config file '{file}'");
-            _yamlFiles.Add(file);
-            FileSystemWatcher watcher = new(file);
+            Log.LogInfo($"found category and pin config file '{fileString}'");
+            _yamlFiles.Add(fileString);
+            FileSystemWatcher watcher = new(Path.GetDirectoryName(fileString)!, Path.GetFileName(fileString));
             watcher.Changed += AutoMapPinsPlugin.ReadYamlFileContent;
-            watcher.Created += AutoMapPinsPlugin.ReadYamlFileContent;
-            watcher.Renamed += AutoMapPinsPlugin.ReadYamlFileContent;
-            watcher.IncludeSubdirectories = true;
             watcher.SynchronizingObject = ThreadingHelper.SynchronizingObject;
             watcher.EnableRaisingEvents = true;
         }

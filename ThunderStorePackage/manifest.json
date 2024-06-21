@@ -1,6 +1,6 @@
 {
   "name": "AutoMapPins",
-  "version_number": "2.1.2",
+  "version_number": "2.1.3",
   "website_url": "https://github.com/FelixReuthlinger/AutoMapPins",
   "description": "Radar like scanner for area around the player, will create pins on map. Highly configurable.",
   "dependencies": [

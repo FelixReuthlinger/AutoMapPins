@@ -1,4 +1,4 @@
-* 2.1.2 -> 
+* 2.1.2 & .3 -> 
   * fixed .yaml file watcher to also respect sub folders
   * added some more missing things
 * 2.1.1 ->
