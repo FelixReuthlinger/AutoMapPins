@@ -86,6 +86,7 @@ internal class YamlFileStorage : HasLogger
         Dictionary<string, string> configFileContents)
     {
         return configFileContents
+            .Where(kv => !String.IsNullOrEmpty(kv.Value) || !String.IsNullOrWhiteSpace(kv.Value))
             .Select(kv => DeserializeFile(fileName: kv.Key, fileContent: kv.Value))
             .SelectMany(x => x)
             .GroupBy(kv => kv.Key)

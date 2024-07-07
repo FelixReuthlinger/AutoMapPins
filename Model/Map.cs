@@ -9,7 +9,7 @@ namespace AutoMapPins.Model;
 internal abstract class Map : HasLogger
 {
     private static readonly Dictionary<int, MapPin> AllPins = new();
-    
+
     internal static void CreatePin(GameObject objectToPin)
     {
         int instanceID = objectToPin.GetInstanceID();
@@ -42,22 +42,27 @@ internal abstract class Map : HasLogger
         if (!AllPins.TryGetValue(instanceID, out MapPin pin)) return; // pin not known
         if (!pin.RemoveObjectFromPin(instanceID))
         {
-            if(!pin.Config.IsPermanent) Minimap.instance?.RemovePin(pin);
+            if (!pin.Config.IsPermanent) Minimap.instance?.RemovePin(pin);
         }
+
         AllPins.Remove(instanceID);
     }
 
     internal static void UpdatePins()
     {
         Log.LogInfo("updating pins");
-        HashSet<int>? activeInstanceIds = ZNetScene.instance?.m_instances
-            .Select(instance => instance.Value.gameObject.GetInstanceID()).ToHashSet();
+        // TODO maybe add this later
+        // HashSet<int>? activeInstanceIds = ZNetScene.instance?.m_instances
+        //     .Select(instance => instance.Value.gameObject.GetInstanceID()).ToHashSet();
+        var pinsToRemove = new List<int>();
         foreach (var pin in AllPins)
         {
             if (Registry.ConfiguredPins.TryGetValue(pin.Value.InternalName, out Config.Pin config))
                 pin.Value.ApplyConfigUpdate(config);
-            else RemovePin(pin.Key);
+            else pinsToRemove.Add(pin.Key);
         }
+
+        foreach (var instanceId in pinsToRemove) RemovePin(instanceId);
     }
 
     internal static bool HasPins()
@@ -69,7 +74,7 @@ internal abstract class Map : HasLogger
     {
         AllPins.Clear();
     }
-    
+
     internal static float HorizontalDistance(Vector3 a, Vector3 b)
     {
         return Vector2.Distance(new Vector2(a.x, a.z), new Vector2(b.x, b.z));

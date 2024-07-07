@@ -1,3 +1,6 @@
+* 2.1.5 ->
+  * fixed https://github.com/FelixReuthlinger/AutoMapPins/issues/33 
+  * fixed exception caused by empty config files
 * 2.1.4 ->
   * added portals
 * 2.1.2 & .3 -> 
