@@ -12,6 +12,7 @@ various in-game objects.
 * Pins created are using custom icons, see [Available icons](#available-icons)
 * Pins can be configured, see [Pin configuration](#pin-configuration)
 * Pins can be temporary (just visible when in area) or permanent (once discovered added permanently to map)
+  * Permanent pins needs to be removed manually, so think twice about using this too widely
 * Pins can be configured with color as you like
 * Pin are loaded/created for game objects of Valheim types:
     * Destructible

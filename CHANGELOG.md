@@ -1,23 +1,31 @@
+* 2.2.0 ->
+    * reworked uniqueness logic, since Unity object IDs turned out to not be stable -> now there should not be duplicate
+      pins for the same object anymore
+    * deactivated tin per default
+    * deactivated portals per default
+    * added a comment in the readme that you need to delete permanent pins manually, to make it clear that even a
+      destroyed object will not remove the permanent pin
+    * excluded AMP pins from being shared to map table
 * 2.1.5 ->
-  * fixed https://github.com/FelixReuthlinger/AutoMapPins/issues/33 
-  * fixed exception caused by empty config files
+    * fixed https://github.com/FelixReuthlinger/AutoMapPins/issues/33
+    * fixed exception caused by empty config files
 * 2.1.4 ->
-  * added portals
-* 2.1.2 & .3 -> 
-  * fixed .yaml file watcher to also respect sub folders
-  * added some more missing things
+    * added portals
+* 2.1.2 & .3 ->
+    * fixed .yaml file watcher to also respect sub folders
+    * added some more missing things
 * 2.1.1 ->
-  * added the Flametal ore to ores
-  * set runestones to be permanent
-  * added some more missing things
+    * added the Flametal ore to ores
+    * set runestones to be permanent
+    * added some more missing things
 * 2.1.0 ->
-  * changed from Unity color system (using float 0.0 to 1.0) to usual RGB values (0 to 255) 
-  * writing "example" object for individual configs also with an example for icon color
-  * added console command "print_effective_config" to print the effective config of an object to console
-  * added some color examples to default configs
+    * changed from Unity color system (using float 0.0 to 1.0) to usual RGB values (0 to 255)
+    * writing "example" object for individual configs also with an example for icon color
+    * added console command "print_effective_config" to print the effective config of an object to console
+    * added some color examples to default configs
 * 2.0.1 ->
-  * fixed duplication warning using configured name instead of the object name for individual configs
-  * added some more missing objects detected
+    * fixed duplication warning using configured name instead of the object name for individual configs
+    * added some more missing objects detected
 * 2.0.0 ->
     * Complete rework of the most logic and config parts
     * BEWARE: to use this new version, you will need to create new config files according to the changes, see mod
@@ -32,12 +40,12 @@
         * game object discovery mode improved (needs to be activated in .cfg), will print also player messages for new
           objects, print only once per new object
     * **NEW** way to configure the mod:
-      * new way to configure a whole category (without repeating many values)
-      * new way to configure lists of objects, without individual changes per category
-      * kind-of old way to configure individual objects in the category
-      * now the mod uses Valheim game object 'name' field contents to identify pins, not parsing it too wild anymore,
-        just removing the "(Clone)" and " (123)" suffixes
-      * ... too much detail, please read the mod readme :)
+        * new way to configure a whole category (without repeating many values)
+        * new way to configure lists of objects, without individual changes per category
+        * kind-of old way to configure individual objects in the category
+        * now the mod uses Valheim game object 'name' field contents to identify pins, not parsing it too wild anymore,
+          just removing the "(Clone)" and " (123)" suffixes
+        * ... too much detail, please read the mod readme :)
 * 1.3.1 ->
     * Updated for Ashlands Valheim version 0.218.15
     * Added new pin configs for Ashlands objects

@@ -119,9 +119,9 @@
           <DesignTime>True</DesignTime>
           <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-        <Compile Include="Model\Map.cs" />
         <Compile Include="Model\MapPin.cs" />
         <Compile Include="Model\PinComponent.cs" />
+        <Compile Include="Model\PositionedObject.cs" />
         <Compile Include="Patches\AllCreatePinPatches.cs" />
         <Compile Include="Patches\ConsolePatch.cs" />
         <Compile Include="Patches\MinimapPatch.cs" />

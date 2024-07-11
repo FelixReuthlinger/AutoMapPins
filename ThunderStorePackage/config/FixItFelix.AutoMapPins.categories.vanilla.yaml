@@ -7,7 +7,7 @@ ores:
     MineRock_Tin:
       name: Tin
       isPermanent: false
-      isActive: true
+      isActive: false
       groupable: true
     MineRock_Obsidian:
       name: Obsidian
@@ -104,7 +104,7 @@ portals:
   categoryConfiguredObjects:
   - portal_stone
   - portal_wood
-  isActive: true
+  isActive: false
   isPermanent: true
   iconName: portal
 runestones:

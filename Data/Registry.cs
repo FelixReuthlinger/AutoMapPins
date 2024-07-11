@@ -2,7 +2,7 @@
 using System.Linq;
 using AutoMapPins.Common;
 using AutoMapPins.Icons;
-using AutoMapPins.Model;
+using AutoMapPins.Patches;
 
 namespace AutoMapPins.Data;
 
@@ -15,13 +15,12 @@ public abstract class Registry : HasLogger
     internal static void InitializeRegistry(Dictionary<string, Config.Category> newConfiguredCategories)
     {
         Log.LogDebug("initializing registry");
-        var updatePins = Map.HasPins();
         MissingConfigs.Clear();
         ConfiguredObjects.Clear();
         ConfiguredPins.Clear();
         ConfiguredPins = LoadActivePinConfigs(newConfiguredCategories);
         ConfiguredObjects = GetConfiguredObjects(newConfiguredCategories);
-        if (updatePins) Map.UpdatePins();
+        MinimapPatch.UpdatePins();
         Log.LogDebug("registry initialization successful");
     }
 

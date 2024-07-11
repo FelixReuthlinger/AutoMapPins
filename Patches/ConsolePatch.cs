@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapPins.Common;
 using AutoMapPins.Data;
-using AutoMapPins.Model;
 using HarmonyLib;
 using JetBrains.Annotations;
 
@@ -14,6 +13,7 @@ internal class ConsolePatches : HasLogger
 {
     private const string WriteMissingConfigsOption = "write_missing_configs_file";
     private const string PrintEffectiveConfig = "print_effective_config";
+    private const string DebugLogPins = "debug_log_pins";
     private const string ClearPins = "clear_pins";
 
     private const string ClearAllMessage = "cleared all pins from map";
@@ -33,10 +33,13 @@ internal class ConsolePatches : HasLogger
                         $"called amp with args: '{string.Join(", ", consoleEventArgs.Args.ToList())}'");
                     switch (consoleEventArgs.Args[1])
                     {
+                        case DebugLogPins:
+                            if (Minimap.instance)
+                                Log.LogInfo("vanilla map registered pins:\n" + MinimapPatch.PrintMapPins());
+                            break;
                         case ClearPins:
                             if (Minimap.instance)
                             {
-                                Map.Clear();
                                 Minimap.instance.ClearPins();
                                 __instance.Print(ClearAllMessage);
                                 Log.LogWarning(ClearAllMessage);
@@ -79,6 +82,7 @@ internal class ConsolePatches : HasLogger
     {
         __instance.Print(
             "Auto Map Pins (amp) console commands - use 'amp' followed by one of the following options");
+        __instance.Print($" {DebugLogPins} --> print all active pins to log");
         __instance.Print(
             $" {ClearPins} --> will remove all pins from map (use this in case the mod went crazy " +
             $"and created too many pins before ;)");
@@ -100,12 +104,16 @@ internal class ConsolePatches : HasLogger
                 {
                     IsActive = false,
                     IndividualConfiguredObjects = new Dictionary<string, Config.Pin>
-                        { { "example", new Config.Pin
+                    {
                         {
-                            Name = "example name",
-                            IconName = "mine",
-                            IconColorRGBA = Config.PinColor.White
-                        } } },
+                            "example", new Config.Pin
+                            {
+                                Name = "example name",
+                                IconName = "mine",
+                                IconColorRGBA = Config.PinColor.White
+                            }
+                        }
+                    },
                     CategoryConfiguredObjects = group
                         .Select(kv => kv.Value)
                         .OrderBy(x => x)
@@ -119,5 +127,6 @@ internal class ConsolePatches : HasLogger
             Log.LogWarning("could not print any configs, since no config was recorded during game play");
     }
 
-    private static List<string> OptionFetcher() => new() { PrintEffectiveConfig, WriteMissingConfigsOption, ClearPins };
+    private static List<string> OptionFetcher() => new()
+        { PrintEffectiveConfig, WriteMissingConfigsOption, DebugLogPins, ClearPins };
 }

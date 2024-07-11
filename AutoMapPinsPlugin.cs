@@ -14,7 +14,7 @@ namespace AutoMapPins
     public class AutoMapPinsPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AutoMapPins";
-        internal const string ModVersion = "2.1.5";
+        internal const string ModVersion = "2.2.0";
         private const string ModAuthor = "FixItFelix";
         private const string ModGuid = ModAuthor + "." + ModName;
         private const string ConfigFileName = ModGuid + ".cfg";
@@ -49,27 +49,29 @@ namespace AutoMapPins
                 "clients cannot override");
             ConfigSync.AddLockingConfigEntry(_configLocked);
 
-            PrefabDiscoveryEnabled = CreateConfig("1 - General", "Enable the prefab discovery", false,
+            var generalGroup = "1 - General";
+            PrefabDiscoveryEnabled = CreateConfig(generalGroup, "Enable the prefab discovery", false,
                 "This option will either enable (true) or disable (false, default) the discovery of new " +
                 "prefabs that have not yet been configured. For smoother gameplay you can simply disable it, the mod " +
                 "will then not print to console that there are new objects that have not been configured, yet. If you " +
                 "want to create new configurations for not configured prefabs, you will need to enable this flag.");
 
-            SilentDiscoveryEnabled = CreateConfig("1 - General", "Prefab discovery silent mode", true,
+            SilentDiscoveryEnabled = CreateConfig(generalGroup, "Prefab discovery silent mode", true,
                 "This option will either enable (true, default) or disable (false) the log messages on " +
                 "discovery of new prefabs that have not yet been configured. For smoother gameplay you can simply " +
                 "enable it, the mod will then not print to console that there are new objects that have not been " +
                 "configured, yet. For finding out if there are prefabs missing that were not configured, you will " +
                 "need to disable this flag.");
 
-            MaxDetectionHeight = CreateConfig("1 - General", "Maximum height to map objects", 4000.0f,
+            MaxDetectionHeight = CreateConfig(generalGroup, "Maximum height to map objects", 4000.0f,
                 "This option will set the height over sea level until where game objects will get the auto " +
                 "map pins logic applied. The usual default is '4000', since over 4000 meters over ground the dungeons " +
                 "are placed in the game scene. BEWARE: if you set this to a lower height, your map has chances to get " +
                 "pins added that point to a location inside a dungeon that is just above the height on ground," +
                 " you should better not change this.");
 
-            GroupingRadius = CreateConfig("2 - Grouping", "Fallback General Grouping Radius", 15.0f,
+            var groupingGroup = "2 - Grouping";
+            GroupingRadius = CreateConfig(groupingGroup, "Fallback General Grouping Radius", 15.0f,
                 "Grouping radius can be set per configured pin, but if it was set to 0 or no config for a " +
                 "pin was provided, this value will be used instead. Radius that will be applied when trying to " +
                 "group pins together that have grouping enabled. Default 15.0");

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using AutoMapPins.Patches;
 using UnityEngine;
 
 // ReSharper disable ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
@@ -18,14 +19,14 @@ internal class PinComponent : MonoBehaviour
     internal void Awake()
     {
         Position = gameObject.transform.position;
-        IsVisible = Minimap.instance != null && Minimap.instance.IsExplored(transform.position);
+        IsVisible = Minimap.instance && Minimap.instance.IsExplored(transform.position);
         SetVisiblePin();
     }
 
     internal void OnDestroy()
     {
         if (Routine != null) StopCoroutine(Routine);
-        Map.RemovePin(gameObject);
+        MinimapPatch.UnpinObject(gameObject);
     }
 
 
@@ -46,7 +47,7 @@ internal class PinComponent : MonoBehaviour
 
     private void SetVisiblePin()
     {
-        if (IsVisible) Map.CreatePin(gameObject);
+        if (IsVisible) MinimapPatch.UpsertPin(gameObject);
         else
         {
             if (Routine != null) StopCoroutine(Routine);

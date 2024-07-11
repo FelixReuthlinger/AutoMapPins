@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapPins.Common;
 using AutoMapPins.Data;
@@ -12,25 +11,39 @@ public class MapPin : Minimap.PinData
 {
     internal readonly string InternalName;
     internal Config.Pin Config = null!;
-    private readonly Dictionary<int, Vector3> InstancePositions = new();
+    private readonly List<Vector3> InstancePositions = new();
 
-    internal MapPin(GameObject objectToPin, Config.Pin config)
+    internal MapPin(PositionedObject positionedObject, Config.Pin config)
     {
-        int instanceID = objectToPin.GetInstanceID();
-        InternalName = Constants.ParseInternalName(objectToPin.name);
-        InstancePositions.Add(instanceID, objectToPin.transform.position);
+        InternalName = positionedObject.ObjectName;
+        InstancePositions.Add(positionedObject.ObjectPosition);
         m_type = Minimap.PinType.None;
         m_checked = false;
         m_ownerID = 0;
         ApplyConfigUpdate(config);
-        Minimap.instance?.m_pins?.Add(this);
+    }
+
+    internal MapPin(Minimap.PinData fromVanilla, Config.Pin config)
+    {
+        InternalName = Constants.ParseInternalName(fromVanilla.m_name);
+        InstancePositions.Add(fromVanilla.m_pos);
+        m_type = fromVanilla.m_type;
+        m_checked = fromVanilla.m_checked;
+        m_ownerID = fromVanilla.m_ownerID;
+        ApplyConfigUpdate(config);
+    }
+
+    internal PositionedObject GetPinnedPosition()
+    {
+        return new PositionedObject(InternalName, m_pos);
     }
 
     internal void ApplyConfigUpdate(Config.Pin config)
     {
         Config = config;
-        if (Config.IconName != null) m_icon = Assets.GetIcon(Config.IconName);
+        m_name = Config.Name;
         m_save = Config.IsPermanent;
+        if (Config.IconName != null) m_icon = Assets.GetIcon(Config.IconName);
         m_NamePinData?.DestroyMapMarker();
         m_NamePinData = new Minimap.PinNameData(this);
         UpdatePin();
@@ -40,6 +53,7 @@ public class MapPin : Minimap.PinData
     {
         UpdatePosition();
         UpdatePinText();
+        UpdatePinColor();
         // make sure that (independently of calls inside called methods) we do update the map pins
         if (Minimap.instance) Minimap.instance.m_pinUpdateRequired = true;
     }
@@ -49,37 +63,47 @@ public class MapPin : Minimap.PinData
         if (InstancePositions.Count > 1)
         {
             Vector3 newCenter = new Vector3(
-                InstancePositions.Values.Average(position => position.x),
-                InstancePositions.Values.Average(position => position.y),
-                InstancePositions.Values.Average(position => position.z)
+                InstancePositions.Average(position => position.x),
+                InstancePositions.Average(position => position.y),
+                InstancePositions.Average(position => position.z)
             );
             m_pos = newCenter;
         }
-        else m_pos = InstancePositions.First().Value;
+        else m_pos = InstancePositions.First();
     }
-    
+
     private void UpdatePinText()
     {
         if (InstancePositions.Count > 1)
         {
             var countString = InstancePositions.Count + "";
-            m_name = String.IsNullOrEmpty(Config.Name) ? countString :
+            m_name = string.IsNullOrEmpty(Config.Name) ? countString :
                 countString == "" ? Config.Name : countString + " " + Config.Name;
         }
-        else m_name = String.IsNullOrEmpty(Config.Name) ? " " : Config.Name;
+        else m_name = string.IsNullOrEmpty(Config.Name) ? " " : Config.Name;
+
         // this is required to be able to re-create the text on textual changes due to grouping
         m_NamePinData.DestroyMapMarker();
+        if (!Minimap.instance) return;
         RectTransform root = Minimap.instance.m_mode == Minimap.MapMode.Large
             ? Minimap.instance.m_pinNameRootLarge
             : Minimap.instance.m_pinNameRootSmall;
         Minimap.instance.CreateMapNamePin(this, root);
     }
 
-    internal bool AcceptsObject(GameObject objectToPin)
+    internal void UpdatePinColor()
+    {
+        if (!m_iconElement) return;
+        Color color = Config.IconColorRGBA?.FromConfig() ?? Color.white;
+        m_iconElement.color = color;
+        m_NamePinData.PinNameText.color = color;
+    }
+
+    internal bool AcceptsObject(PositionedObject objectToGroup)
     {
         return Config.Groupable &&
-               InternalName == Constants.ParseInternalName(objectToPin.name) &&
-               WithinGroupDistance(objectToPin.transform.position);
+               InternalName == objectToGroup.ObjectName &&
+               WithinGroupDistance(objectToGroup.ObjectPosition);
     }
 
     private bool WithinGroupDistance(Vector3 newPosition)
@@ -87,20 +111,33 @@ public class MapPin : Minimap.PinData
         float groupingRadius = Config is { GroupingDistance: > 0 }
             ? Config.GroupingDistance
             : AutoMapPinsPlugin.GroupingRadius.Value;
-        return Map.HorizontalDistance(m_pos, newPosition) < groupingRadius;
+        return Utils.DistanceXZ(m_pos, newPosition) < groupingRadius;
     }
 
-    internal void AddObjectToPin(GameObject objectToPin)
+    internal void AddObjectToPin(PositionedObject objectToAdd)
     {
-        InstancePositions.Add(objectToPin.GetInstanceID(), objectToPin.transform.position);
+        if (InstancePositions.Contains(objectToAdd.ObjectPosition)) return; // no duplicates
+        InstancePositions.Add(objectToAdd.ObjectPosition);
         UpdatePin();
     }
 
-    internal bool RemoveObjectFromPin(int instanceID)
+    internal bool RemoveObjectFromPin(PositionedObject positionedObject)
     {
-        if(!Config.IsPermanent) InstancePositions.Remove(instanceID);
-        if (InstancePositions.Count <= 0) return false;
-        UpdatePin();
+        if (Config.IsPermanent) return false;
+        if (!InstancePositions.Remove(positionedObject.ObjectPosition)) return false;
+        if (InstancePositions.Count > 0) UpdatePin();
         return true;
+    }
+
+    public override string ToString()
+    {
+        string result =
+            $"custom AMP pin: '{m_name}' (game object name '{InternalName}') at position '{m_pos.ToString()}' " +
+            $"with icon '{Config.IconName}', permanent '{Config.IsPermanent}'";
+        if (InstancePositions.Count <= 1) return result;
+        result += "; grouped pin, containing positions:";
+        foreach (var position in InstancePositions)
+            result += "\n  " + position;
+        return result;
     }
 }
