@@ -34,7 +34,7 @@ internal class PinComponent : MonoBehaviour
     {
         while (!IsVisible)
         {
-            IsVisible = Minimap.instance.IsExplored(Position);
+            IsVisible = Minimap.instance && Minimap.instance.IsExplored(Position);
             if (IsVisible)
             {
                 SetVisiblePin();
