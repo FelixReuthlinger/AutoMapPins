@@ -12,7 +12,7 @@ namespace AutoMapPins.Patches;
 [HarmonyPatch(typeof(Minimap))]
 internal abstract class MinimapPatch : HasLogger
 {
-    private readonly static List<MapPin> MapTableTempStorage = new();
+    private static readonly List<MapPin> MapTableTempStorage = new();
     
     [UsedImplicitly]
     [HarmonyPatch(nameof(Minimap.LoadMapData))]
