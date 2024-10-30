@@ -1,3 +1,4 @@
+* 2.2.2 -> compiled for Valheim version 0.219.14
 * 2.2.1 -> trying to fix a NRE during game loading up 
 * 2.2.0 ->
     * reworked uniqueness logic, since Unity object IDs turned out to not be stable -> now there should not be duplicate
